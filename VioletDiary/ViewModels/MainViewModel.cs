@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using VioletDiary.Views;
+using VioletDiary.Commands;
 namespace VioletDiary.ViewModels
 {
     class MainViewModel : ViewModelBase
@@ -21,6 +22,10 @@ namespace VioletDiary.ViewModels
         {
             BooksList = new ObservableCollection<BookViewModel>(books.Select(b => new BookViewModel(b)));
         }
+        public MainViewModel()
+        {
+            BooksList = new ObservableCollection<BookViewModel>();
+        }
         private Page currentpage;
         public Page CurrentPage
         {
@@ -32,7 +37,12 @@ namespace VioletDiary.ViewModels
             }
         }
 
-
+        public ICommand open_Main => new DelegateCommand(Open_Main);
+        private void Open_Main()
+        {
+            Page Main = new MainPage();
+            CurrentPage = Main;
+        }
         #endregion
     }
 }

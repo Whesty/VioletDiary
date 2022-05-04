@@ -42,6 +42,18 @@ namespace VioletDiary.ViewModels
                 }
             }
         }
+        public List<Authors> Authors
+        {
+            get { return Book.Authors; }
+            set
+            {
+                if (Book.Authors != value)
+                {
+                    Book.Authors = new List<Authors>(value);
+                    OnPropertyChanged("Authors");
+                }
+            }
+        }
         public bool Status
         {
             get { return Book.Status; }

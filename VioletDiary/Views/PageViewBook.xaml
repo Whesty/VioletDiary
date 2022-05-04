@@ -38,11 +38,39 @@
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Column="1">
-
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" FontSize="30" FontWeight="Bold"></TextBlock>
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="Star"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="Heart"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="Eye"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="ImageAdd"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <TextBlock Text="{Binding Realease}" Foreground="#FF9D35FF"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="{Binding  Series}" FontSize="30" FontWeight="Bold"></TextBlock>
+                            <ListView DataContext="{Binding Authors}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <ListView DataContext="{Binding Tags}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <ListView DataContext="{Binding Genres}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <TextBlock Text="{Binding Description}"></TextBlock>
+                        </StackPanel>
                     </Grid>
                 </Grid>
-                <Grid>
-
+                <Grid Margin="0,10,0,0">
+                    <DockPanel>
+                        <Button HorizontalAlignment="Stretch" Width="400">
+                            <materialDesign:PackIcon Kind="RateReview" Height="24" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button>
+                            <materialDesign:PackIcon Kind="ImageAlbum" Height="24" VerticalAlignment="Center"/>
+                        </Button>
+                    </DockPanel>
+                    <Grid>
+                        
+                    </Grid>
                 </Grid>
             </StackPanel>
 

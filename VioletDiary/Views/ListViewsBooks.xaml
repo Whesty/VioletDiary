@@ -9,31 +9,26 @@
      >
 
     <Grid>
-        <ListView ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}">
+        <ListView ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <!--<UniformGrid Columns="5"/>-->
-                    <WrapPanel></WrapPanel>
+                    <UniformGrid Columns="6"/>
+                    <!--<WrapPanel></WrapPanel>-->
                 </ItemsPanelTemplate>
                 
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     
-                        <Grid>
-                            <Grid.Background>
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="148" >
+                        <Grid.Background>
                             <ImageBrush ImageSource="{Binding Path=Image}"/>
                         </Grid.Background>
-                            <Grid VerticalAlignment="Bottom">
-                                <Grid.Background>
-                                    <SolidColorBrush Color="#7F000000"/>
-                                </Grid.Background>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="{Binding Path=Author}" Foreground="White"/>
-                                </StackPanel>
-                            </Grid>
-                        </Grid>
+                        <StackPanel VerticalAlignment="Bottom">
+                            <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
+                            <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
+                        </StackPanel>
+                    </Grid>
                    
                 </DataTemplate>
                     

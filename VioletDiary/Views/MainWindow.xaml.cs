@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VioletDiary.Views;
+using VioletDiary.ViewModels;
 
 namespace VioletDiary
 {
@@ -21,10 +22,12 @@ namespace VioletDiary
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel m = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            GridPage.Children.Add(new ListViewsBooks());
+            DataContext = m;
+            //GridPage.Children.Add(new ListViewsBooks());
         }
     }
 }
