@@ -30,6 +30,11 @@ namespace VioletDiary.Models
             Tags = tags;
             Image = image;
         }
+        public Book(string name, List<Authors> autors)
+        {
+            Name = name;
+            Authors = autors;
+        }
         
     }
 }

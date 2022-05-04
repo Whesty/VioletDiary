@@ -19,6 +19,7 @@ namespace VioletDiary.ViewModels
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
+            
         }
 
     }

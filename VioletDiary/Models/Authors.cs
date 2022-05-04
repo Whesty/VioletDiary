@@ -18,5 +18,13 @@ namespace VioletDiary.Models
             Name = name;
             Country = country;
         }
+        public Authors(string name)
+        {
+            Name = name;
+        }
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

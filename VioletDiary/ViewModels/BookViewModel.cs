@@ -30,14 +30,14 @@ namespace VioletDiary.ViewModels
                 }
             }
         }
-        public List<Authors> Author
+        public string Author
         {
-            get { return Book.Authors; }
+            get { return Book.Authors.FirstOrDefault().ToString(); }
             set
             {
-                if (Book.Authors != value)
+                if (Book.Authors.FirstOrDefault().ToString() != value)
                 {
-                    Book.Authors = value;
+                    Book.Authors[0] = new Authors(value);
                     OnPropertyChanged("Authors");
                 }
             }

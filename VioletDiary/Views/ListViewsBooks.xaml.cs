@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VioletDiary.Models;
+using VioletDiary.ViewModels;
 
 namespace VioletDiary.Views
 {
     /// <summary>
     /// Логика взаимодействия для ListViewsBooks.xaml
     /// </summary>
-    public partial class ListViewsBooks : Page
+    public partial class ListViewsBooks : UserControl
     {
         public ListViewsBooks()
         {
             InitializeComponent();
+            List<Authors> authors = new List<Authors>();
+            authors.Add(new Authors("Джон Роулинг"));
+            List<Book> books = new List<Book>()
+            {
+
+                new Book("Пттерны проетирования", authors),
+                new Book("CLR via C#", authors),
+                new Book("Исскуство программирования", authors)
+            };
+            DataContext = new MainViewModel(books);
         }
     }
 }

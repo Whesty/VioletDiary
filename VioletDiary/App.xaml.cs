@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using VioletDiary.Views;
+using VioletDiary.Models;
+using VioletDiary.ViewModels;
 
 namespace VioletDiary
 {
