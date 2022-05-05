@@ -16,9 +16,9 @@
                 <RowDefinition Height="131*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.RowSpan="2">
-                <DockPanel>
+                <DockPanel HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="Filter" Width="20" Height="20" Foreground="#9D35FF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0"/>
-                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="5,10,0,0" SelectedItem="0">
+                    <ComboBox x:Name="Filters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="5,10,0,0" SelectedItem="0">
                         <ComboBoxItem>Сначала новые</ComboBoxItem>
                         <ComboBoxItem>По популярности</ComboBoxItem>
                     </ComboBox>

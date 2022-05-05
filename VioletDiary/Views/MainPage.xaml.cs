@@ -23,6 +23,7 @@ namespace VioletDiary.Views
         public MainPage()
         {
             InitializeComponent();
+            Filters.SelectedItem = Filters.Items[0];
         }
     }
 }

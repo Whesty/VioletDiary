@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VioletDiary.ViewModels;
 
 namespace VioletDiary.Views
 {
@@ -20,9 +21,22 @@ namespace VioletDiary.Views
     /// </summary>
     public partial class ReedBook : Page
     {
+        string _path;
+        ReadBookViewModel readBookViewModel;
         public ReedBook()
         {
             InitializeComponent();
+            readBookViewModel = new ReadBookViewModel(_path);
+            Task task = readBookViewModel.ReadFB2FileStreamAsync();
+            Chapters.SelectedIndex = 0;
+            readBookViewModel.getParagraph(Chapters.SelectedIndex);
+            DataContext = readBookViewModel;
+        }
+
+        private void Chapters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            readBookViewModel.getParagraph(Chapters.SelectedIndex);
+            DataContext = readBookViewModel;
         }
     }
 }
