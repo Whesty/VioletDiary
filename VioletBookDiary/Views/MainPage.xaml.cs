@@ -10,19 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServiceReference;
 
-namespace VioletDiary.Views
+namespace VioletBookDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Logon.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class Logon : Window, 
+    public partial class MainPage : Page
     {
-        public Logon()
+        public MainPage()
         {
             InitializeComponent();
+            Filters.SelectedItem = Filters.Items[0];
+            ViewsListData.Children.Add(new ListViewsBooks());
         }
     }
 }

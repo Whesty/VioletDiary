@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ServiceReference;
 
-namespace VioletDiary.Views
+namespace VioletBookDiary.Views
 {
     /// <summary>
     /// Логика взаимодействия для Logon.xaml
     /// </summary>
-    public partial class Logon : Window, 
+    public partial class Logon : Window
     {
         public Logon()
         {

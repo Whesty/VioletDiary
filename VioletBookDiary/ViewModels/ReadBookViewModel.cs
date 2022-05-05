@@ -1,4 +1,4 @@
-﻿using FB2Library;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Text.RegularExpressions;
+using FB2Library;
 
-namespace VioletDiary.ViewModels
+namespace VioletBookDiary.ViewModels
 {
 	internal class ReadBookViewModel : ViewModelBase
 	{

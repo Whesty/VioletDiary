@@ -8,10 +8,16 @@ using System.Text;
 namespace VDService
 {
     // ПРИМЕЧАНИЕ. Можно использовать команду "Переименовать" в меню "Рефакторинг", чтобы изменить имя интерфейса "IService" в коде и файле конфигурации.
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IMyServiceCallback))]
     public interface IService
     {
         [OperationContract]
         void DoWork();
+    }
+
+    public interface IMyServiceCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void OnCallback(string message);
     }
 }

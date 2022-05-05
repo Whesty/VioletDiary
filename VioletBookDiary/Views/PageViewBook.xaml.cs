@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServiceReference;
 
-namespace VioletDiary.Views
+namespace VioletBookDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Logon.xaml
+    /// Логика взаимодействия для PageViewBook.xaml
     /// </summary>
-    public partial class Logon : Window, 
+    public partial class PageViewBook : Page
     {
-        public Logon()
+        public PageViewBook()
         {
             InitializeComponent();
         }

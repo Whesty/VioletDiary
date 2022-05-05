@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VioletDiary.Models;
+using VioletBookDiary.Models;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using VioletDiary.Views;
-using VioletDiary.Commands;
-namespace VioletDiary.ViewModels
+using VioletBookDiary.Views;
+using VioletBookDiary.Commands;
+namespace VioletBookDiary.ViewModels
 {
     class MainViewModel : ViewModelBase
     {

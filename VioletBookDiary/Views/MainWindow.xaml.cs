@@ -10,19 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServiceReference;
+using VioletBookDiary.Views;
+using VioletBookDiary.ViewModels;
 
-namespace VioletDiary.Views
+namespace VioletBookDiary
 {
     /// <summary>
-    /// Логика взаимодействия для Logon.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Logon : Window, 
+    public partial class MainWindow : Window
     {
-        public Logon()
+        MainViewModel m = new MainViewModel();
+        public MainWindow()
         {
             InitializeComponent();
+            DataContext = m;
+            //GridPage.Children.Add(new ListViewsBooks());
         }
     }
 }

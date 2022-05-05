@@ -1,0 +1,80 @@
+﻿<Page x:Class="VioletBookDiary.Views.PageViewBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VioletBookDiary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageViewBook"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="68*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:PackIcon Kind="Undo" Width="24" Height="24" Foreground="#9D35FF" VerticalAlignment="Center"/>
+            
+        </Grid>
+        <Grid Grid.Row="1" SourceUpdated="{Binding Book}">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="211*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <StackPanel>
+                        <Image Source="{Binding Image}"></Image>
+                            <Button Margin="10,10,10,10">
+                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center"/>
+                            </Button>
+                            <TextBox Margin="10,10,10,10" Height="30" Background="{x:Null}" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" ></TextBox>
+                            <Button x:Name="ReedBookButton"  Margin="10,10,10,10">
+                                <materialDesign:PackIcon Kind="ReadMore" Width="24" DataContext="Читать" Height="24" VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" FontSize="30" FontWeight="Bold"></TextBlock>
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="Star"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="Heart"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="Eye"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <materialDesign:PackIcon Kind="ImageAdd"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                <TextBlock></TextBlock>
+                                <TextBlock Text="{Binding Realease}" Foreground="#FF9D35FF"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="{Binding  Series}" FontSize="30" FontWeight="Bold"></TextBlock>
+                            <ListView DataContext="{Binding Authors}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <ListView DataContext="{Binding Tags}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <ListView DataContext="{Binding Genres}" MinHeight="30" VerticalContentAlignment="Top" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}" BorderBrush="{x:Null}"></ListView>
+                            <TextBlock Text="{Binding Description}"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Margin="0,10,0,0">
+                    <DockPanel>
+                        <Button HorizontalAlignment="Stretch" Width="400">
+                            <materialDesign:PackIcon Kind="RateReview" Height="24" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button>
+                            <materialDesign:PackIcon Kind="ImageAlbum" Height="24" VerticalAlignment="Center"/>
+                        </Button>
+                    </DockPanel>
+                    <Grid>
+                        
+                    </Grid>
+                </Grid>
+            </StackPanel>
+
+        </Grid>
+            
+    </Grid>
+</Page>

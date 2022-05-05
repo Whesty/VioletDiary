@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VioletDiary.Models;
-using VioletDiary.ViewModels;
+using VioletBookDiary.Models;
+using VioletBookDiary.ViewModels;
 
-namespace VioletDiary.Views
+namespace VioletBookDiary.Views
 {
     /// <summary>
     /// Логика взаимодействия для ListViewsBooks.xaml

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using VioletDiary.Models;
+using VioletBookDiary.Models;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 
-namespace VioletDiary.ViewModels
+namespace VioletBookDiary.ViewModels
 {
     internal class BookViewModel : ViewModelBase
     {

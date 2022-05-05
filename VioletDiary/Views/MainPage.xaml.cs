@@ -24,6 +24,7 @@ namespace VioletDiary.Views
         {
             InitializeComponent();
             Filters.SelectedItem = Filters.Items[0];
+            ViewsListData.Children.Add(new ListViewsBooks());
         }
     }
 }
