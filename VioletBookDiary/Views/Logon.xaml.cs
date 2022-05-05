@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ServiceReference;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
 {
@@ -20,9 +20,11 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class Logon : Window
     {
+        AuthorizationViewModel authorizationViewModel;
         public Logon()
         {
             InitializeComponent();
+            authorizationViewModel = new AuthorizationViewModel();
         }
     }
 }

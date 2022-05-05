@@ -87,7 +87,7 @@ namespace VioletBookDiary.ViewModels
 		public string getStyleHelp(string s)
 		{
             string style = "";
-            Regex regex = new Regex(@"\w*)<a>(\w*)</a>");
+            Regex regex = new Regex(@"(\w*)<a>(\w*)</a>");
             MatchCollection math = regex.Matches(s);
             //Подсказки добавить
             //Подсказки прикреплять к listItems и писать все существующие в нем подсказки

@@ -22,7 +22,7 @@ namespace VioletBookDiary.Views
     {
         public PageViewBook()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

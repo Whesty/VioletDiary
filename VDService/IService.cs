@@ -11,7 +11,7 @@ namespace VDService
     [ServiceContract(CallbackContract = typeof(IMyServiceCallback))]
     public interface IService
     {
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void DoWork();
     }
 
