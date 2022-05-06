@@ -33,17 +33,42 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8304/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8304/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8304/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="tns:DoWork" />
+  <wsdl:message name="IService_Registration_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registration" />
+  </wsdl:message>
+  <wsdl:message name="IService_Registration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
+  </wsdl:message>
+  <wsdl:message name="IService_Disconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
   <wsdl:message name="IService_OnCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnCallback" />
   </wsdl:message>
   <wsdl:portType name="IService">
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/DoWork" message="tns:IService_DoWork_InputMessage" />
+    <wsdl:operation name="Registration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Registration" message="tns:IService_Registration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RegistrationResponse" message="tns:IService_Registration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DisconnectResponse" message="tns:IService_Disconnect_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OnCallback" message="tns:IService_OnCallback_OutputCallbackMessage" />
@@ -52,11 +77,32 @@
   <wsdl:binding name="NetTcpBinding_IService" type="tns:IService">
     <wsp:PolicyReference URI="#NetTcpBinding_IService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="DoWork">
-      <soap12:operation soapAction="http://tempuri.org/IService/DoWork" style="document" />
+    <wsdl:operation name="Registration">
+      <soap12:operation soapAction="http://tempuri.org/IService/Registration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IService/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <soap12:operation soapAction="http://tempuri.org/IService/OnCallback" style="document" />

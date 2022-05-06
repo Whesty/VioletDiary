@@ -20,11 +20,13 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class MainPage : Page
     {
+
         public MainPage()
         {
             InitializeComponent();
             Filters.SelectedItem = Filters.Items[0];
             ViewsListData.Children.Add(new ListViewsBooks());
+            Button_ListBook.IsEnabled = false;
         }
     }
 }

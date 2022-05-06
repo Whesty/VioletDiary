@@ -12,7 +12,12 @@ namespace VDService
     public interface IService
     {
         [OperationContract(IsOneWay = true)]
-        void DoWork();
+        string Registration(string mail, string password);
+        [OperationContract(IsOneWay = true)]
+        Dictionary<string, string> Login(string mail, string password);
+        [OperationContract(IsOneWay = true)]
+        void Disconnect(int id);
+        
     }
 
     public interface IMyServiceCallback

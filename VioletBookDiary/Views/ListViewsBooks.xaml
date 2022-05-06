@@ -9,7 +9,7 @@
      >
 
     <Grid>
-        <ListView ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top">
+        <ListView ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" SelectionChanged="{Binding open_PageViewBook}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="6"/>

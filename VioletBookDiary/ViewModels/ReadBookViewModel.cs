@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Text.RegularExpressions;
 using FB2Library;
+using System.Windows.Input;
+using VioletBookDiary.Commands;
+using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -94,5 +97,6 @@ namespace VioletBookDiary.ViewModels
             style = Regex.Replace(s, @"(\w*)<a>(\w*)</a>", @"$1\[$2\]");
 			return style;
 		}
+		
 	}
 }

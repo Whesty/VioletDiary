@@ -200,7 +200,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\CommandReference.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
-    <Compile Include="Connected Services\Service\Reference.cs">
+    <Compile Include="Connected Services\MyService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -213,9 +213,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\ListBooksViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ReadBookViewModel.cs" />
+    <Compile Include="ViewModels\RegViewModel.cs" />
+    <Compile Include="ViewModels\SingViewModel.cs" />
     <Compile Include="ViewModels\UserPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\XmlLoadSettings.cs" />
@@ -302,13 +304,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\Service\item.xsd">
+    <None Include="Connected Services\MyService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Service\item1.xsd">
+    <None Include="Connected Services\MyService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Service\Service.wsdl" />
+    <None Include="Connected Services\MyService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MyService\Service.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -328,19 +333,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Service\" />
+    <WCFMetadataStorage Include="Connected Services\MyService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Service\item.disco" />
+    <None Include="Connected Services\MyService\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Service\configuration91.svcinfo" />
+    <None Include="Connected Services\MyService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Service\configuration.svcinfo" />
+    <None Include="Connected Services\MyService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Service\Reference.svcmap">
+    <None Include="Connected Services\MyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

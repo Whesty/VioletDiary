@@ -25,7 +25,7 @@ namespace VioletBookDiary
         MainViewModel m = new MainViewModel();
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
             DataContext = m;
             //GridPage.Children.Add(new ListViewsBooks());
         }

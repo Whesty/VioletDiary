@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
 {
@@ -19,9 +20,30 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class Registration : Window
     {
+        RegViewModel reg;
         public Registration()
         {
             InitializeComponent();
+            reg = new RegViewModel(this);
+            DataContext = reg;
+        }
+
+        private void Passvord_Box_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            reg.password = Passvord_Box.Password;
+        }
+
+        private void Passvord2_Box_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Passvord2_Box.Password != reg.password)
+            {
+                Passvord2_Box.BorderBrush = Brushes.Red;
+                Reg_Button.IsEnabled = false;
+            }
+            else { 
+                Passvord2_Box.BorderBrush = Brushes.Green;
+                Reg_Button.IsEnabled = true;
+            }
         }
     }
 }

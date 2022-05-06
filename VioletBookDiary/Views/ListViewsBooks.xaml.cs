@@ -22,19 +22,23 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class ListViewsBooks : UserControl
     {
+        ListBooksViewModel model = new ListBooksViewModel();
         public ListViewsBooks()
         {
-            InitializeComponent();
-            List<Authors> authors = new List<Authors>();
-            authors.Add(new Authors("Джон Роулинг"));
-            List<Book> books = new List<Book>()
-            {
+            //InitializeComponent();
+            //List<Authors> authors = new List<Authors>();
+            //authors.Add(new Authors("Джон Роулинг"));
+            //List<Book> books = new List<Book>()
+            //{
 
-                new Book("Пттерны проетирования", authors),
-                new Book("CLR via C#", authors),
-                new Book("Исскуство программирования", authors)
-            };
-            //DataContext = new MainViewModel();
+            //    new Book("Пттерны проетирования", authors),
+            //    new Book("CLR via C#", authors),
+            //    new Book("Исскуство программирования", authors)
+            //};
+
+            DataContext = model;
         }
+
+        
     }
 }

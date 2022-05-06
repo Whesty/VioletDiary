@@ -6,6 +6,8 @@ using VioletBookDiary.Models;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using VioletBookDiary.Commands;
+using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -137,7 +139,12 @@ namespace VioletBookDiary.ViewModels
         }
         //public ObservableCollection<>
         #region Commands
-
+        public ICommand open_PageViewBook => new DelegateCommand(Open_PageViewBook);
+        private void Open_PageViewBook()
+        {
+            //Открытие страницы
+            PageViewBook viewBook = new PageViewBook();
+        }
         #endregion
     }
 

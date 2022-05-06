@@ -9,22 +9,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
-using VioletBookDiary.MyService;
-using System.ServiceModel;
 
 namespace VioletBookDiary.ViewModels
 {
-    internal class AuthorizationViewModel : ViewModelBase
+    public class SingViewModel: ViewModelBase
     {
-        public void OnCallback(string message)
-        {
-            throw new NotImplementedException();
-        }
         ContentControl control;
         private double contentOpacity;
-        public string login { get; set; }
-
-        public string password { get; set; }
         public double ContentOpacity
         {
             get => contentOpacity;
@@ -45,61 +36,24 @@ namespace VioletBookDiary.ViewModels
             }
         }
 
-        public ICommand gotoregistration => new DelegateCommand(GoToRegistration);
+        public ICommand GoToRegistrationCommand => new DelegateCommand(GoToRegistration);
         private Logon logon;
 
-        public AuthorizationViewModel()
+        public SingViewModel(Window window)
         {
 
             //logon = new Logon(window);
 
             //Content = logon.GetPage("login");
-            ContentOpacity = 1.0;
-        }
-        public AuthorizationViewModel(Logon window)
-        {
-
-            logon = window;
-
-            //Content = logon.GetPage("login");
-            ContentOpacity = 1.0;
+            ContentOpacity = 1.0; 
         }
 
-
+        
 
         private void GoToRegistration()
         {
             Registration registration = new Registration();
             registration.Show();
-        }
-        ServiceClient client;
-        public ICommand log_In => new DelegateCommand(Log_In);
-
-        private void Log_In()
-        {
-            string email = this.login;
-            string password = this.password;
-            if (email == null || password == null)
-            {
-                MessageBox.Show("Введите логин и пароль");
-                return;
-            }
-                InstanceContext binding = new InstanceContext(this);
-            client = new ServiceClient(binding);
-            try
-            {
-               // Dictionary<string, string> log = client.Login(email, password);
-            }
-            catch (Exception ex) { 
-                MessageBox.Show("Неправельный логин и пароль");
-                return;
-            }
-            //client.Open();
-            Window window = new MainWindow();
-            window.Show();
-            //Service.ServiceClient.Login(email, password);
-            logon.Close();
-
         }
 
         private async void SlowOpacity(UserControl control)
@@ -123,3 +77,4 @@ namespace VioletBookDiary.ViewModels
         }
     }
 }
+

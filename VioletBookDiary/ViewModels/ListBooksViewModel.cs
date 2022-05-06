@@ -10,11 +10,12 @@ using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
-    internal class MainPageViewModel : ViewModelBase
+    //VM для списка книг
+    internal class ListBooksViewModel : ViewModelBase
     {
         public ObservableCollection<BookViewModel> BooksList { get; set; }
 
-        public MainPageViewModel()
+        public ListBooksViewModel()
         {
             BooksList = new ObservableCollection<BookViewModel>();
         }
