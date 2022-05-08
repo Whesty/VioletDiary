@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
-using VioletBookDiary.MyService;
+using VioletBookDiary.MyServices;
 using System.ServiceModel;
 
 namespace VioletBookDiary.ViewModels
@@ -84,11 +84,15 @@ namespace VioletBookDiary.ViewModels
                 MessageBox.Show("Введите логин и пароль");
                 return;
             }
-                InstanceContext binding = new InstanceContext(this);
-            client = new ServiceClient(binding);
+            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+               Dictionary<string, string> log = client.Login(email, password);
+
             try
             {
-               // Dictionary<string, string> log = client.Login(email, password);
+                
+               //Dictionary<string, string> log = client.Login(email, password);
+                
+                
             }
             catch (Exception ex) { 
                 MessageBox.Show("Неправельный логин и пароль");

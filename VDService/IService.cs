@@ -11,11 +11,11 @@ namespace VDService
     [ServiceContract(CallbackContract = typeof(IMyServiceCallback))]
     public interface IService
     {
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         string Registration(string mail, string password);
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         Dictionary<string, string> Login(string mail, string password);
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         void Disconnect(int id);
         
     }

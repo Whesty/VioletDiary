@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VioletBookDiary.MyService {
+namespace VioletBookDiary.MyServices {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyService.IService", CallbackContract=typeof(VioletBookDiary.MyService.IServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyServices.IService", CallbackContract=typeof(VioletBookDiary.MyServices.IServiceCallback))]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Registration", ReplyAction="http://tempuri.org/IService/RegistrationResponse")]
@@ -42,12 +42,12 @@ namespace VioletBookDiary.MyService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : VioletBookDiary.MyService.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : VioletBookDiary.MyServices.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.DuplexClientBase<VioletBookDiary.MyService.IService>, VioletBookDiary.MyService.IService {
+    public partial class ServiceClient : System.ServiceModel.DuplexClientBase<VioletBookDiary.MyServices.IService>, VioletBookDiary.MyServices.IService {
         
         public ServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

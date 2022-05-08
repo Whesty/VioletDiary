@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
-using VioletBookDiary.MyService;
+using VioletBookDiary.MyServices;
 using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
@@ -27,18 +27,18 @@ namespace VioletBookDiary.ViewModels
         {
             string email = this.login;
             string password = this.password;
-            
-            InstanceContext binding = new InstanceContext(this);
-            client = new ServiceClient(binding);
+
+            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             try
             {
                 
-                client.Registration(email, password);
-                
+                string str = client.Registration(email, password);
+                MessageBox.Show(str);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка");
+                MessageBox.Show(ex.Message);
                 return;
             }
             //client.Open();

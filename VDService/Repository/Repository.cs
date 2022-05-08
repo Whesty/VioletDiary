@@ -4,16 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VDService.DataBase;
 
 namespace VDService.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private Context context;
+        private DataBase context;
         private DbSet<T> dbset;
 
-        public Repository(Context context)
+        public Repository(DataBase context)
         {
             this.context = context;
             this.dbset = context.Set<T>();
