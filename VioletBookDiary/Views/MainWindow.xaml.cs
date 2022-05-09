@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VioletBookDiary.Views;
 using VioletBookDiary.ViewModels;
+using VioletBookDiary.Models;
 
 namespace VioletBookDiary
 {
@@ -28,6 +29,12 @@ namespace VioletBookDiary
             InitializeComponent();
             DataContext = m;
             //GridPage.Children.Add(new ListViewsBooks());
+        }
+        public MainWindow(User user)
+        {
+            InitializeComponent();
+            m.user = user;
+            DataContext = m;
         }
     }
 }

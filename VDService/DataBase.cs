@@ -8,7 +8,7 @@ namespace VDService
     public partial class DataBase : DbContext
     {
         public DataBase()
-            : base("DataBase")
+            : base("DBConnection")
         {
         }
 

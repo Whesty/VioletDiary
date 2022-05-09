@@ -26,8 +26,11 @@ namespace VioletBookDiary.ViewModels
         {
             //BooksList = new ObservableCollection<BookViewModel>();
             Main = new MainPage();
+            UserInfo = new UserInfo();
         }
+        public User user { get; set; }
         private Page Main;
+        private Page UserInfo;
         private Page Reed;
         private Page currentpage;
         public Page CurrentPage
@@ -42,6 +45,12 @@ namespace VioletBookDiary.ViewModels
 
         public ICommand open_Main => new DelegateCommand(Open_Main);
         private void Open_Main()
+        {
+           
+            CurrentPage = Main;
+        }
+        public ICommand open_UserInfp => new DelegateCommand(Open_UserInfo);
+        private void Open_UserInfo()
         {
            
             CurrentPage = Main;

@@ -11,6 +11,7 @@ using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
 using VioletBookDiary.MyServices;
 using System.ServiceModel;
+using VioletBookDiary.Models;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -84,22 +85,31 @@ namespace VioletBookDiary.ViewModels
                 MessageBox.Show("Введите логин и пароль");
                 return;
             }
-            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
-               Dictionary<string, string> log = client.Login(email, password);
 
+            Dictionary<string, string> log;
             try
             {
-                
-               //Dictionary<string, string> log = client.Login(email, password);
-                
-                
+                client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+               log = client.Login(email, password);
+               
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 MessageBox.Show("Неправельный логин и пароль");
                 return;
             }
             //client.Open();
-            Window window = new MainWindow();
+            User user = new User()
+            {
+                Id = int.Parse(log["id"]),
+                Email = log["email"],
+                Info = log["info"],
+                Name = log["name"],
+                Avatar = log["avatar"],
+                DataCreate = log["data_create"],
+                IdAuthorized = int.Parse(log["id_authorized"])
+            };
+            MainWindow window = new MainWindow(user);
             window.Show();
             //Service.ServiceClient.Login(email, password);
             logon.Close();

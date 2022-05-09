@@ -31,10 +31,8 @@ namespace VioletBookDiary.ViewModels
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             try
             {
-                
                 string str = client.Registration(email, password);
                 MessageBox.Show(str);
-
             }
             catch (Exception ex)
             {
@@ -44,7 +42,6 @@ namespace VioletBookDiary.ViewModels
             //client.Open();
             //Service.ServiceClient.Login(email, password);
             reg.Close();
-
         }
 
     }

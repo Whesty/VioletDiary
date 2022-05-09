@@ -71,7 +71,10 @@ namespace VDService
                         result.Add("id", user.Id.ToString());
                         result.Add("name", user.USER_NAME);
                         result.Add("AccessLevel", user.ACCESS_LEVEL.ToString());
-                        //Скорее всего остальные свойства клиента
+                        result.Add("avatar", user.USER_AVATAR);
+                        result.Add("data_create", user.DATA_CREATE.ToString());
+                        result.Add("id_authorized", user.ID_AUTHORIZED.ToString());
+                        result.Add("info", user.USER_INFO);
                         return result;
 
                     }
@@ -94,40 +97,32 @@ namespace VDService
                 {
                     str += "\ncreate UnitofWork";
                     AUTHORIZED userAuth = new AUTHORIZED() { USER_EMAIL = mail, PASSWORD = password };
-                    str += "\nРегистрация прошла успешно!" + userAuth.Id;
+                    str += "\nРегистрация прошла успешно!";
                     unitOfWork.UserAuthRepository.Add(userAuth);
-                    str += "\nAdd";
+                    unitOfWork.Save();
+                    AUTHORIZED Auth = unitOfWork.UserAuthRepository.GetAll().Where(x => x.USER_EMAIL == mail && x.PASSWORD == password).FirstOrDefault();
+                    int id = Auth.Id;
+                    str += "\nAdd " + id;
                     USER user = new USER()
                     {
                         USER_NAME = "User",
                         USER_INFO = "Info",
                         USER_AVATAR = null,
-                        ID_AUTHORIZED = userAuth.Id
+                        ACCESS_LEVEL = false,
+                        DATA_CREATE = DateTime.Now,
+                        ID_AUTHORIZED = id,
+                        AUTHORIZED = Auth,
                     };
                     str += "\nCreateUser";
                     unitOfWork.UserRepository.Add(user);
                     str += "\nAddUser!";
-                    try
-                    {
                         unitOfWork.Save();
-                    }
-                    catch (DbEntityValidationException ex)
-                    {
-                        foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
-                        {
-                            str += "\nObject: " + validationError.Entry.Entity.ToString();
-                            foreach (DbValidationError error in validationError.ValidationErrors)
-                            {
-                                str += "\n" + error.ErrorMessage;
-                            }
-                        }
-                    }
                         return "Accept registre!";
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message+ ex.InnerException.InnerException.InnerException.InnerException.Message.ToString() + "\n" + str;
+                return ex.Message + "\n" + str;
             }
         }
     }
