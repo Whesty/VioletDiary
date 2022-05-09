@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VioletBookDiary.MyServices;
-using VioletBookDiary.ViewModels;
+
 namespace VioletBookDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddBook.xaml
+    /// Логика взаимодействия для AdminListBook.xaml
     /// </summary>
-    public partial class AddBook : Window
+    public partial class AdminListBook : Page
     {
-        AddBookViewModel Model;
-        public ServiceClient Client;
-        public AddBook(ServiceClient client)
+        public AdminListBook()
         {
             InitializeComponent();
-            Model = new AddBookViewModel(this);
-            Client = client;
-            DataContext = Model;
         }
     }
 }

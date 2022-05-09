@@ -23,16 +23,14 @@ namespace VioletBookDiary
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel m = new MainViewModel();
-        public MainWindow()
+        MainViewModel m;
+        User user = new User();
+        
+        public MainWindow(User u)
         {
             InitializeComponent();
-            DataContext = m;
-            //GridPage.Children.Add(new ListViewsBooks());
-        }
-        public MainWindow(User user)
-        {
-            InitializeComponent();
+            m = new MainViewModel(u);
+            user = u;
             m.user = user;
             DataContext = m;
         }

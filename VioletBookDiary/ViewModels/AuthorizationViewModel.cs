@@ -53,7 +53,6 @@ namespace VioletBookDiary.ViewModels
         {
 
             //logon = new Logon(window);
-
             //Content = logon.GetPage("login");
             ContentOpacity = 1.0;
         }
@@ -95,15 +94,17 @@ namespace VioletBookDiary.ViewModels
             }
             catch (Exception ex)
             {
+                
                 MessageBox.Show("Неправельный логин и пароль");
+
                 return;
             }
             //client.Open();
             User user = new User()
             {
                 Id = int.Parse(log["id"]),
-                Email = log["email"],
                 Info = log["info"],
+                AccessLevel = bool.Parse(log["AccessLevel"]),
                 Name = log["name"],
                 Avatar = log["avatar"],
                 DataCreate = log["data_create"],

@@ -5,24 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary.Views"
         mc:Ignorable="d"
-        Title="AddBook" Height="489" Width="477"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
-    <Grid Style="{DynamicResource GridLeftBar}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="279*"/>
-            <ColumnDefinition Width="521*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1">
-            <TextBox Margin="40,20,40,0" Height="20" 
-                     materialDesign:HintAssist.Hint="Введите название продукта"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+        Title="AddBook" Height="560" Width="477"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Background="White">
+    <Grid Style="{DynamicResource GridFull}">
+        <StackPanel>
+            <Border x:Name="LoadingImage" Width="148" Height="210" Margin="0,10,0,0" BorderBrush="#FF9D35FF" BorderThickness="1,1,1,1" >
+                <Grid>
+                    <Button Width="146" Command="{Binding open_LoadImage}" Height="210" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="Hand">
+                        <materialDesign:PackIcon x:Name="IcomLoad"  Kind="Cloudupload" Width="100" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9D35FF"/>
+                    </Button>
+                    <Image Width="148" Height="210" Source="{Binding Image}"></Image>
+                </Grid>
+            </Border>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Title}"
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Название книги" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
             </TextBox>
-            <TextBox Margin="40,20,40,0" Height="20" 
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Authors}" 
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Аторы" materialDesign:HintAssist.HelperText="Пример: 'Дарья Варламова, Антон Зайниев'" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
             </TextBox>
-            <ListView Margin="40,20,40,0" Height="120" 
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White">
-            </ListView>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Genres}"
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Жанры" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </TextBox>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Tags}"
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Тэги" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </TextBox>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Description}"
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Описание" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </TextBox>
+            <Button Margin="30,20,30,0">Добавить</Button>
         </StackPanel>
     </Grid>
 </Window>

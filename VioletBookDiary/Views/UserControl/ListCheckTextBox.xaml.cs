@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VioletBookDiary.MyServices;
-using VioletBookDiary.ViewModels;
-namespace VioletBookDiary.Views
+
+namespace VioletBookDiary.Views.UserControl
 {
     /// <summary>
-    /// Логика взаимодействия для AddBook.xaml
+    /// Логика взаимодействия для ListCheckTextBox.xaml
     /// </summary>
-    public partial class AddBook : Window
+    public partial class ListCheckTextBox : UserControl
     {
-        AddBookViewModel Model;
-        public ServiceClient Client;
-        public AddBook(ServiceClient client)
+        public ListCheckTextBox()
         {
             InitializeComponent();
-            Model = new AddBookViewModel(this);
-            Client = client;
-            DataContext = Model;
         }
     }
 }

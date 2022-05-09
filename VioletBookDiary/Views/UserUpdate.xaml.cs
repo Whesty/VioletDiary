@@ -11,23 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using VioletBookDiary.MyServices;
+using VioletBookDiary.Models;
 using VioletBookDiary.ViewModels;
+
 namespace VioletBookDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddBook.xaml
+    /// Логика взаимодействия для UserUpdate.xaml
     /// </summary>
-    public partial class AddBook : Window
+    public partial class UserUpdate : Window
     {
-        AddBookViewModel Model;
-        public ServiceClient Client;
-        public AddBook(ServiceClient client)
+        UpdateUserViewModel viewModel;
+        public UserUpdate()
         {
             InitializeComponent();
-            Model = new AddBookViewModel(this);
-            Client = client;
-            DataContext = Model;
+        } 
+        public UserUpdate(User user)
+        {
+            InitializeComponent();
         }
     }
 }

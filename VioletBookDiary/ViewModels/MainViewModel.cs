@@ -10,6 +10,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using VioletBookDiary.Views;
 using VioletBookDiary.Commands;
+using VioletBookDiary.MyServices;
+using System.ServiceModel;
+
 namespace VioletBookDiary.ViewModels
 {
     class MainViewModel : ViewModelBase
@@ -22,17 +25,20 @@ namespace VioletBookDiary.ViewModels
         //{
         //    BooksList = new ObservableCollection<BookViewModel>(books.Select(b => new BookViewModel(b)));
         //}
-        public MainViewModel()
+        public MainViewModel(User u)
         {
             //BooksList = new ObservableCollection<BookViewModel>();
             Main = new MainPage();
-            UserInfo = new UserInfo();
+            User_Info = new UserInfo(u);
+            user = u;
+            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
         }
         public User user { get; set; }
         private Page Main;
-        private Page UserInfo;
-        private Page Reed;
+        private Page User_Info;
         private Page currentpage;
+        private Window AddBook;
+        public ServiceClient client;
         public Page CurrentPage
         {
             get { return currentpage; }
@@ -49,11 +55,17 @@ namespace VioletBookDiary.ViewModels
            
             CurrentPage = Main;
         }
-        public ICommand open_UserInfp => new DelegateCommand(Open_UserInfo);
+        public ICommand open_UserInfo => new DelegateCommand(Open_UserInfo);
         private void Open_UserInfo()
         {
            
-            CurrentPage = Main;
+            CurrentPage = User_Info;
+        }
+        public ICommand open_AddBook => new DelegateCommand(Open_AddBook);
+        private void Open_AddBook()
+        {
+            AddBook = new AddBook(client);
+            AddBook.Show();
         }
         //public ICommand open_ReedBook => new DelegateCommand(Open_ReedBook);
         //private void Open_ReedBook()

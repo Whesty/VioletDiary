@@ -16,7 +16,12 @@ namespace VDService
         [OperationContract]
         Dictionary<string, string> Login(string mail, string password);
         [OperationContract]
+        Dictionary<string, string> UpdateUser(int id, string name, string info, string avatar);
+        [OperationContract]
         void Disconnect(int id);
+        [OperationContract]
+        string AddBook(string name, string author, string genre, string description, string image);
+        
         
     }
 

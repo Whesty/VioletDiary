@@ -7,13 +7,7 @@
         mc:Ignorable="d"
         Title="UserInfo" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="391*"/>
-        </Grid.RowDefinitions>
-        <Grid Style="{DynamicResource GridLeftBar}">
-            
-        </Grid>
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="79*"/>
@@ -21,9 +15,25 @@
             </Grid.RowDefinitions>
             <DockPanel>
                 <Image Source="{Binding Avatar}"></Image>
-                <TextBlock Text="{Binding Name}"></TextBlock>
-                <TextBlock Text="{Binding Id}"></TextBlock>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <DockPanel>
+                <TextBlock Text="{Binding Name}" Margin="10,0,10,0"></TextBlock>
+                <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
+                        <Button Width="100" Height="32" Command="{Binding updateUser}" >Изменить</Button>
+                    </DockPanel>
+                    <TextBlock Text="{Binding Info}" Margin="10,0,10,0"></TextBlock>
+                </StackPanel>
             </DockPanel>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="59*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <StackPanel></StackPanel>
+                </Grid>
+                <Grid Grid.Row="1"></Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

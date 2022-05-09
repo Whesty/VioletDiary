@@ -1,0 +1,25 @@
+﻿<Window x:Class="VioletBookDiary.Views.UserUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VioletBookDiary.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="UserUpdate" Height="378" Width="439">
+    <Grid Style="{DynamicResource GridFull}">
+        <StackPanel>
+            <Grid>
+                <Button Command="{Binding open_LoadImage}" Width="148" Height="148" Background="{x:Null}" Foreground="{x:Null}" Cursor="Hand" Margin="0,20,0,0">
+                    <Image Source="{Binding Avatar}"></Image>
+                </Button>
+            </Grid>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Name}"
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.HelperText="Имя пользователя" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </TextBox>
+            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Info}" 
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.HelperText="Описание" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </TextBox>
+            <Button Margin="40,20,30,0" Command="{Binding Update}">Изменить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

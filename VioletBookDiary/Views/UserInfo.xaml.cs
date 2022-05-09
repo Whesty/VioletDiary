@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VioletBookDiary.Models;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
 {
@@ -19,9 +21,13 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class UserInfo : Page
     {
-        public UserInfo()
+        UserInfoViewModel model; 
+       
+        public UserInfo(User user)
         {
             InitializeComponent();
+            model = new UserInfoViewModel(user);
+            DataContext = model;
         }
     }
 }

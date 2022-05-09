@@ -16,7 +16,12 @@ namespace VDService
     {
         private List<ServerUser> ConnectUsers = new List<ServerUser>();
         private List<ServerUser> ConnectAdmins = new List<ServerUser>();
-        
+
+        public string AddBook(string name, string author, string genre, string description, string image)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Disconnect(int id)
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -123,6 +128,26 @@ namespace VDService
             catch (Exception ex)
             {
                 return ex.Message + "\n" + str;
+            }
+        }
+
+        public Dictionary<string, string> UpdateUser(int id, string name, string info, string avatar)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                USER user = unit.UserRepository.GetAll().Where(x => x.Id == id).FirstOrDefault();
+                user.USER_NAME = name;
+                user.USER_INFO = info;
+                user.USER_AVATAR = avatar;
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                result.Add("id", user.Id.ToString());
+                result.Add("name", user.USER_NAME);
+                result.Add("AccessLevel", user.ACCESS_LEVEL.ToString());
+                result.Add("avatar", user.USER_AVATAR);
+                result.Add("data_create", user.DATA_CREATE.ToString());
+                result.Add("id_authorized", user.ID_AUTHORIZED.ToString());
+                result.Add("info", user.USER_INFO);
+                return result;
             }
         }
     }
