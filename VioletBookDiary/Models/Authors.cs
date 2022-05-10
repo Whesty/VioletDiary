@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VioletBookDiary.Models
 {
-    internal class Authors
+    public class Authors
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,9 +18,9 @@ namespace VioletBookDiary.Models
             Name = name;
             Country = country;
         }
-        public Authors(string name)
+        public Authors()
         {
-            Name = name;
+            
         }
         public override string ToString()
         {

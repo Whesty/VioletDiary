@@ -23,10 +23,10 @@ namespace VioletBookDiary.Views
     {
         UserInfoViewModel model; 
        
-        public UserInfo(User user)
+        public UserInfo()
         {
             InitializeComponent();
-            model = new UserInfoViewModel(user);
+            model = new UserInfoViewModel();
             DataContext = model;
         }
     }

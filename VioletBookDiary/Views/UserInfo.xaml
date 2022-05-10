@@ -14,14 +14,14 @@
                 <RowDefinition Height="126*"/>
             </Grid.RowDefinitions>
             <DockPanel>
-                <Image Source="{Binding Avatar}"></Image>
+                <Image Source="{Binding Avatar, UpdateSourceTrigger=PropertyChanged}"></Image>
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                     <DockPanel>
-                <TextBlock Text="{Binding Name}" Margin="10,0,10,0"></TextBlock>
+                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
                 <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
                         <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
                     </DockPanel>
-                    <TextBlock Text="{Binding Info}" Margin="10,0,10,0"></TextBlock>
+                    <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
                 </StackPanel>
             </DockPanel>
             <Grid Grid.Row="1">

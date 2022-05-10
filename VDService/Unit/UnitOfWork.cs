@@ -15,7 +15,7 @@ namespace VDService.Unit
         private Repository<USER> userRepository;
         private Repository<AUTHORIZED> userAuthRepository;
         private Repository<BOOK> booksRepository;
-        private Repository<Task> tagsRepository;
+        private Repository<TAG> tagsRepository;
         private Repository<GENRE> genresRepository;
         private Repository<AUTHOR> authorsRepository;
         private Repository<BOOK_AUTHOR> bookAuthorsRepository;
@@ -60,6 +60,70 @@ namespace VDService.Unit
                 return booksRepository;
             }
         }
+        public Repository<AUTHOR> AuthorsRepository
+        {
+            get
+            {
+                if (authorsRepository == null)
+                    authorsRepository = new Repository<AUTHOR>(context);
+                return authorsRepository;
+            }
+        }
+        public Repository<GENRE> GenresRepository
+        {
+            get
+            {
+                if (genresRepository == null)
+                    genresRepository = new Repository<GENRE>(context);
+                return genresRepository;
+            }
+        }
+        public Repository<TAG> TagsRepository
+        {
+            get
+            {
+                if (tagsRepository == null)
+                    tagsRepository = new Repository<TAG>(context);
+                return tagsRepository;
+            }
+        }
+        public Repository<BOOK_AUTHOR> BookAuthorsRepository
+        {
+            get
+            {
+                if (bookAuthorsRepository == null)
+                    bookAuthorsRepository = new Repository<BOOK_AUTHOR>(context);
+                return bookAuthorsRepository;
+            }
+        }
+        public Repository<BOOK_TAG> BookTagsRepository
+        {
+            get
+            {
+                if (bookTagsRepository == null)
+                    bookTagsRepository = new Repository<BOOK_TAG>(context);
+                return bookTagsRepository;
+            }
+        }
+        public Repository<BOOK_GENRE> BookGenresRepository
+        {
+            get
+            {
+                if (bookGenresRepository == null)
+                    bookGenresRepository = new Repository<BOOK_GENRE>(context);
+                return bookGenresRepository;
+            }
+        }
+        public Repository<PAINT> PaintsRepository
+        {
+            get
+            {
+                if (paintsRepository == null)
+                    paintsRepository = new Repository<PAINT>(context);
+                return paintsRepository;
+            }
+        }
+        
         public void Save()
         {
             try

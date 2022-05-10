@@ -1,0 +1,28 @@
+﻿<Window x:Class="VioletBookDiary.Views.EditItemsBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VioletBookDiary.Views"
+        mc:Ignorable="d"
+        Title="EditItemsBook" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="387*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <DockPanel VerticalAlignment="Bottom" Margin="0,0,0,10">
+                <TextBlock FontSize="20" Padding="0,0,10,0">Весь список</TextBlock>
+                <TextBox Text="{Binding NameSearch}" Width="400"></TextBox>
+                <Button Width="32" HorizontalAlignment="Right" Margin="0,0,10,0">Добавить</Button>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="AllItemsTable">
+                
+            </DataGrid>
+        </Grid>
+       
+    </Grid>
+</Window>

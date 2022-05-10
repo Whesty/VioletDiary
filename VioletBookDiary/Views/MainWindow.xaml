@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Height="450" Width="900"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" MinWidth="851"
         >
     <Grid Style="{DynamicResource GridFull}">
         <Grid.RowDefinitions>
@@ -53,6 +53,9 @@
                 </Button>
                 <Button Height="40" Command="{Binding open_UserInfo}" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Width="40">
                     <materialDesign:PackIcon Kind="User" Width="24" Height="24"/>
+                </Button> 
+                <Button Height="40" Command="{Binding updateWindow}" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Width="40">
+                    <materialDesign:PackIcon Kind="Update" Width="24" Height="24"/>
                 </Button>
             </DockPanel>
         </Grid>

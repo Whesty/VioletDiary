@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Text;
+using System.Text.RegularExpressions;
 using VDService.Unit;
 
 namespace VDService
@@ -17,9 +18,94 @@ namespace VDService
         private List<ServerUser> ConnectUsers = new List<ServerUser>();
         private List<ServerUser> ConnectAdmins = new List<ServerUser>();
         private ServerUser serverUser;
-        public string AddBook(string name, string author, string genre, string description, string image)
+        public string AddBook(string name, string author, string genre, string tag, string description, string image, string file)
         {
-            throw new NotImplementedException();
+            string str = "";
+            try
+            {
+                str += "Start";
+                using (UnitOfWork unitOfWork = new UnitOfWork())
+                {
+                    str += "\ncreate UnitofWork";
+                    Regex regex = new Regex(@"(\w*),");
+                    MatchCollection math = regex.Matches(author);
+                    str += "\ncreate BOOK";
+                    BOOK book = new BOOK()
+                    {
+                        BOOK_NAME = name,
+                        BOOK_DESCRIPTION = description,
+                        BOOK_IMAGE = image,
+                        BOOK_FILE = file,
+                    };
+                    unitOfWork.BooksRepository.Add(book);
+                    unitOfWork.Save();
+                    book = unitOfWork.BooksRepository.GetAll().Where(x => x.BOOK_NAME == name).FirstOrDefault();
+
+                    foreach (Match match in math)
+                    {
+                        //"\n" + match.Value;
+                        AUTHOR author1 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        if (author1 == null)
+                        {
+                            author1 = new AUTHOR()
+                            {
+                                AUTHOR_NAME = match.Value,
+                                COUNTRY = null
+                            };
+                            unitOfWork.AuthorsRepository.Add(author1);
+                            unitOfWork.Save();
+                            //unitOfWork.
+                        }
+                        AUTHOR author2 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        unitOfWork.BookAuthorsRepository.Add(new BOOK_AUTHOR()
+                        {
+                            BOOKId = book.Id,
+                            AUTHORId = author2.Id
+
+                        });
+                        unitOfWork.Save();
+                    }
+                    MatchCollection match1 = regex.Matches(tag);
+                    foreach (Match match in match1)
+                    {
+                        //"\n" + match.Value;
+                        TAG tag1 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == match.Value).FirstOrDefault();
+                        if (tag1 == null)
+                        {
+                            tag1 = new TAG()
+                            {
+                                TAG_NAME = match.Value
+                            };
+                            unitOfWork.TagsRepository.Add(tag1);
+                            unitOfWork.Save();
+                        }
+                        GENRE tag2 = unitOfWork.GenresRepository.GetAll().Where(a => a.GENRE_NAME == match.Value).FirstOrDefault();
+                        unitOfWork.BookTagsRepository.Add(new BOOK_TAG()
+                        {
+                            BOOKId = book.Id,
+                            TAGId = tag2.Id
+                        });
+                        unitOfWork.Save();
+                    }
+                    GENRE genre1 = unitOfWork.GenresRepository.GetAll().Where(a => a.GENRE_NAME == genre).FirstOrDefault();
+                    if (genre1 == null)
+                    {
+                        str += "Genre null";
+                        throw new Exception("Genre null");
+                    }
+                    unitOfWork.BookGenresRepository.Add(new BOOK_GENRE()
+                    {
+                        BOOKId = book.Id,
+                        GENREId = genre1.Id
+                    });
+                    return "Accept registre!";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message + "\n" + str;
+            }
+        
         }
 
         public void Disconnect(int id)
@@ -39,6 +125,79 @@ namespace VDService
                 {
                     ConnectUsers.Remove(ConnectAdmins.Where(x => x.Id == id).FirstOrDefault());
                 }
+            }
+        }
+
+        public List<Dictionary<string, string>> getAuthors()
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<AUTHOR> authors = unit.AuthorsRepository.GetAll();
+                List<Dictionary<string, string>> authorsList = new List<Dictionary<string, string>>();
+                foreach (AUTHOR author in authors)
+                {
+                    Dictionary<string, string> authorDict = new Dictionary<string, string>();
+                    authorDict.Add("id", author.Id.ToString());
+                    authorDict.Add("name", author.AUTHOR_NAME);
+                    authorDict.Add("country", author.COUNTRY);
+                    authorsList.Add(authorDict);
+                }
+                return authorsList;
+            }
+        }
+
+        public List<Dictionary<string, string>> getBooks()
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<BOOK> books = unit.BooksRepository.GetAll();
+                List<Dictionary<string, string>> booksList = new List<Dictionary<string, string>>();
+                foreach (BOOK book in books)
+                {
+                    Dictionary<string, string> bookDict = new Dictionary<string, string>();
+                    bookDict.Add("id", book.Id.ToString());
+                    bookDict.Add("name", book.BOOK_NAME);
+                    bookDict.Add("status", book.BOOK_STATUS.ToString());
+                    bookDict.Add("file", book.BOOK_FILE);
+                    bookDict.Add("image", book.BOOK_IMAGE);
+                    bookDict.Add("description", book.BOOK_DESCRIPTION);
+                    booksList.Add(bookDict);
+                }
+                return booksList;
+            }
+        }
+
+        public List<Dictionary<string, string>> getGenrs()
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<GENRE> genrs = unit.GenresRepository.GetAll();
+                List<Dictionary<string, string>> genrsList = new List<Dictionary<string, string>>();
+                foreach (GENRE genr in genrs)
+                {
+                    Dictionary<string, string> genrDict = new Dictionary<string, string>();
+                    genrDict.Add("id", genr.Id.ToString());
+                    genrDict.Add("name", genr.GENRE_NAME);
+                    genrsList.Add(genrDict);
+                }
+                return genrsList;
+            }                
+        }
+
+        public List<Dictionary<string, string>> getTags()
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<TAG> tags = unit.TagsRepository.GetAll();
+                List<Dictionary<string, string>> tagsList = new List<Dictionary<string, string>>();
+                foreach (TAG tag in tags)
+                {
+                    Dictionary<string, string> tagDict = new Dictionary<string, string>();
+                    tagDict.Add("id", tag.TAGId.ToString());
+                    tagDict.Add("name", tag.TAG_NAME);
+                    tagsList.Add(tagDict);
+                }
+                return tagsList;
             }
         }
 

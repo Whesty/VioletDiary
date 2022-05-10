@@ -34,7 +34,7 @@
             <ListView Background="{x:Null}" BorderBrush="{x:Null}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Book_Paragraf}"></TextBlock>
+                        <TextBlock Text="{Binding Book_Paragraf}" Width="500"></TextBlock>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

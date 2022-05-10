@@ -29,14 +29,17 @@ namespace VioletBookDiary.ViewModels
         {
             //BooksList = new ObservableCollection<BookViewModel>();
             Main = new MainPage();
-            User_Info = new UserInfo(u);
+            User_Info = new UserInfo();
             user = u;
+            CurrentUser.SetUser(user);
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+            Admin = new AdminListBook();
         }
         public User user { get; set; }
         private Page Main;
         private Page User_Info;
         private Page currentpage;
+        private Page Admin;
         private Window AddBook;
         public ServiceClient client;
         public Page CurrentPage
@@ -67,12 +70,20 @@ namespace VioletBookDiary.ViewModels
             AddBook = new AddBook(client);
             AddBook.Show();
         }
-        //public ICommand open_ReedBook => new DelegateCommand(Open_ReedBook);
-        //private void Open_ReedBook()
-        //{
-            
-        //    CurrentPage = Reed;
-        //}
+        public ICommand updateWindow => new DelegateCommand(UpdateWindow);
+        private void UpdateWindow()
+        {
+
+            Main = new MainPage();
+            User_Info = new UserInfo();
+            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+            CurrentPage = Main;
+        }
+        public ICommand open_Admin => new DelegateCommand(Open_Admin);
+        private void Open_Admin()
+        {
+            CurrentPage = Admin;
+        }
 
         #endregion
     }

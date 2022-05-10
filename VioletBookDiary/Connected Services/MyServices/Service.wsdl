@@ -48,6 +48,30 @@
   <wsdl:message name="IService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getAuthors_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAuthors" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAuthors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAuthorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGenrs_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGenrs" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGenrs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGenrsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTags" />
+  </wsdl:message>
+  <wsdl:message name="IService_getTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBooks" />
+  </wsdl:message>
+  <wsdl:message name="IService_getBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBooksResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
   </wsdl:message>
@@ -80,6 +104,22 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAuthors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAuthors" message="tns:IService_getAuthors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAuthorsResponse" message="tns:IService_getAuthors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGenrs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGenrs" message="tns:IService_getGenrs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGenrsResponse" message="tns:IService_getGenrs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getTags" message="tns:IService_getTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getTagsResponse" message="tns:IService_getTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getBooks" message="tns:IService_getBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getBooksResponse" message="tns:IService_getBooks_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
@@ -114,6 +154,42 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/IService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthors">
+      <soap12:operation soapAction="http://tempuri.org/IService/getAuthors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenrs">
+      <soap12:operation soapAction="http://tempuri.org/IService/getGenrs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <soap12:operation soapAction="http://tempuri.org/IService/getTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooks">
+      <soap12:operation soapAction="http://tempuri.org/IService/getBooks" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

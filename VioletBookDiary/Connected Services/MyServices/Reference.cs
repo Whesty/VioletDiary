@@ -27,6 +27,30 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> LoginAsync(string mail, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAuthors", ReplyAction="http://tempuri.org/IService/getAuthorsResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getAuthors();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAuthors", ReplyAction="http://tempuri.org/IService/getAuthorsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getAuthorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenrs", ReplyAction="http://tempuri.org/IService/getGenrsResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getGenrs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenrs", ReplyAction="http://tempuri.org/IService/getGenrsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenrsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTags", ReplyAction="http://tempuri.org/IService/getTagsResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getTags();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTags", ReplyAction="http://tempuri.org/IService/getTagsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getBooks();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getBooksAsync();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateUser")]
         void UpdateUser(int id, string name, string info, string avatar);
         
@@ -98,6 +122,38 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> LoginAsync(string mail, string password) {
             return base.Channel.LoginAsync(mail, password);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getAuthors() {
+            return base.Channel.getAuthors();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getAuthorsAsync() {
+            return base.Channel.getAuthorsAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getGenrs() {
+            return base.Channel.getGenrs();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenrsAsync() {
+            return base.Channel.getGenrsAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getTags() {
+            return base.Channel.getTags();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync() {
+            return base.Channel.getTagsAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getBooks() {
+            return base.Channel.getBooks();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getBooksAsync() {
+            return base.Channel.getBooksAsync();
         }
         
         public void UpdateUser(int id, string name, string info, string avatar) {

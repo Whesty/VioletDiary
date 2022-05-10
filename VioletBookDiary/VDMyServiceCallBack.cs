@@ -8,12 +8,13 @@ using VioletBookDiary.MyServices;
 using VioletBookDiary.ViewModels;
 using System.Windows;
 using VioletBookDiary.Models;
+using System.Management;
 
 namespace VioletBookDiary
 {
     public class VDMyServiceCallBack : IServiceCallback
     {
-       
+        private ManagementEventWatcher _watcher;
         public UserInfoViewModel userinfoVM { get; set; }
         public void OnCallback(string message)
         {
@@ -33,9 +34,8 @@ namespace VioletBookDiary
                 DataCreate = result["data_create"],
                 IdAuthorized = int.Parse(result["id_authorized"])
             };
-            userinfoVM.User = user;
-            userinfoVM.Avatar = user.Avatar;
-            userinfoVM.Name = user.Name;
-            userinfoVM.Info = user.Info;        }
+            CurrentUser.SetUser(user);
+            userinfoVM = new UserInfoViewModel();
+        }
     }
 }

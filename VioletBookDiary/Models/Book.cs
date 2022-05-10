@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace VioletBookDiary.Models
 {
-    class Book
+    public class Book
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,7 +20,34 @@ namespace VioletBookDiary.Models
         public string File { get; set; }
         //Брать из UserTable
         public int Bookmark { get; set; }
-        public Book(int id, string name, bool status, string series,string realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
+        public string getAuthors()
+        {
+            string str = "";
+            foreach (Authors a in Authors)
+            {
+                str = str + a.Name + " ";
+            }
+            return str;
+        }
+        public string getGenres() {
+            string str = "";
+            foreach (Genre a in Genres)
+            {
+                str = str + a.Name + " ";
+            }
+            return str;
+        } 
+        public string getTags() {
+            string str = "";
+            foreach (Tag a in Tags)
+            {
+                str = str + a.Name + " ";
+            }
+            return str;
+        }
+
+
+            public Book(int id, string name, bool status, string series,string realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
         {
             Id = id;
             Name = name;
@@ -38,6 +65,14 @@ namespace VioletBookDiary.Models
             Name = name;
             Authors = autors;
         }
-        
+        public Book()
+        {
+            Image = @"D:\VioletDiary\VioletBookDiary\Views\Resources\Icons\Diary.ico";
+            Tags = new List<Tag>();
+            Genres = new List<Genre>();
+            Authors = new List<Authors>();
+            
+        }
+
     }
 }

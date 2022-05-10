@@ -22,10 +22,26 @@
             </TextBox>
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Authors}" 
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Аторы" materialDesign:HintAssist.HelperText="Пример: 'Дарья Варламова, Антон Зайниев'" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
-            </TextBox>
-            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Genres}"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Жанры" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
-            </TextBox>
+            </TextBox> 
+            <ComboBox Margin="40,20,40,0" Height="30" Text="{Binding Ganres}" ItemsSource="{Binding Genres}" 
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Жанр" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            </ComboBox>
+            <!--<TextBlock Margin="40,10,0,0">Авторы:</TextBlock>
+            <DockPanel Margin="40,0,40,0" HorizontalAlignment="Right" Height="30">
+                <TextBlock  Text="{Binding Aothors}" Width="340" Background="#FFE2C2FF"></TextBlock>
+                <Button Command="{Binding update_Aothors}">Изменить</Button>
+            </DockPanel>-->
+            <!--<TextBlock Margin="40,10,0,0">Жанры:</TextBlock>
+            <DockPanel Margin="40,0,40,0" HorizontalAlignment="Right" Height="30">
+                <TextBlock  Text="{Binding Ganres}" Width="340" Background="#FFE2C2FF"></TextBlock>
+                <Button>Изменить</Button>
+            </DockPanel>
+            <TextBlock Margin="40,10,0,0">Тэги:</TextBlock>-->
+            <!--<DockPanel Margin="40,0,40,0" HorizontalAlignment="Right" Height="30">
+                <TextBlock  Text="{Binding Tag}" Width="340" Background="#FFE2C2FF"></TextBlock>
+                <Button>Изменить</Button>
+            </DockPanel>-->
+            
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Tags}"
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Тэги" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
             </TextBox>

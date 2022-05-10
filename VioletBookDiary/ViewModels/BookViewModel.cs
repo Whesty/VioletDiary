@@ -39,7 +39,7 @@ namespace VioletBookDiary.ViewModels
             {
                 if (Book.Authors.FirstOrDefault().ToString() != value)
                 {
-                    Book.Authors[0] = new Authors(value);
+                    Book.Authors[0] = new Authors();
                     OnPropertyChanged("Authors");
                 }
             }

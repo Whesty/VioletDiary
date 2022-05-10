@@ -58,11 +58,12 @@
     </Style>
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Comic Sans MS"/>
-        
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
     <Style TargetType="TextBlock" x:Key="Info">
         <Setter Property="FontFamily" Value="Comic Sans MS"/>
         <Setter Property="Foreground" Value="#FF373737"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
     <Style x:Key="СlickedButton" TargetType="Button">
         <Setter Property="Background" Value="White"/>

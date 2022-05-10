@@ -15,12 +15,20 @@ namespace VDService
         string Registration(string mail, string password);
         [OperationContract]
         Dictionary<string, string> Login(string mail, string password);
+        [OperationContract]
+        List<Dictionary<string, string>> getAuthors();
+        [OperationContract]
+        List<Dictionary<string, string>> getGenrs();
+        [OperationContract]
+        List<Dictionary<string, string>> getTags();
+        [OperationContract]
+        List<Dictionary<string, string>> getBooks();
         [OperationContract(IsOneWay = true)]
         void UpdateUser(int id, string name, string info, string avatar);
         [OperationContract]
         void Disconnect(int id);
         [OperationContract]
-        string AddBook(string name, string author, string genre, string description, string image);
+        string AddBook(string name, string author, string genre, string tag, string description, string image, string file);
         
         
     }
