@@ -15,8 +15,8 @@ namespace VDService
         string Registration(string mail, string password);
         [OperationContract]
         Dictionary<string, string> Login(string mail, string password);
-        [OperationContract]
-        Dictionary<string, string> UpdateUser(int id, string name, string info, string avatar);
+        [OperationContract(IsOneWay = true)]
+        void UpdateUser(int id, string name, string info, string avatar);
         [OperationContract]
         void Disconnect(int id);
         [OperationContract]
@@ -24,10 +24,12 @@ namespace VDService
         
         
     }
-
+    
     public interface IMyServiceCallback
     {
         [OperationContract(IsOneWay = true)]
         void OnCallback(string message);
+        [OperationContract]
+        void UpdateUserCallBack(Dictionary<string, string> result);
     }
 }

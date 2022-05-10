@@ -29,6 +29,8 @@ namespace VioletBookDiary.Views
         public UserUpdate(User user)
         {
             InitializeComponent();
+            viewModel = new UpdateUserViewModel(user);
+            DataContext = viewModel;
         }
     }
 }

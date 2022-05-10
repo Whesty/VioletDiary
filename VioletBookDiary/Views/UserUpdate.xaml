@@ -19,7 +19,7 @@
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Info}" 
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.HelperText="Описание" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
             </TextBox>
-            <Button Margin="40,20,30,0" Command="{Binding Update}">Изменить</Button>
+            <Button Margin="40,20,30,0" Command="{Binding update}" Cursor="Hand">Изменить</Button>
         </StackPanel>
     </Grid>
 </Window>

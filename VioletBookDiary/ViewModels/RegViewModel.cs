@@ -28,10 +28,11 @@ namespace VioletBookDiary.ViewModels
             string email = this.login;
             string password = this.password;
 
-            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+            //client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             try
             {
-                string str = client.Registration(email, password);
+                //string str = client.Registration(email, password);
+                string str = CurrentClient.service.Registration(email, password);
                 MessageBox.Show(str);
             }
             catch (Exception ex)

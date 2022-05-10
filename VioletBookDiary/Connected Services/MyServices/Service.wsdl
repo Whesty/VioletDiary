@@ -48,14 +48,29 @@
   <wsdl:message name="IService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
   <wsdl:message name="IService_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
   <wsdl:message name="IService_Disconnect_OutputMessage">
     <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_AddBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_OnCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnCallback" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserCallBackResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Registration">
@@ -66,12 +81,23 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DisconnectResponse" message="tns:IService_Disconnect_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBookResponse" message="tns:IService_AddBook_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OnCallback" message="tns:IService_OnCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserCallBack" message="tns:IService_UpdateUserCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUserCallBackResponse" message="tns:IService_UpdateUserCallBack_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IService" type="tns:IService">
@@ -95,6 +121,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="Disconnect">
       <soap12:operation soapAction="http://tempuri.org/IService/Disconnect" style="document" />
       <wsdl:input>
@@ -104,8 +136,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <soap12:operation soapAction="http://tempuri.org/IService/OnCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateUserCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

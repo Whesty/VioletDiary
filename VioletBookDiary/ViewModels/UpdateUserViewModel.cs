@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Models;
+using VioletBookDiary.MyServices;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -37,7 +39,14 @@ namespace VioletBookDiary.ViewModels
         public ICommand update => new DelegateCommand(Update);
         private void Update()
         {
-            //Дописать
+            IServiceCallback callBack = new VDMyServiceCallBack();
+            InstanceContext context = new InstanceContext(callBack);
+            ServiceClient client = new ServiceClient(context);
+
+            client.UpdateUser(Id, Name, Info, Avatar);
+            //CurrentClient.service.UpdateUser(Id, Name, Info, Avatar);
+
+
         }
     }
 }

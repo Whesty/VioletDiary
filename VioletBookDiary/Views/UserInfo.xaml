@@ -19,7 +19,7 @@
                     <DockPanel>
                 <TextBlock Text="{Binding Name}" Margin="10,0,10,0"></TextBlock>
                 <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
-                        <Button Width="100" Height="32" Command="{Binding updateUser}" >Изменить</Button>
+                        <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
                     </DockPanel>
                     <TextBlock Text="{Binding Info}" Margin="10,0,10,0"></TextBlock>
                 </StackPanel>

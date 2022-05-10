@@ -216,6 +216,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="CurrentClient.cs" />
     <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="Models\Authors.cs" />
     <Compile Include="Models\Book.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="VDMyServiceCallBack.cs" />
     <Compile Include="ViewModels\AddBookViewModel.cs" />
+    <Compile Include="ViewModels\AdminListBookViewModel.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\ListBooksViewModel.cs" />
@@ -268,9 +270,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\UserControl\ListCheckTextBox.xaml.cs">
-      <DependentUpon>ListCheckTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
@@ -321,10 +320,6 @@
     <Page Include="Views\Resources\Default.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControl\ListCheckTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserInfo.xaml">
       <SubType>Designer</SubType>

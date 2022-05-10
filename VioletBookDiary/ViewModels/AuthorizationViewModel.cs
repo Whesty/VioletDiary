@@ -88,14 +88,15 @@ namespace VioletBookDiary.ViewModels
             Dictionary<string, string> log;
             try
             {
-                client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
-               log = client.Login(email, password);
                
+                log = CurrentClient.service.Login(email, password);
+                if (log == null)
+                    throw new Exception("Неправельные логин или пороль");
             }
             catch (Exception ex)
             {
                 
-                MessageBox.Show("Неправельный логин и пароль");
+                MessageBox.Show(ex.Message.ToString());
 
                 return;
             }

@@ -27,11 +27,23 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> LoginAsync(string mail, string password);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateUser")]
+        void UpdateUser(int id, string name, string info, string avatar);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateUser")]
+        System.Threading.Tasks.Task UpdateUserAsync(int id, string name, string info, string avatar);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         void Disconnect(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         System.Threading.Tasks.Task DisconnectAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        string AddBook(string name, string author, string genre, string description, string image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string description, string image);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -39,6 +51,9 @@ namespace VioletBookDiary.MyServices {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/OnCallback")]
         void OnCallback(string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUserCallBack", ReplyAction="http://tempuri.org/IService/UpdateUserCallBackResponse")]
+        void UpdateUserCallBack(System.Collections.Generic.Dictionary<string, string> result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -85,12 +100,28 @@ namespace VioletBookDiary.MyServices {
             return base.Channel.LoginAsync(mail, password);
         }
         
+        public void UpdateUser(int id, string name, string info, string avatar) {
+            base.Channel.UpdateUser(id, name, info, avatar);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserAsync(int id, string name, string info, string avatar) {
+            return base.Channel.UpdateUserAsync(id, name, info, avatar);
+        }
+        
         public void Disconnect(int id) {
             base.Channel.Disconnect(id);
         }
         
         public System.Threading.Tasks.Task DisconnectAsync(int id) {
             return base.Channel.DisconnectAsync(id);
+        }
+        
+        public string AddBook(string name, string author, string genre, string description, string image) {
+            return base.Channel.AddBook(name, author, genre, description, image);
+        }
+        
+        public System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string description, string image) {
+            return base.Channel.AddBookAsync(name, author, genre, description, image);
         }
     }
 }

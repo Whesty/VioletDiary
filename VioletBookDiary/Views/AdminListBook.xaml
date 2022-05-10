@@ -22,10 +22,6 @@
                 <ComboBoxItem>Отзывы</ComboBoxItem>
                 <ComboBoxItem>Тэги</ComboBoxItem>
                 <ComboBoxItem>Жанры</ComboBoxItem>
-                <ComboBoxItem>Авторы книг</ComboBoxItem>
-                <ComboBoxItem>Тэги книг</ComboBoxItem>
-                <ComboBoxItem>Жанры книг</ComboBoxItem>
-                <ComboBoxItem>Подписки</ComboBoxItem>
                 <ComboBoxItem>Художники</ComboBoxItem>
                 <ComboBoxItem>Авторизация</ComboBoxItem>
             </ComboBox>

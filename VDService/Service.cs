@@ -16,7 +16,7 @@ namespace VDService
     {
         private List<ServerUser> ConnectUsers = new List<ServerUser>();
         private List<ServerUser> ConnectAdmins = new List<ServerUser>();
-
+        private ServerUser serverUser;
         public string AddBook(string name, string author, string genre, string description, string image)
         {
             throw new NotImplementedException();
@@ -57,7 +57,8 @@ namespace VDService
                     {
                         if (user.ACCESS_LEVEL == true)
                         {
-                            ConnectAdmins.Add(new ServerUser { Id = user.Id, OperationContext = OperationContext.Current });
+                            serverUser = new ServerUser { Id = user.Id, OperationContext = OperationContext.Current };
+                            ConnectAdmins.Add(serverUser);
                         }
                         else
                         {
@@ -131,14 +132,18 @@ namespace VDService
             }
         }
 
-        public Dictionary<string, string> UpdateUser(int id, string name, string info, string avatar)
+        public void UpdateUser(int id, string name, string info, string avatar)
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
+
+
+              
                 USER user = unit.UserRepository.GetAll().Where(x => x.Id == id).FirstOrDefault();
                 user.USER_NAME = name;
                 user.USER_INFO = info;
                 user.USER_AVATAR = avatar;
+                unit.Save();
                 Dictionary<string, string> result = new Dictionary<string, string>();
                 result.Add("id", user.Id.ToString());
                 result.Add("name", user.USER_NAME);
@@ -147,7 +152,9 @@ namespace VDService
                 result.Add("data_create", user.DATA_CREATE.ToString());
                 result.Add("id_authorized", user.ID_AUTHORIZED.ToString());
                 result.Add("info", user.USER_INFO);
-                return result;
+                IMyServiceCallback callback = serverUser.OperationContext.GetCallbackChannel<IMyServiceCallback>();
+                
+                callback.UpdateUserCallBack(result);   
             }
         }
     }
