@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IService.cs" />
     <Compile Include="Model\ARTIST.cs" />
     <Compile Include="Model\AUTHOR.cs" />
     <Compile Include="Model\AUTHORIZED.cs" />
@@ -62,21 +63,20 @@
     <Compile Include="Model\BOOK_AUTHOR.cs" />
     <Compile Include="Model\BOOK_GENRE.cs" />
     <Compile Include="Model\BOOK_TAG.cs" />
-    <Compile Include="DataBase.cs" />
+    <Compile Include="Model\DataBase.cs" />
     <Compile Include="Model\FEEDBACK.cs" />
     <Compile Include="Model\GENRE.cs" />
-    <Compile Include="IService.cs" />
     <Compile Include="Model\PAINT.cs" />
+    <Compile Include="Model\SUBSCRIPTION.cs" />
+    <Compile Include="Model\TAG.cs" />
+    <Compile Include="Model\USER.cs" />
+    <Compile Include="Model\USER_BOOKMARKS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="ServerUser.cs" />
     <Compile Include="Service.cs" />
-    <Compile Include="Model\SUBSCRIPTION.cs" />
-    <Compile Include="Model\TAG.cs" />
     <Compile Include="Unit\UnitOfWork.cs" />
-    <Compile Include="Model\USER.cs" />
-    <Compile Include="Model\USER_BOOKMARKS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

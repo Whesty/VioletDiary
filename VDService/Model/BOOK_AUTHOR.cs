@@ -1,4 +1,4 @@
-namespace VDService
+namespace VDService.Model
 {
     using System;
     using System.Collections.Generic;

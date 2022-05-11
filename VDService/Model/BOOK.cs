@@ -1,4 +1,4 @@
-namespace VDService
+namespace VDService.Model
 {
     using System;
     using System.Collections.Generic;
@@ -29,9 +29,6 @@ namespace VDService
 
         public string BOOK_SERIES { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? DATA_RELEASE { get; set; }
-
         public int ID_USER_ADD { get; set; }
 
         public string BOOK_DESCRIPTION { get; set; }
@@ -41,6 +38,8 @@ namespace VDService
         public string BOOK_FILE { get; set; }
 
         public int? Chapters { get; set; }
+
+        public int? DATA_RELEASE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOOK_AUTHOR> BOOK_AUTHOR { get; set; }

@@ -28,9 +28,9 @@ namespace VDService
         [OperationContract]
         void Disconnect(int id);
         [OperationContract]
-        string AddBook(string name, string author, string genre, string tag, string description, string image, string file);
-        
-        
+        string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
+
+
     }
     
     public interface IMyServiceCallback

@@ -8,6 +8,7 @@ using System.ServiceModel.Activation;
 using System.Text;
 using System.Text.RegularExpressions;
 using VDService.Unit;
+using VDService.Model;
 
 namespace VDService
 {
@@ -18,7 +19,7 @@ namespace VDService
         private List<ServerUser> ConnectUsers = new List<ServerUser>();
         private List<ServerUser> ConnectAdmins = new List<ServerUser>();
         private ServerUser serverUser;
-        public string AddBook(string name, string author, string genre, string tag, string description, string image, string file)
+        public string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser)
         {
             string str = "";
             try
@@ -27,24 +28,39 @@ namespace VDService
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     str += "\ncreate UnitofWork";
-                    Regex regex = new Regex(@"(\w*),");
+                    Regex regex = new Regex(@"(\w*);");
                     MatchCollection math = regex.Matches(author);
-                    str += "\ncreate BOOK";
+                    str += "\ncreate BOOK 1";
                     BOOK book = new BOOK()
                     {
                         BOOK_NAME = name,
                         BOOK_DESCRIPTION = description,
                         BOOK_IMAGE = image,
                         BOOK_FILE = file,
-                    };
-                    unitOfWork.BooksRepository.Add(book);
-                    unitOfWork.Save();
-                    book = unitOfWork.BooksRepository.GetAll().Where(x => x.BOOK_NAME == name).FirstOrDefault();
+                        DATA_RELEASE = int.Parse(Realese),
+                        ID_USER_ADD = idUser,
+                        BOOK_SERIES = Serialize,
+                        BOOK_STATUS = false
 
+                    };
+                    str += "\ncreate BOOK 2";
+
+                    unitOfWork.BooksRepository.Add(book);
+                    str += "\nAdd BOOK";
+
+                    unitOfWork.Save();
+                    str += "\nSave";
+
+                    book = unitOfWork.BooksRepository.GetAll().Where(x => x.BOOK_NAME == name).FirstOrDefault();
+                    str += "\nget BOOK";
                     foreach (Match match in math)
                     {
                         //"\n" + match.Value;
+                        str += "\nmath avtors" + match.Value;
+
                         AUTHOR author1 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        str += "\nget av";
+
                         if (author1 == null)
                         {
                             author1 = new AUTHOR()
@@ -52,11 +68,15 @@ namespace VDService
                                 AUTHOR_NAME = match.Value,
                                 COUNTRY = null
                             };
+                            str += "\nadd av";
                             unitOfWork.AuthorsRepository.Add(author1);
                             unitOfWork.Save();
+                            str += "\nSave";
+
                             //unitOfWork.
                         }
                         AUTHOR author2 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        str += "\nCreate av2";
                         unitOfWork.BookAuthorsRepository.Add(new BOOK_AUTHOR()
                         {
                             BOOKId = book.Id,
@@ -64,28 +84,37 @@ namespace VDService
 
                         });
                         unitOfWork.Save();
+                        str += "\nSave";
                     }
                     MatchCollection match1 = regex.Matches(tag);
+                    str += "\nMatch";
                     foreach (Match match in match1)
                     {
                         //"\n" + match.Value;
                         TAG tag1 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == match.Value).FirstOrDefault();
+                        str += "\nCreat tag1";
                         if (tag1 == null)
                         {
                             tag1 = new TAG()
                             {
                                 TAG_NAME = match.Value
                             };
+                            str += "\nCreate tag1+";
                             unitOfWork.TagsRepository.Add(tag1);
+                            str += "\nAdd tag2";
                             unitOfWork.Save();
+                            str += "\nSave";
                         }
-                        GENRE tag2 = unitOfWork.GenresRepository.GetAll().Where(a => a.GENRE_NAME == match.Value).FirstOrDefault();
+                        TAG tag2 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == match.Value).FirstOrDefault();
+                        str += "\nCreate tag2";
                         unitOfWork.BookTagsRepository.Add(new BOOK_TAG()
                         {
                             BOOKId = book.Id,
-                            TAGId = tag2.Id
+                            TAGId = tag2.TAGId
                         });
+                        str += "\ntag2+";
                         unitOfWork.Save();
+                        str += "\nSave";
                     }
                     GENRE genre1 = unitOfWork.GenresRepository.GetAll().Where(a => a.GENRE_NAME == genre).FirstOrDefault();
                     if (genre1 == null)
@@ -98,6 +127,7 @@ namespace VDService
                         BOOKId = book.Id,
                         GENREId = genre1.Id
                     });
+                    unitOfWork.Save();
                     return "Accept registre!";
                 }
             }

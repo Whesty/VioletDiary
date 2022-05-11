@@ -64,10 +64,10 @@ namespace VioletBookDiary.MyServices {
         System.Threading.Tasks.Task DisconnectAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
-        string AddBook(string name, string author, string genre, string description, string image);
+        string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
-        System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string description, string image);
+        System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -172,12 +172,12 @@ namespace VioletBookDiary.MyServices {
             return base.Channel.DisconnectAsync(id);
         }
         
-        public string AddBook(string name, string author, string genre, string description, string image) {
-            return base.Channel.AddBook(name, author, genre, description, image);
+        public string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser) {
+            return base.Channel.AddBook(name, author, genre, tag, description, image, file, Serialize, Realese, idUser);
         }
         
-        public System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string description, string image) {
-            return base.Channel.AddBookAsync(name, author, genre, description, image);
+        public System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser) {
+            return base.Channel.AddBookAsync(name, author, genre, tag, description, image, file, Serialize, Realese, idUser);
         }
     }
 }
