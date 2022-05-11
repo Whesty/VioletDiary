@@ -60,8 +60,7 @@
             </DockPanel>
         </Grid>
         <Grid x:Name="GridPage" Grid.Column="1" Grid.Row="1">
-            <Frame Content="{Binding CurrentPage}"
-               NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
+            <Frame Content="{Binding CurrentPage}" Grid.ColumnSpan="2"  NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>

@@ -45,6 +45,24 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTags", ReplyAction="http://tempuri.org/IService/getTagsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAuthorsBook", ReplyAction="http://tempuri.org/IService/getAuthorsBookResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getAuthorsBook(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAuthorsBook", ReplyAction="http://tempuri.org/IService/getAuthorsBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getAuthorsBookAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTagsBook", ReplyAction="http://tempuri.org/IService/getTagsBookResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getTagsBook(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTagsBook", ReplyAction="http://tempuri.org/IService/getTagsBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsBookAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenresBook", ReplyAction="http://tempuri.org/IService/getGenresBookResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getGenresBook(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenresBook", ReplyAction="http://tempuri.org/IService/getGenresBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenresBookAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
         System.Collections.Generic.Dictionary<string, string>[] getBooks();
         
@@ -146,6 +164,30 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync() {
             return base.Channel.getTagsAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getAuthorsBook(int id) {
+            return base.Channel.getAuthorsBook(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getAuthorsBookAsync(int id) {
+            return base.Channel.getAuthorsBookAsync(id);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getTagsBook(int id) {
+            return base.Channel.getTagsBook(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsBookAsync(int id) {
+            return base.Channel.getTagsBookAsync(id);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getGenresBook(int id) {
+            return base.Channel.getGenresBook(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenresBookAsync(int id) {
+            return base.Channel.getGenresBookAsync(id);
         }
         
         public System.Collections.Generic.Dictionary<string, string>[] getBooks() {

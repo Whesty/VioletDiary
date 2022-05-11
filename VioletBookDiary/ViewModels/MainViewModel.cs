@@ -15,7 +15,7 @@ using System.ServiceModel;
 
 namespace VioletBookDiary.ViewModels
 {
-    class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         
 
@@ -29,6 +29,7 @@ namespace VioletBookDiary.ViewModels
         {
             //BooksList = new ObservableCollection<BookViewModel>();
             Main = new MainPage();
+            Main.listBooks.model.main = this;
             User_Info = new UserInfo();
             user = u;
             CurrentUser.SetUser(user);
@@ -36,7 +37,7 @@ namespace VioletBookDiary.ViewModels
             Admin = new AdminListBook();
         }
         public User user { get; set; }
-        private Page Main;
+        private MainPage Main;
         private Page User_Info;
         private Page currentpage;
         private Page Admin;
@@ -75,8 +76,10 @@ namespace VioletBookDiary.ViewModels
         {
 
             Main = new MainPage();
+            Main.listBooks.model.main = this;
             User_Info = new UserInfo();
-            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+            CurrentUser.SetUser(user);
+            Admin = new AdminListBook();
             CurrentPage = Main;
         }
         public ICommand open_Admin => new DelegateCommand(Open_Admin);

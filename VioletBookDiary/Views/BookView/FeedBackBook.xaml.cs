@@ -12,17 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VioletBookDiary.ViewModels;
 
-namespace VioletBookDiary.Views
+namespace VioletBookDiary.Views.BookView
 {
     /// <summary>
-    /// Логика взаимодействия для PageViewBook.xaml
+    /// Логика взаимодействия для FeedBackBook.xaml
     /// </summary>
-    public partial class PageViewBook : Page
+    public partial class FeedBackBook : Page
     {
-        public PageViewBook()
+        FeedBackViewModel model;
+        public FeedBackBook(int idbook)
         {
-            //InitializeComponent();
+            InitializeComponent();
+            model = new FeedBackViewModel(idbook);
+            DataContext = model;
         }
     }
 }

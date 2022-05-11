@@ -12,17 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ListUsers.xaml
+    /// Логика взаимодействия для PageViewBook.xaml
     /// </summary>
-    public partial class ListUsers : Page
+    public partial class PageViewBook : Page
     {
-        public ListUsers()
+        public BookViewModel model;
+        public PageViewBook()
         {
             InitializeComponent();
+            DataContext = model;
         }
     }
 }

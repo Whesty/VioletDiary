@@ -3,6 +3,9 @@
     <Style x:Key="GridLeftBar" TargetType="Grid">
         <Setter Property="Background" Value="#9D35FF"/>
     </Style>
+    <Style x:Key="GridUpBarPage" TargetType="Grid">
+        <Setter Property="Background" Value="#FFF1F0F1"/>
+    </Style>
     <Style x:Key="GridLeftBarButton" TargetType="Button">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>

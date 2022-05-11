@@ -222,6 +222,7 @@
     <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="Models\Authors.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
@@ -231,7 +232,9 @@
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\EditItemsBookViewModel.cs" />
+    <Compile Include="ViewModels\FeedBackViewModel.cs" />
     <Compile Include="ViewModels\ListBooksViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ReadBookViewModel.cs" />
     <Compile Include="ViewModels\RegViewModel.cs" />
@@ -240,22 +243,22 @@
     <Compile Include="ViewModels\UserInfoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\XmlLoadSettings.cs" />
-    <Compile Include="Views\AddBook.xaml.cs">
+    <Compile Include="Views\BookView\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminListBook.xaml.cs">
       <DependentUpon>AdminListBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BookView\FeedBackBook.xaml.cs">
+      <DependentUpon>FeedBackBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditItemsBook.xaml.cs">
       <DependentUpon>EditItemsBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ListUsers.xaml.cs">
-      <DependentUpon>ListUsers.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListViewsBooks.xaml.cs">
+    <Compile Include="Views\BookView\ListViewsBooks.xaml.cs">
       <DependentUpon>ListViewsBooks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Logon.xaml.cs">
+    <Compile Include="Views\LogIn\Logon.xaml.cs">
       <DependentUpon>Logon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
@@ -264,26 +267,26 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageViewBook.xaml.cs">
+    <Compile Include="Views\BookView\PageViewBook.xaml.cs">
       <DependentUpon>PageViewBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReedBook.xaml.cs">
+    <Compile Include="Views\BookView\ReedBook.xaml.cs">
       <DependentUpon>ReedBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Registration.xaml.cs">
+    <Compile Include="Views\LogIn\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\UserInfo.xaml.cs">
+    <Compile Include="Views\UserView\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserUpdate.xaml.cs">
+    <Compile Include="Views\UserView\UserUpdate.xaml.cs">
       <DependentUpon>UserUpdate.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AddBook.xaml">
+    <Page Include="Views\BookView\AddBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -291,19 +294,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BookView\FeedBackBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditItemsBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ListUsers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListViewsBooks.xaml">
+    <Page Include="Views\BookView\ListViewsBooks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Logon.xaml">
+    <Page Include="Views\LogIn\Logon.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -315,15 +318,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\PageViewBook.xaml">
+    <Page Include="Views\BookView\PageViewBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ReedBook.xaml">
+    <Page Include="Views\BookView\ReedBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Registration.xaml">
+    <Page Include="Views\LogIn\Registration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -331,11 +334,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\UserInfo.xaml">
+    <Page Include="Views\UserView\UserInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserUpdate.xaml">
+    <Page Include="Views\UserView\UserUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

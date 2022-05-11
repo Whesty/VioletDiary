@@ -22,6 +22,20 @@ namespace VDService
         [OperationContract]
         List<Dictionary<string, string>> getTags();
         [OperationContract]
+        List<Dictionary<string, string>> getAuthorsBook(int id);
+        [OperationContract]
+        List<Dictionary<string, string>> getTagsBook(int id);
+        [OperationContract]
+        List<Dictionary<string, string>> getGenresBook(int id);
+        
+        [OperationContract]
+        List<Dictionary<string, string>> getFeedBackBook(int id);
+        
+        
+        [OperationContract]
+        List<Dictionary<string, string>> getPaintBook(int id);
+        
+        [OperationContract]
         List<Dictionary<string, string>> getBooks();
         [OperationContract(IsOneWay = true)]
         void UpdateUser(int id, string name, string info, string avatar);

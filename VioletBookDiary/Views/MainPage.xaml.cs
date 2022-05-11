@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
 {
@@ -20,12 +21,14 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class MainPage : Page
     {
-
+        public MainPageViewModel vm;
+        public ListViewsBooks listBooks = new ListViewsBooks();
+        //ListImage
         public MainPage()
         {
             InitializeComponent();
             Filters.SelectedItem = Filters.Items[0];
-            ViewsListData.Children.Add(new ListViewsBooks());
+            ViewsListData.Children.Add(listBooks);
             Button_ListBook.IsEnabled = false;
         }
     }

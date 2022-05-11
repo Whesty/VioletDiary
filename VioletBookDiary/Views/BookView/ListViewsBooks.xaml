@@ -9,7 +9,8 @@
      >
 
     <Grid>
-        <ListView ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" SelectionChanged="{Binding open_PageViewBook}">
+        <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top">
+           
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="6"/>
@@ -19,17 +20,18 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    
-                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="148" >
+
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="148" >
                         <Grid.Background>
                             <ImageBrush ImageSource="{Binding Path=Image}"/>
                         </Grid.Background>
-                        <StackPanel VerticalAlignment="Bottom">
+                        <Button Click="Button_Click" ></Button>
+                        <!--<StackPanel VerticalAlignment="Bottom">
                             <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
                             <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
-                        </StackPanel>
+                        </StackPanel>-->
                     </Grid>
-                   
+
                 </DataTemplate>
                     
             </ListView.ItemTemplate>

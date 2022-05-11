@@ -8,16 +8,48 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
+using System.Windows.Controls;
 
 namespace VioletBookDiary.ViewModels
 {
-    internal class BookViewModel : ViewModelBase
+    public class BookViewModel : ViewModelBase
     {
         public Book Book;
         
         public BookViewModel(Book book)
         {
+            //CurrentPage = 
+            if (book.Id != 0)
+            {
+                foreach (Dictionary<string, string> items in CurrentClient.service.getAuthorsBook(book.Id))
+                {
+                    book.Authors.Add(new Models.Authors()
+                    {
+                        Id = int.Parse(items["id"]),
+                        Name = items["name"],
+                        Country = items["country"]
+                    });
+                }
+                foreach (Dictionary<string, string> items in CurrentClient.service.getGenresBook(book.Id))
+                {
+                    book.Genres.Add(new Models.Genre()
+                    {
+                        Id = int.Parse(items["id"]),
+                        Name = items["name"]
+                    });
+                }
+                foreach (Dictionary<string, string> items in CurrentClient.service.getTagsBook(book.Id))
+                {
+                    book.Tags.Add(new Models.Tag()
+                    {
+                        Id = int.Parse(items["id"]),
+                        Name = items["name"]
+                    });
+                }
+            }
+            
             this.Book = book;
+            
         }
 
         public string Title
@@ -29,18 +61,6 @@ namespace VioletBookDiary.ViewModels
                 {
                     Book.Name = value;
                     OnPropertyChanged("Title");
-                }
-            }
-        }
-        public string Author
-        {
-            get { return Book.Authors.FirstOrDefault().ToString(); }
-            set
-            {
-                if (Book.Authors.FirstOrDefault().ToString() != value)
-                {
-                    Book.Authors[0] = new Authors();
-                    OnPropertyChanged("Authors");
                 }
             }
         }
@@ -56,6 +76,17 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
+        public string AuthStr { get
+            {
+                string authStr = "";
+                foreach (Authors author in Book.Authors)
+                {
+                    authStr += author.Name + ", ";
+                }
+                authStr = authStr.Substring(0, authStr.Length - 2);
+                return authStr;
+            }
+            set { } }
         public bool Status
         {
             get { return Book.Status; }
@@ -92,6 +123,16 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
+        public string GenreStr { get
+            {
+                string genreStr = "";
+                foreach (Genre genre in Book.Genres)
+                {
+                    genreStr += genre.Name + ", ";
+                }
+                genreStr = genreStr.Remove(genreStr.Length - 2);
+                return genreStr;
+            }set { } }
         public List<Tag> Tags
         {
             get { return Book.Tags; }
@@ -104,6 +145,16 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
+        public string TagStr { get 
+            {
+                string tagStr = "";
+                foreach (Tag tag in Book.Tags)
+                {
+                    tagStr += tag.Name + ", ";
+                }
+                tagStr = tagStr.Substring(0, tagStr.Length - 2);
+                return tagStr;
+            } set { } }
         public string Realease 
         { 
             get { return Book.Realease; }
@@ -144,6 +195,19 @@ namespace VioletBookDiary.ViewModels
         {
             //Открытие страницы
             PageViewBook viewBook = new PageViewBook();
+        }
+        Page CurrentPage;
+        public ICommand open_FeedBack => new DelegateCommand(Open_FeedBack);
+        private void Open_FeedBack()
+        {
+            //Отзывы о книге
+
+        }
+        public ICommand open_Paint => new DelegateCommand(Open_Paint);
+        private void Open_Paint()
+        {
+            //Картинки по книге
+
         }
         #endregion
     }

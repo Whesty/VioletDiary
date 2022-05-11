@@ -40,8 +40,7 @@ namespace VDService
                         DATA_RELEASE = int.Parse(Realese),
                         ID_USER_ADD = idUser,
                         BOOK_SERIES = Serialize,
-                        BOOK_STATUS = false
-
+                        BOOK_STATUS = false,
                     };
                     str += "\ncreate BOOK 2";
 
@@ -176,6 +175,24 @@ namespace VDService
             }
         }
 
+        public List<Dictionary<string, string>> getAuthorsBook(int id)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<AUTHOR> authors = unit.BookAuthorsRepository.GetAll().Where(x => x.BOOKId == id).Select(x => x.AUTHOR).ToList();
+                List<Dictionary<string, string>> authorsList = new List<Dictionary<string, string>>();
+                foreach (AUTHOR author in authors)
+                {
+                    Dictionary<string, string> authorDict = new Dictionary<string, string>();
+                    authorDict.Add("id", author.Id.ToString());
+                    authorDict.Add("name", author.AUTHOR_NAME);
+                    authorDict.Add("country", author.COUNTRY);
+                    authorsList.Add(authorDict);
+                }
+                return authorsList;
+            }
+        }
+
         public List<Dictionary<string, string>> getBooks()
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -191,9 +208,32 @@ namespace VDService
                     bookDict.Add("file", book.BOOK_FILE);
                     bookDict.Add("image", book.BOOK_IMAGE);
                     bookDict.Add("description", book.BOOK_DESCRIPTION);
+                    bookDict.Add("Realese", book.DATA_RELEASE.ToString());
                     booksList.Add(bookDict);
                 }
                 return booksList;
+            }
+        }
+
+        public List<Dictionary<string, string>> getFeedBackBook(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Dictionary<string, string>> getGenresBook(int id)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<GENRE> genres = unit.BookGenresRepository.GetAll().Where(x => x.BOOKId == id).Select(x => x.GENRE).ToList();
+                List<Dictionary<string, string>> genresList = new List<Dictionary<string, string>>();
+                foreach (GENRE genre in genres)
+                {
+                    Dictionary<string, string> genreDict = new Dictionary<string, string>();
+                    genreDict.Add("id", genre.Id.ToString());
+                    genreDict.Add("name", genre.GENRE_NAME);
+                    genresList.Add(genreDict);
+                }
+                return genresList;
             }
         }
 
@@ -214,11 +254,34 @@ namespace VDService
             }                
         }
 
+        public List<Dictionary<string, string>> getPaintBook(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Dictionary<string, string>> getTags()
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
                 List<TAG> tags = unit.TagsRepository.GetAll();
+                List<Dictionary<string, string>> tagsList = new List<Dictionary<string, string>>();
+                foreach (TAG tag in tags)
+                {
+                    Dictionary<string, string> tagDict = new Dictionary<string, string>();
+                    tagDict.Add("id", tag.TAGId.ToString());
+                    tagDict.Add("name", tag.TAG_NAME);
+                    tagsList.Add(tagDict);
+                }
+                return tagsList;
+            }
+        }
+
+        public List<Dictionary<string, string>> getTagsBook(int id)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<TAG> tags = unit.BookTagsRepository.GetAll().Where(x => x.BOOKId == id).Select(x => x.TAG).ToList();
+                
                 List<Dictionary<string, string>> tagsList = new List<Dictionary<string, string>>();
                 foreach (TAG tag in tags)
                 {

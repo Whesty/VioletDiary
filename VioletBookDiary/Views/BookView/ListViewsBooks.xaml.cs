@@ -22,10 +22,11 @@ namespace VioletBookDiary.Views
     /// </summary>
     public partial class ListViewsBooks : UserControl
     {
-        ListBooksViewModel model = new ListBooksViewModel();
+        public ListBooksViewModel model;
         public ListViewsBooks()
         {
             //InitializeComponent();
+            InitializeComponent();
             //List<Authors> authors = new List<Authors>();
             //authors.Add(new Authors("Джон Роулинг"));
             //List<Book> books = new List<Book>()
@@ -35,10 +36,33 @@ namespace VioletBookDiary.Views
             //    new Book("CLR via C#", authors),
             //    new Book("Исскуство программирования", authors)
             //};
-
+            model = new ListBooksViewModel();
+            model.win = this;
             DataContext = model;
+            
+            DataList.ItemsSource = model.BooksList;
+            
         }
 
-        
+        private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
+
+            PageViewBook viewBook = new PageViewBook();
+            viewBook.model = selectedBook;
+            viewBook.DataContext = viewBook.model;
+            model.main.CurrentPage = viewBook;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
+
+            PageViewBook viewBook = new PageViewBook();
+            viewBook.model = selectedBook;
+            viewBook.DataContext = viewBook.model;
+            model.main.CurrentPage = viewBook;
+
+        }
     }
 }
