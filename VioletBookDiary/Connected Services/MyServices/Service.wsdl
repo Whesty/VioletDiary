@@ -84,6 +84,18 @@
   <wsdl:message name="IService_getGenresBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:getGenresBookResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getFeedBackBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFeedBackBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_getFeedBackBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFeedBackBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getPaintBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPaintBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_getPaintBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPaintBookResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getBooks_InputMessage">
     <wsdl:part name="parameters" element="tns:getBooks" />
   </wsdl:message>
@@ -104,6 +116,18 @@
   </wsdl:message>
   <wsdl:message name="IService_AddBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddFeedBack_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFeedBack" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddFeedBack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFeedBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPaint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaint" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPaint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaintResponse" />
   </wsdl:message>
   <wsdl:message name="IService_OnCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnCallback" />
@@ -147,6 +171,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getGenresBook" message="tns:IService_getGenresBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getGenresBookResponse" message="tns:IService_getGenresBook_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getFeedBackBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getFeedBackBook" message="tns:IService_getFeedBackBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getFeedBackBookResponse" message="tns:IService_getFeedBackBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaintBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getPaintBook" message="tns:IService_getPaintBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getPaintBookResponse" message="tns:IService_getPaintBook_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getBooks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getBooks" message="tns:IService_getBooks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getBooksResponse" message="tns:IService_getBooks_OutputMessage" />
@@ -161,6 +193,14 @@
     <wsdl:operation name="AddBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBookResponse" message="tns:IService_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFeedBack">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddFeedBack" message="tns:IService_AddFeedBack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddFeedBackResponse" message="tns:IService_AddFeedBack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPaint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddPaint" message="tns:IService_AddPaint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddPaintResponse" message="tns:IService_AddPaint_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OnCallback" message="tns:IService_OnCallback_OutputCallbackMessage" />
@@ -245,6 +285,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getFeedBackBook">
+      <soap12:operation soapAction="http://tempuri.org/IService/getFeedBackBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaintBook">
+      <soap12:operation soapAction="http://tempuri.org/IService/getPaintBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getBooks">
       <soap12:operation soapAction="http://tempuri.org/IService/getBooks" style="document" />
       <wsdl:input>
@@ -271,6 +329,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddBook">
       <soap12:operation soapAction="http://tempuri.org/IService/AddBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFeedBack">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddFeedBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPaint">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddPaint" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

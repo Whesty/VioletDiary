@@ -124,7 +124,35 @@ namespace VDService.Unit
                 return paintsRepository;
             }
         }
-        
+        public Repository<SUBSCRIPTION> SubscriptionsRepository
+        {
+            get
+            {
+                if (subscriptionsRepository == null)
+                    subscriptionsRepository = new Repository<SUBSCRIPTION>(context);
+                return subscriptionsRepository;
+            }
+        }
+        public Repository<USER_BOOKMARKS> UserBookmarksRepository
+        {
+            get
+            {
+                if (userBookmarksRepository == null)
+                    userBookmarksRepository = new Repository<USER_BOOKMARKS>(context);
+                return userBookmarksRepository;
+            }
+        }
+        public Repository<FEEDBACK> FeedbacksRepository
+        {
+            get
+            {
+                if (feedbacksRepository == null)
+                    feedbacksRepository = new Repository<FEEDBACK>(context);
+                return feedbacksRepository;
+            }
+        }
+
+
         public void Save()
         {
             try

@@ -27,6 +27,7 @@ namespace VioletBookDiary.Views
         public MainPage()
         {
             InitializeComponent();
+            CurentWindows.mainPage = this;
             Filters.SelectedItem = Filters.Items[0];
             ViewsListData.Children.Add(listBooks);
             Button_ListBook.IsEnabled = false;

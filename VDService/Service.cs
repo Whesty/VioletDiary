@@ -137,6 +137,41 @@ namespace VDService
         
         }
 
+        public string AddFeedBack(int idBook, string text, int idUser, string rating)
+        {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
+                FEEDBACK feedback = new FEEDBACK()
+                {
+                    ID_BOOK = idBook,
+                    ID_USER = idUser,
+                    FEEDBACK1 = text,
+                    RATING = float.Parse(rating),
+                    DATE = DateTime.Now
+                };
+                unitOfWork.FeedbacksRepository.Add(feedback);
+                unitOfWork.Save();
+                return "Отправлен!";
+            }
+        }
+        public string AddPaint(int idBook, int idUser, string pating)
+        {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
+                PAINT paint = new PAINT()
+                {
+                    ID_BOOK = idBook,
+                    ID_USER_ADD = idUser,
+                    LINK = pating,
+                    DATA = DateTime.Now,
+                    ID_ARTIST = 1
+                };
+                unitOfWork.PaintsRepository.Add(paint);
+                unitOfWork.Save();
+                return "Загружен!";
+            } 
+        }
+
         public void Disconnect(int id)
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -217,8 +252,25 @@ namespace VDService
 
         public List<Dictionary<string, string>> getFeedBackBook(int id)
         {
-            throw new NotImplementedException();
-        }
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<FEEDBACK> feedback = unit.FeedbacksRepository.GetAll().Where(x => x.ID_BOOK == id).ToList();
+                List<Dictionary<string, string>> feedbackList = new List<Dictionary<string, string>>();
+                foreach (FEEDBACK feedback1 in feedback)
+                {
+                    Dictionary<string, string> feedbackDict = new Dictionary<string, string>();
+                    feedbackDict.Add("id", feedback1.Id.ToString());
+                    feedbackDict.Add("text", feedback1.FEEDBACK1);
+                    feedbackDict.Add("date", feedback1.DATE.ToString());
+                    feedbackDict.Add("username", feedback1.USER.USER_NAME);
+                    feedbackDict.Add("pating", feedback1.RATING.ToString());
+                    feedbackDict.Add("useravatar", feedback1.USER.USER_AVATAR);
+                    
+                    feedbackList.Add(feedbackDict);
+                }
+                return feedbackList;
+            }
+        }            
 
         public List<Dictionary<string, string>> getGenresBook(int id)
         {
@@ -256,8 +308,24 @@ namespace VDService
 
         public List<Dictionary<string, string>> getPaintBook(int id)
         {
-            throw new NotImplementedException();
-        }
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<PAINT> paints = unit.PaintsRepository.GetAll().Where(x => x.ID_BOOK == id).ToList();
+                List<Dictionary<string, string>> paintsList = new List<Dictionary<string, string>>();
+                foreach (PAINT paint in paints)
+                {
+                    Dictionary<string, string> paintDict = new Dictionary<string, string>();
+                    paintDict.Add("id", paint.Id.ToString());
+                    paintDict.Add("link", paint.LINK);
+                    paintDict.Add("idArtist", paint.ID_ARTIST.ToString());
+                    paintDict.Add("nameArtist", paint.ARTIST.ARTIST_NAME);
+                    paintDict.Add("dataAdd", paint.DATA.ToString());
+                    paintsList.Add(paintDict);
+
+                }
+                return paintsList;
+            }                
+       }
 
         public List<Dictionary<string, string>> getTags()
         {

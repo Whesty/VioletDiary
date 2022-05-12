@@ -43,9 +43,10 @@ namespace VioletBookDiary.ViewModels
             //Открытие страницы
             BookViewModel selectedBook = win.DataList.SelectedItem as BookViewModel;
             
-           PageViewBook viewBook = new PageViewBook();
+            PageViewBook viewBook = new PageViewBook(selectedBook);
             
             viewBook.model = selectedBook;
+            viewBook.model.win = viewBook;
             viewBook.DataContext = viewBook.model;
             
             main.CurrentPage = viewBook;

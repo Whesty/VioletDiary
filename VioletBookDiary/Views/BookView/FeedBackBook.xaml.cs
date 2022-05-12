@@ -26,6 +26,7 @@ namespace VioletBookDiary.Views.BookView
         {
             InitializeComponent();
             model = new FeedBackViewModel(idbook);
+            model.win = this;
             DataContext = model;
         }
     }

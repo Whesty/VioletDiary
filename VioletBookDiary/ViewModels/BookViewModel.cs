@@ -9,12 +9,14 @@ using System.Collections.ObjectModel;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
 using System.Windows.Controls;
+using VioletBookDiary.Views.BookView;
 
 namespace VioletBookDiary.ViewModels
 {
     public class BookViewModel : ViewModelBase
     {
         public Book Book;
+        public PageViewBook win;
         
         public BookViewModel(Book book)
         {
@@ -190,23 +192,37 @@ namespace VioletBookDiary.ViewModels
         }
         //public ObservableCollection<>
         #region Commands
-        public ICommand open_PageViewBook => new DelegateCommand(Open_PageViewBook);
-        private void Open_PageViewBook()
+        //public ICommand open_PageViewBook => new DelegateCommand(Open_PageViewBook);
+        //private void Open_PageViewBook()
+        //{
+        //    //Открытие страницы
+        //    PageViewBook viewBook = new PageViewBook();
+
+        //    CurrentPage = new FeedBackBook(Book.Id);
+        //    win.Button_FeedBack.IsEnabled = false;
+        //    win.Button_Paint.IsEnabled = true;
+        //}
+        public Page CurrentPage { get; set; }
+        public void Open_PageViewBook()
         {
-            //Открытие страницы
-            PageViewBook viewBook = new PageViewBook();
+            CurrentPage = new FeedBackBook(Book.Id);
+            CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
+            CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
-        Page CurrentPage;
         public ICommand open_FeedBack => new DelegateCommand(Open_FeedBack);
         private void Open_FeedBack()
         {
-            //Отзывы о книге
-
+            CurrentPage = new FeedBackBook(Book.Id);
+            CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
+            CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
         public ICommand open_Paint => new DelegateCommand(Open_Paint);
         private void Open_Paint()
         {
-            //Картинки по книге
+
+            CurrentPage = new FeedBackBook(Book.Id);
+            win.Button_FeedBack.IsEnabled = true;
+            win.Button_Paint.IsEnabled = false;
 
         }
         #endregion

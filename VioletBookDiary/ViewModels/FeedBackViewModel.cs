@@ -4,7 +4,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using VioletBookDiary.Commands;
 using VioletBookDiary.Models;
+using VioletBookDiary.Views.BookView;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -15,21 +18,44 @@ namespace VioletBookDiary.ViewModels
         public string CurrentUserComment { get; set; }
         public string CurrentUserAvatar { get => CurrentUser._User.Avatar; set { } }
         public ObservableCollection<Feedback> Feedbacks { get; set; }
+        public int IdBook;
+        public FeedBackBook win;
 
         public FeedBackViewModel(int idbook)
         {
             Feedbacks = new ObservableCollection<Feedback>();
-
+            IdBook = idbook;
+            GetFeedbacks();
         }
-
+        
         #region Function Service
-        public ObservableCollection<Feedback> GetFeedbacks()
+        public void GetFeedbacks()
         {
             //Обратиться к серверу и поулчить список отзывов по id book
-            return null;
+            foreach (Dictionary<string, string> item in CurrentClient.service.getFeedBackBook(IdBook)) {
+                Feedback feedback = new Feedback();
+                feedback.Id = int.Parse(item["id"]);
+                feedback.UserName = item["username"];
+                feedback.feedback = item["text"];
+                feedback.DateCreat = DateTime.Parse(item["date"]);
+                feedback.Pating = float.Parse(item["pating"]);
+                feedback.UserAvatar = item["useravatar"];
+                Feedbacks.Add(feedback);
+            }
         }
         #endregion
         #region Commands
+        public ICommand addFeedBack => new DelegateCommand(AddFeedback);
+        private void AddFeedback()
+        {
+            string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar );
+            if (result == "Отправлен!")
+            {
+                GetFeedbacks();
+                CurrentUserComment = "";
+                CurrentUserStar = "";
+            }
+        }
         #endregion
     }
 }

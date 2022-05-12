@@ -35,6 +35,7 @@ namespace VioletBookDiary.ViewModels
             CurrentUser.SetUser(user);
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             Admin = new AdminListBook();
+            CurrentPage = Main;
         }
         public User user { get; set; }
         private MainPage Main;

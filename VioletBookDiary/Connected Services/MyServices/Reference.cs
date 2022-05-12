@@ -63,6 +63,18 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenresBook", ReplyAction="http://tempuri.org/IService/getGenresBookResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenresBookAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getFeedBackBook", ReplyAction="http://tempuri.org/IService/getFeedBackBookResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getFeedBackBook(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getFeedBackBook", ReplyAction="http://tempuri.org/IService/getFeedBackBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getFeedBackBookAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPaintBook", ReplyAction="http://tempuri.org/IService/getPaintBookResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getPaintBook(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPaintBook", ReplyAction="http://tempuri.org/IService/getPaintBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintBookAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
         System.Collections.Generic.Dictionary<string, string>[] getBooks();
         
@@ -86,6 +98,18 @@ namespace VioletBookDiary.MyServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
         System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFeedBack", ReplyAction="http://tempuri.org/IService/AddFeedBackResponse")]
+        string AddFeedBack(int idBook, string text, int idUser, string pating);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFeedBack", ReplyAction="http://tempuri.org/IService/AddFeedBackResponse")]
+        System.Threading.Tasks.Task<string> AddFeedBackAsync(int idBook, string text, int idUser, string pating);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddPaint", ReplyAction="http://tempuri.org/IService/AddPaintResponse")]
+        string AddPaint(int idBook, int idUser, string rating);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddPaint", ReplyAction="http://tempuri.org/IService/AddPaintResponse")]
+        System.Threading.Tasks.Task<string> AddPaintAsync(int idBook, int idUser, string rating);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -190,6 +214,22 @@ namespace VioletBookDiary.MyServices {
             return base.Channel.getGenresBookAsync(id);
         }
         
+        public System.Collections.Generic.Dictionary<string, string>[] getFeedBackBook(int id) {
+            return base.Channel.getFeedBackBook(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getFeedBackBookAsync(int id) {
+            return base.Channel.getFeedBackBookAsync(id);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getPaintBook(int id) {
+            return base.Channel.getPaintBook(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintBookAsync(int id) {
+            return base.Channel.getPaintBookAsync(id);
+        }
+        
         public System.Collections.Generic.Dictionary<string, string>[] getBooks() {
             return base.Channel.getBooks();
         }
@@ -220,6 +260,22 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser) {
             return base.Channel.AddBookAsync(name, author, genre, tag, description, image, file, Serialize, Realese, idUser);
+        }
+        
+        public string AddFeedBack(int idBook, string text, int idUser, string pating) {
+            return base.Channel.AddFeedBack(idBook, text, idUser, pating);
+        }
+        
+        public System.Threading.Tasks.Task<string> AddFeedBackAsync(int idBook, string text, int idUser, string pating) {
+            return base.Channel.AddFeedBackAsync(idBook, text, idUser, pating);
+        }
+        
+        public string AddPaint(int idBook, int idUser, string rating) {
+            return base.Channel.AddPaint(idBook, idUser, rating);
+        }
+        
+        public System.Threading.Tasks.Task<string> AddPaintAsync(int idBook, int idUser, string rating) {
+            return base.Channel.AddPaintAsync(idBook, idUser, rating);
         }
     }
 }

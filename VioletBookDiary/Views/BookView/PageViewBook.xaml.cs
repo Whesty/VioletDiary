@@ -22,10 +22,13 @@ namespace VioletBookDiary.Views
     public partial class PageViewBook : Page
     {
         public BookViewModel model;
-        public PageViewBook()
+        public PageViewBook(BookViewModel Model)
         {
             InitializeComponent();
+            CurentWindows.pageViewBook = this;
+            model = Model;
             DataContext = model;
+            model.Open_PageViewBook();
         }
     }
 }

@@ -25,42 +25,29 @@ namespace VioletBookDiary.Views
         public ListBooksViewModel model;
         public ListViewsBooks()
         {
-            //InitializeComponent();
             InitializeComponent();
-            //List<Authors> authors = new List<Authors>();
-            //authors.Add(new Authors("Джон Роулинг"));
-            //List<Book> books = new List<Book>()
-            //{
-
-            //    new Book("Пттерны проетирования", authors),
-            //    new Book("CLR via C#", authors),
-            //    new Book("Исскуство программирования", authors)
-            //};
+            CurentWindows.listViewsBooks = this;
             model = new ListBooksViewModel();
             model.win = this;
             DataContext = model;
-            
-            DataList.ItemsSource = model.BooksList;
-            
+            DataList.ItemsSource = model.BooksList;        
         }
 
         private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
+            //BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
 
-            PageViewBook viewBook = new PageViewBook();
-            viewBook.model = selectedBook;
-            viewBook.DataContext = viewBook.model;
-            model.main.CurrentPage = viewBook;
+            //PageViewBook viewBook = new PageViewBook();
+            //viewBook.model = selectedBook;
+            //viewBook.DataContext = viewBook.model;
+            //model.main.CurrentPage = viewBook;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
 
-            PageViewBook viewBook = new PageViewBook();
-            viewBook.model = selectedBook;
-            viewBook.DataContext = viewBook.model;
+            PageViewBook viewBook = new PageViewBook(selectedBook);
             model.main.CurrentPage = viewBook;
 
         }

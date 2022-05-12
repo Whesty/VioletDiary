@@ -29,6 +29,7 @@ namespace VioletBookDiary
         public MainWindow(User u)
         {
             InitializeComponent();
+            CurentWindows.mainWindow = this;
             m = new MainViewModel(u);
             user = u;
             m.user = user;
