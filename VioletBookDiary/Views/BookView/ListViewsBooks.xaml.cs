@@ -46,9 +46,10 @@ namespace VioletBookDiary.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
+            CurentWindows.mainWindow.Back.IsEnabled = true;
 
             PageViewBook viewBook = new PageViewBook(selectedBook);
-            model.main.CurrentPage = viewBook;
+            CurentWindows.mainWindow.m.CurrentPage = viewBook;
 
         }
     }

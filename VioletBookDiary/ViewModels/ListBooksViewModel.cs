@@ -50,6 +50,7 @@ namespace VioletBookDiary.ViewModels
             viewBook.DataContext = viewBook.model;
             
             main.CurrentPage = viewBook;
+            CurentWindows.mainWindow.Back.IsEnabled = true;
         }
         
     }

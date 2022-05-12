@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using VDService.Repository;
 using VDService.Model;
+using VDService.Repository;
 
 namespace VDService.Unit
 {
@@ -165,7 +162,7 @@ namespace VDService.Unit
                 string str = "null";
                 foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
                 {
-                     str = "\nObject: " + validationError.Entry.Entity.ToString();
+                    str = "\nObject: " + validationError.Entry.Entity.ToString();
                     foreach (DbValidationError error in validationError.ValidationErrors)
                     {
                         str += "\n" + error.ErrorMessage;
@@ -175,14 +172,14 @@ namespace VDService.Unit
                 file.Write(Encoding.Default.GetBytes(str), 0, str.Length);
                 throw err;
             }
-            
+
         }
 
-       
+
 
         public void Dispose()
         {
             GC.SuppressFinalize(this);
         }
     }
-}    
+}

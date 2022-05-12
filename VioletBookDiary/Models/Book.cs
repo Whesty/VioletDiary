@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 namespace VioletBookDiary.Models
 {
     public class Book
@@ -29,15 +25,17 @@ namespace VioletBookDiary.Models
             }
             return str;
         }
-        public string getGenres() {
+        public string getGenres()
+        {
             string str = "";
             foreach (Genre a in Genres)
             {
                 str = str + a.Name + " ";
             }
             return str;
-        } 
-        public string getTags() {
+        }
+        public string getTags()
+        {
             string str = "";
             foreach (Tag a in Tags)
             {
@@ -47,7 +45,7 @@ namespace VioletBookDiary.Models
         }
 
 
-            public Book(int id, string name, bool status, string series,string realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
+        public Book(int id, string name, bool status, string series, string realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
         {
             Id = id;
             Name = name;
@@ -71,7 +69,7 @@ namespace VioletBookDiary.Models
             Tags = new List<Tag>();
             Genres = new List<Genre>();
             Authors = new List<Authors>();
-            
+
         }
 
     }

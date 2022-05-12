@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -14,7 +11,7 @@ using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
-    public class AddBookViewModel: ViewModelBase
+    public class AddBookViewModel : ViewModelBase
     {
         public string Title
         {
@@ -53,11 +50,12 @@ namespace VioletBookDiary.ViewModels
             }
         }
         public string Authors { get; set; }
-    
+
         public string Genres { get; set; }
 
         private ObservableCollection<Genre> genre = new ObservableCollection<Genre>();
-        public string Description {
+        public string Description
+        {
             get { return book.Description; }
             set
             {
@@ -112,7 +110,7 @@ namespace VioletBookDiary.ViewModels
                 Image = selFileName;
             }
             Win.LoadingImage.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Image)));
-        } 
+        }
         public ICommand open_LoadFile => new DelegateCommand(Open_LoadFile);
         private void Open_LoadFile()
         {
@@ -123,8 +121,8 @@ namespace VioletBookDiary.ViewModels
                 string selFileName = openFile.FileName;
                 File = selFileName;
             }
-            
-        } 
+
+        }
         public ICommand button_AddBook => new DelegateCommand(Button_AddBook);
         private void Button_AddBook()
         {

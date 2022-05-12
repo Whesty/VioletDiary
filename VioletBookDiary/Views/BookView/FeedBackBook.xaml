@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <Grid>
             <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,10,0,0">
-                <Image Source="{Binding CurrentUserAvatar}" Width="100" Height="100" Margin="5,5,5,5"/>
+                <Image Source="{Binding CurrentUserAvatar}" Width="100" Height="100" Margin="5,5,5,5" Stretch="UniformToFill"/>
                 <StackPanel>
                     <TextBlock Text="{Binding CurrentUserName}" FontSize="20" Margin="5,5,5,5"/>
                     <DockPanel>

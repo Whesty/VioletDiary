@@ -23,7 +23,7 @@
 
                     <Grid VerticalAlignment="Stretch" Width="210" Height="297"  >
 
-                        <Button Click="Button_Click" Width="210" Height="297" Background="{x:Null}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.IsSharedSizeScope="False" Padding="0,0,0,0" >
+                        <Button Click="Button_Click" Width="210" Height="297" Background="{x:Null}"  BorderBrush="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.IsSharedSizeScope="False" Padding="0,0,0,0" >
                             <!--<Button.Background>
                                 <ImageBrush ImageSource="{Binding Path=Image}"/>
                             </Button.Background>-->

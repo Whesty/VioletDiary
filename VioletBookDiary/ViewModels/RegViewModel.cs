@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
@@ -23,7 +18,7 @@ namespace VioletBookDiary.ViewModels
         {
             reg = _reg;
         }
-            private void Reg_In()
+        private void Reg_In()
         {
             string email = this.login;
             string password = this.password;

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Models;
@@ -35,6 +36,7 @@ namespace VioletBookDiary.ViewModels
         #region Function Service
         public void GetListPaint()
         {
+            ListPaint = new ObservableCollection<Paint>();
             foreach (Dictionary<string, string> items in CurrentClient.service.getPaintBook(IdBook))
             {
                 ListPaint.Add(new Paint()
@@ -71,7 +73,9 @@ namespace VioletBookDiary.ViewModels
                 if (result == "Загружен!")
                 {
                     GetListPaint();
+                    MessageBox.Show("Загружено!", "Успешно", MessageBoxButton.OK);
                 }
+                else MessageBox.Show("Ошибка!", result, MessageBoxButton.OK);
             }
         }
 

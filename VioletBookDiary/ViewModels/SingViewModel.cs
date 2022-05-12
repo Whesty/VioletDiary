@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,7 +8,7 @@ using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
-    public class SingViewModel: ViewModelBase
+    public class SingViewModel : ViewModelBase
     {
         ContentControl control;
         private double contentOpacity;
@@ -45,10 +41,10 @@ namespace VioletBookDiary.ViewModels
             //logon = new Logon(window);
 
             //Content = logon.GetPage("login");
-            ContentOpacity = 1.0; 
+            ContentOpacity = 1.0;
         }
 
-        
+
 
         private void GoToRegistration()
         {

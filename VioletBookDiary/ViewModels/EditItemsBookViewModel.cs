@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VioletBookDiary.Models;
-using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using VioletBookDiary.Commands;
+using VioletBookDiary.Models;
 using VioletBookDiary.Views;
 
 
@@ -50,7 +48,7 @@ namespace VioletBookDiary.ViewModels
                     _genre.Add(genre);
                 }
                 win.AllItemsTable.ItemsSource = _genre;
-            } 
+            }
             if (table == 3)
             {
                 //Получаем от сервера список тегов
@@ -62,7 +60,7 @@ namespace VioletBookDiary.ViewModels
                     _tag.Add(tag);
                 }
                 win.AllItemsTable.ItemsSource = _tag;
-                
+
             }
         }
         public void IsChecked()
@@ -75,7 +73,7 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_View => new DelegateCommand(Open_View);
         private void Open_View()
         {
-            
+
         }
     }
 }

@@ -23,7 +23,7 @@ namespace VioletBookDiary
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel m;
+        public MainViewModel m;
         User user = new User();
         
         public MainWindow(User u)

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ServiceModel;
-using VioletBookDiary.MyServices;
-using VioletBookDiary.ViewModels;
+﻿using System.Collections.Generic;
+using System.Management;
 using System.Windows;
 using VioletBookDiary.Models;
-using System.Management;
+using VioletBookDiary.MyServices;
+using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary
 {
@@ -18,7 +13,7 @@ namespace VioletBookDiary
         public UserInfoViewModel userinfoVM { get; set; }
         public void OnCallback(string message)
         {
-           
+
         }
 
         public void UpdateUserCallBack(Dictionary<string, string> result)

@@ -23,13 +23,12 @@ namespace VioletBookDiary.Views
     {
         string _path;
         ReadBookViewModel readBookViewModel;
-        public ReedBook()
+        public ReedBook(string path)
         {
-            InitializeComponent();
+            _path = path;
             readBookViewModel = new ReadBookViewModel(_path);
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
-            Chapters.SelectedIndex = 0;
-            readBookViewModel.getParagraph(Chapters.SelectedIndex);
+            InitializeComponent();
             DataContext = readBookViewModel;
         }
 

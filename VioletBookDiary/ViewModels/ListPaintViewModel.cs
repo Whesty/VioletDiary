@@ -19,6 +19,7 @@ namespace VioletBookDiary.ViewModels
         #region Function Service
         public void GetListPaint()
         {
+            ListPaint = new List<Paint>();
             foreach (Dictionary<string, string> items in CurrentClient.service.getPaints())
             {
                 ListPaint.Add(new Paint()

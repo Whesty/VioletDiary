@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
-using VioletBookDiary.Views;
-using VioletBookDiary.MyServices;
-using System.ServiceModel;
 using VioletBookDiary.Models;
+using VioletBookDiary.MyServices;
+using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -88,14 +85,14 @@ namespace VioletBookDiary.ViewModels
             Dictionary<string, string> log;
             try
             {
-               
+
                 log = CurrentClient.service.Login(email, password);
                 if (log == null)
                     throw new Exception("Неправельные логин или пороль");
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show(ex.Message.ToString());
 
                 return;

@@ -238,6 +238,11 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = false;
 
         }
+        public ICommand open_Reed => new DelegateCommand(Open_Reed);
+        private void Open_Reed()
+        {
+            CurentWindows.mainWindow.m.CurrentPage = new ReedBook(Book.File);
+        }
         #endregion
     }
 

@@ -13,8 +13,8 @@
                 <RowDefinition Height="79*"/>
                 <RowDefinition Height="126*"/>
             </Grid.RowDefinitions>
-            <DockPanel>
-                <Image Source="{Binding Avatar, UpdateSourceTrigger=PropertyChanged}"></Image>
+            <DockPanel VerticalAlignment="Top">
+                <Image Stretch="UniformToFill" Height="200" Width="200" Source="{Binding Avatar, UpdateSourceTrigger=PropertyChanged}"></Image>
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                     <DockPanel>
                         <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VioletBookDiary.Models
+﻿namespace VioletBookDiary.Models
 {
     public class User
     {
@@ -16,6 +10,6 @@ namespace VioletBookDiary.Models
         public bool AccessLevel { get; set; }
         public string DataCreate { get; set; }
         public int IdAuthorized { get; set; }
-        
+
     }
 }

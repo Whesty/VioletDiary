@@ -12,91 +12,123 @@ using FB2Library;
 using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
+using System.Windows.Controls;
 
 namespace VioletBookDiary.ViewModels
 {
-	internal class ReadBookViewModel : ViewModelBase
-	{
-		private readonly string _filePath;
-		Stream Stream;
-		private FB2File _fb2File;
-		private List<string> Chapter
-		{
-			get
-			{
-				List<string> chapter = new List<string>();
-				foreach (var item in _fb2File.Bodies.ToList())
-				{
-					chapter.Add(item.Title.ToString());
-				}
-				return chapter;
-			}
-			set
-			{
-				if (Chapter != value)
-				{
-					Chapter = value;
-					OnPropertyChanged("Chapter");
-				}
-			}
-		}
-		private string Chapter_selection;
-		public async Task ReadFB2FileStreamAsync()
-		{
-			// setup
-			var readerSettings = new XmlReaderSettings
-			{
-				DtdProcessing = DtdProcessing.Ignore
-			};
-			var loadSettings = new FB2Library.XmlLoadSettings(readerSettings);
+    internal class ReadBookViewModel : ViewModelBase
+    {
+        private readonly string _filePath;
+        Stream Stream;
+        private FB2File _fb2File;
+        private List<string> chapter;
+        public List<string> Chapter
+        {
+            get
+            {
+                return chapter;
+            }
+            set
+            {
+                if (chapter != value)
+                {
+                    chapter = value;
+                    OnPropertyChanged("Chapter");
+                }
+            }
+        }
+        private int Chapter_selection = 0;
+        private string chapter_selectionTitel;
+        public string Chapter_selectionTitel
+        {
+            get
+            {
+                return chapter_selectionTitel;
+            }
+            set
+            {
+                if (chapter_selectionTitel != value)
+                {
+                    chapter_selectionTitel = value;
+                    OnPropertyChanged("Chapter_selectionTitel");
+                }
+            }
+        }
 
-			try
-			{
-				// reading
-				FB2File file = await new FB2Reader().ReadAsync(Stream, loadSettings);
-				_fb2File = file;
+        public async Task ReadFB2FileStreamAsync()
+        {
+            // setup
+            var readerSettings = new XmlReaderSettings
+            {
+                DtdProcessing = DtdProcessing.Ignore
+            };
+            var loadSettings = new FB2Library.XmlLoadSettings(readerSettings);
 
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(string.Format("Error loading file : {0}", ex.Message));
-			}
-		}
+            try
+            {
+                // reading
+                FB2File file = await new FB2Reader().ReadAsync(Stream, loadSettings);
+                _fb2File = file;
+                Chapter = new List<string>();
+                foreach (var item in _fb2File.Bodies[0].Sections.ToList())
+                {
+                    Chapter.Add(item.Title.ToString());
+                }
+                getParagraph(Chapter_selection);
 
-		public ReadBookViewModel(string filePath)
-		{
-			_filePath = filePath;
-			Stream = File.OpenRead(_filePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(string.Format("Error loading file : {0}", ex.Message));
+            }
+        }
 
-		}
+        public ReadBookViewModel(string filePath)
+        {
+            _filePath = filePath;
+            Stream = File.OpenRead(_filePath);
 
-		List<string> Paragraph;
-		public void getParagraph(int chapter)
-		{
-			List<string> paragraph = new List<string>();
-			
-			if (_fb2File != null)
-			{
-				var body = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter];
-                Chapter_selection = body.Title.ToString();
-                foreach (var i in body.Content.ToList())
-				{
-					string s = i.ToString();
-                    getStyleHelp(s);
-                    paragraph.Add(s);
-				}
-			}
-		}
-		public string getStyleHelp(string s)
-		{
+        }
+        private List<string> paragraph;
+        public List<string> Paragraph { get { return paragraph; } set 
+            {
+                if (paragraph != value)
+                {
+                    paragraph = value;
+                    OnPropertyChanged("Paragraph");
+                }
+            } }
+        public void getParagraph(int chapter)
+        {
+            Paragraph = new List<string>();
+
+            if (_fb2File != null)
+            {
+                var body = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter];
+                chapter_selectionTitel = body.Title.ToString();
+                int i;
+                List<string> par = new List<string>();
+                for (i=0;  i < body.Content.LongCount(); i++)
+                {
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
+                    string s = textBlock.Text;
+                    //getStyleHelp(s);
+                    par.Add(s);
+                }
+                Paragraph = par;
+            }
+        }
+        public string getStyleHelp(string s)
+        {
             string style = "";
             Regex regex = new Regex(@"(\w*)<a>(\w*)</a>");
             MatchCollection math = regex.Matches(s);
             //Подсказки добавить
             //Подсказки прикреплять к listItems и писать все существующие в нем подсказки
             style = Regex.Replace(s, @"(\w*)<a>(\w*)</a>", @"$1\[$2\]");
-			return style;
-		}
-		
-	}
+            return style;
+        }
+
+    }
 }

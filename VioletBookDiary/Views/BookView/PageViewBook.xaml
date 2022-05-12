@@ -32,7 +32,7 @@
                                 <!-- Если книга сохранена выбрать статус сохранения -->
                                 <ComboBox Margin="10,10,10,10" Height="30" Background="{x:Null}" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" ></ComboBox>
                                 <!-- Читать книгу, если есть файл -->
-                                <Button x:Name="ReedBookButton"  Margin="10,10,10,10" Cursor="Hand">
+                                <Button Command="{Binding open_Reed}" x:Name="ReedBookButton"  Margin="10,10,10,10" Cursor="Hand">
                                     <materialDesign:PackIcon Kind="ReadMore" Width="24" DataContext="Читать" Height="24" VerticalAlignment="Center"/>
                                 </Button>
                             </StackPanel>

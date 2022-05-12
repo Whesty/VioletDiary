@@ -56,7 +56,7 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Main => new DelegateCommand(Open_Main);
         private void Open_Main()
         {
-           
+            CurentWindows.mainWindow.Back.IsEnabled = false;
             CurrentPage = Main;
         }
         public ICommand open_UserInfo => new DelegateCommand(Open_UserInfo);

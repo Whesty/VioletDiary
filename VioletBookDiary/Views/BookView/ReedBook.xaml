@@ -23,7 +23,7 @@
         <Grid Grid.Column="1" Margin="0,0,360,390" Grid.RowSpan="2"></Grid>
         <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
             <DockPanel HorizontalAlignment="Right" Margin="0,10,0,0">
-                <TextBlock Text="{Binding Chapter_selection}" HorizontalAlignment="Left" Margin="0,0,10,0" FontSize="20"></TextBlock>
+                <TextBlock Text="{Binding Chapter_selectionTitel}" HorizontalAlignment="Left" Margin="0,0,10,0" FontSize="20"></TextBlock>
                 <ComboBox x:Name="Chapters" ItemsSource="{Binding Chapter}" HorizontalAlignment="Right" MinWidth="60" Margin="0,0,10,0" SelectionChanged="Chapters_SelectionChanged"/>
                 <Button Width="30" Height="30" HorizontalAlignment="Right">
                     <materialDesign:PackIcon Kind="BookMark"  Width="24" Height="24"/>
@@ -31,12 +31,8 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
-            <ListView Background="{x:Null}" BorderBrush="{x:Null}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Book_Paragraf}" Width="500"></TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+            <ListView ItemsSource="{Binding Paragraph}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                
             </ListView>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="2"></Grid>

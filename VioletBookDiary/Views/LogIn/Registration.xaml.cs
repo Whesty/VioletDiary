@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
@@ -40,7 +29,8 @@ namespace VioletBookDiary.Views
                 Passvord2_Box.BorderBrush = Brushes.Red;
                 Reg_Button.IsEnabled = false;
             }
-            else { 
+            else
+            {
                 Passvord2_Box.BorderBrush = Brushes.Green;
                 Reg_Button.IsEnabled = true;
             }
