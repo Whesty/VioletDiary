@@ -202,27 +202,40 @@ namespace VioletBookDiary.ViewModels
         //    win.Button_FeedBack.IsEnabled = false;
         //    win.Button_Paint.IsEnabled = true;
         //}
-        public Page CurrentPage { get; set; }
+        private Page currentpage;
+        
+        public Page CurrentPage
+        {
+            get { return currentpage; }
+            set
+            {
+                this.currentpage = value;
+                OnPropertyChanged(nameof(CurrentPage));
+            }
+        }
+        private FeedBackBook feedBack;
+        private PaintBook paintBook;
         public void Open_PageViewBook()
         {
-            CurrentPage = new FeedBackBook(Book.Id);
+            feedBack = new FeedBackBook(Book.Id);
+            paintBook = new PaintBook(Book.Id);
+            CurrentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
         public ICommand open_FeedBack => new DelegateCommand(Open_FeedBack);
         private void Open_FeedBack()
         {
-            CurrentPage = new FeedBackBook(Book.Id);
+            CurrentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
         public ICommand open_Paint => new DelegateCommand(Open_Paint);
         private void Open_Paint()
         {
-
-            CurrentPage = new FeedBackBook(Book.Id);
-            win.Button_FeedBack.IsEnabled = true;
-            win.Button_Paint.IsEnabled = false;
+            CurrentPage = paintBook;
+            CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = true;
+            CurentWindows.pageViewBook.Button_Paint.IsEnabled = false;
 
         }
         #endregion

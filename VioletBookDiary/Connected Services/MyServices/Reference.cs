@@ -45,6 +45,12 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getTags", ReplyAction="http://tempuri.org/IService/getTagsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPaints", ReplyAction="http://tempuri.org/IService/getPaintsResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getPaints();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPaints", ReplyAction="http://tempuri.org/IService/getPaintsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAuthorsBook", ReplyAction="http://tempuri.org/IService/getAuthorsBookResponse")]
         System.Collections.Generic.Dictionary<string, string>[] getAuthorsBook(int id);
         
@@ -188,6 +194,14 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getTagsAsync() {
             return base.Channel.getTagsAsync();
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getPaints() {
+            return base.Channel.getPaints();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintsAsync() {
+            return base.Channel.getPaintsAsync();
         }
         
         public System.Collections.Generic.Dictionary<string, string>[] getAuthorsBook(int id) {

@@ -320,12 +320,35 @@ namespace VDService
                     paintDict.Add("idArtist", paint.ID_ARTIST.ToString());
                     paintDict.Add("nameArtist", paint.ARTIST.ARTIST_NAME);
                     paintDict.Add("dataAdd", paint.DATA.ToString());
+                    paintDict.Add("userAdd", paint.ID_USER_ADD.ToString());
                     paintsList.Add(paintDict);
 
                 }
                 return paintsList;
             }                
        }
+
+        public List<Dictionary<string, string>> getPaints()
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<PAINT> paints = unit.PaintsRepository.GetAll();
+                List<Dictionary<string, string>> paintsList = new List<Dictionary<string, string>>();
+                foreach (PAINT paint in paints)
+                {
+                    Dictionary<string, string> paintDict = new Dictionary<string, string>();
+                    paintDict.Add("id", paint.Id.ToString());
+                    paintDict.Add("link", paint.LINK);
+                    paintDict.Add("idBook", paint.ID_BOOK.ToString());
+                    paintDict.Add("idArtist", paint.ID_ARTIST.ToString());
+                    paintDict.Add("nameArtist", paint.ARTIST.ARTIST_NAME);
+                    paintDict.Add("dataAdd", paint.DATA.ToString());
+                    paintDict.Add("userAdd", paint.ID_USER_ADD.ToString());
+                    paintsList.Add(paintDict);
+                }
+                return paintsList;
+            }
+        }
 
         public List<Dictionary<string, string>> getTags()
         {

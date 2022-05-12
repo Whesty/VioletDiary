@@ -20,7 +20,9 @@ namespace VDService
         [OperationContract]
         List<Dictionary<string, string>> getGenrs();
         [OperationContract]
-        List<Dictionary<string, string>> getTags();
+        List<Dictionary<string, string>> getTags(); 
+        [OperationContract]
+        List<Dictionary<string, string>> getPaints();
         [OperationContract]
         List<Dictionary<string, string>> getAuthorsBook(int id);
         [OperationContract]

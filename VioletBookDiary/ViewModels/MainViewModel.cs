@@ -29,7 +29,6 @@ namespace VioletBookDiary.ViewModels
         {
             //BooksList = new ObservableCollection<BookViewModel>();
             Main = new MainPage();
-            Main.listBooks.model.main = this;
             User_Info = new UserInfo();
             user = u;
             CurrentUser.SetUser(user);
@@ -77,7 +76,6 @@ namespace VioletBookDiary.ViewModels
         {
 
             Main = new MainPage();
-            Main.listBooks.model.main = this;
             User_Info = new UserInfo();
             CurrentUser.SetUser(user);
             Admin = new AdminListBook();
@@ -86,6 +84,13 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Admin => new DelegateCommand(Open_Admin);
         private void Open_Admin()
         {
+            Main = new MainPage();
+            CurentWindows.mainPage.Button_ListBook.IsEnabled = false;
+            CurentWindows.mainPage.Filters.IsEnabled = true;
+            User_Info = new UserInfo();
+            CurrentUser.SetUser(user);
+            client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
+            Admin = new AdminListBook();
             CurrentPage = Admin;
         }
 

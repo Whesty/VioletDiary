@@ -225,6 +225,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Paint.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="VDMyServiceCallBack.cs" />
@@ -235,8 +236,10 @@
     <Compile Include="ViewModels\EditItemsBookViewModel.cs" />
     <Compile Include="ViewModels\FeedBackViewModel.cs" />
     <Compile Include="ViewModels\ListBooksViewModel.cs" />
+    <Compile Include="ViewModels\ListPaintViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PaintBookViewModel.cs" />
     <Compile Include="ViewModels\ReadBookViewModel.cs" />
     <Compile Include="ViewModels\RegViewModel.cs" />
     <Compile Include="ViewModels\SingViewModel.cs" />
@@ -252,6 +255,12 @@
     </Compile>
     <Compile Include="Views\BookView\FeedBackBook.xaml.cs">
       <DependentUpon>FeedBackBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookView\ListPaintView.xaml.cs">
+      <DependentUpon>ListPaintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookView\PaintBook.xaml.cs">
+      <DependentUpon>PaintBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditItemsBook.xaml.cs">
       <DependentUpon>EditItemsBook.xaml</DependentUpon>
@@ -296,6 +305,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookView\FeedBackBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookView\ListPaintView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookView\PaintBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

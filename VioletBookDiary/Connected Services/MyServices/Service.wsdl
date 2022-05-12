@@ -66,6 +66,12 @@
   <wsdl:message name="IService_getTags_OutputMessage">
     <wsdl:part name="parameters" element="tns:getTagsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getPaints_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPaints" />
+  </wsdl:message>
+  <wsdl:message name="IService_getPaints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPaintsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getAuthorsBook_InputMessage">
     <wsdl:part name="parameters" element="tns:getAuthorsBook" />
   </wsdl:message>
@@ -159,6 +165,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getTags" message="tns:IService_getTags_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getTagsResponse" message="tns:IService_getTags_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getPaints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getPaints" message="tns:IService_getPaints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getPaintsResponse" message="tns:IService_getPaints_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getAuthorsBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getAuthorsBook" message="tns:IService_getAuthorsBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getAuthorsBookResponse" message="tns:IService_getAuthorsBook_OutputMessage" />
@@ -251,6 +261,15 @@
     </wsdl:operation>
     <wsdl:operation name="getTags">
       <soap12:operation soapAction="http://tempuri.org/IService/getTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaints">
+      <soap12:operation soapAction="http://tempuri.org/IService/getPaints" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

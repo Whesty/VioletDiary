@@ -22,10 +22,10 @@
                         <ComboBoxItem>Сначала новые</ComboBoxItem>
                         <ComboBoxItem>По популярности</ComboBoxItem>
                     </ComboBox>
-                    <Button x:Name="Button_ListBook" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="30,10,0,0">
+                    <Button x:Name="Button_ListBook" Command="{Binding open_BookList}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="30,10,0,0">
                         <materialDesign:PackIcon Kind="BookOpenPageVariant" Width="20" Height="20"/>
                     </Button>
-                    <Button x:Name="Button_ListImage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="30,10,0,0">
+                    <Button x:Name="Button_ListImage" Command="{Binding open_PaintList}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="30,10,0,0">
                         <materialDesign:PackIcon Kind="Image" Width="20" Height="20"/>
                     </Button>
                 </DockPanel>

@@ -14,21 +14,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VioletBookDiary.ViewModels;
 
-namespace VioletBookDiary.Views
+namespace VioletBookDiary.Views.BookView
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для ListPaintView.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class ListPaintView : UserControl
     {
-        public MainPageViewModel vm;
-        //ListImage
-        public MainPage()
+        public ListPaintViewModel model = new ListPaintViewModel();
+        public ListPaintView()
         {
             InitializeComponent();
-            CurentWindows.mainPage = this;
-            Filters.SelectedItem = Filters.Items[0];
-            DataContext = vm = new MainPageViewModel(this);
+            DataContext = model;
         }
     }
 }

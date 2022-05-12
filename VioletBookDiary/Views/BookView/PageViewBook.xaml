@@ -74,7 +74,7 @@
                             <Button Command="{Binding open_FeedBack}" x:Name="Button_FeedBack" HorizontalAlignment="Stretch" Width="400">
                                 <materialDesign:PackIcon Kind="RateReview" Height="24" VerticalAlignment="Center"/>
                             </Button>
-                            <Button x:Name="Button_Paint">
+                                <Button Command="{Binding open_Paint}" x:Name="Button_Paint">
                                 <materialDesign:PackIcon Kind="ImageAlbum" Height="24" VerticalAlignment="Center"/>
                             </Button>
                         </DockPanel>

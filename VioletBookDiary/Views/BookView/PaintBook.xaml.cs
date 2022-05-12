@@ -14,21 +14,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VioletBookDiary.ViewModels;
 
-namespace VioletBookDiary.Views
+namespace VioletBookDiary.Views.BookView
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для PaintBook.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class PaintBook : Page
     {
-        public MainPageViewModel vm;
-        //ListImage
-        public MainPage()
+        PaintBookViewModel model;
+        public PaintBook(int idbook)
         {
             InitializeComponent();
-            CurentWindows.mainPage = this;
-            Filters.SelectedItem = Filters.Items[0];
-            DataContext = vm = new MainPageViewModel(this);
+            model = new PaintBookViewModel(idbook);
+            DataContext = model;
         }
     }
 }
