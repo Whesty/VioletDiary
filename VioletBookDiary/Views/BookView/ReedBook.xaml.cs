@@ -23,14 +23,18 @@ namespace VioletBookDiary.Views
     {
         string _path;
         ReadBookViewModel readBookViewModel;
-        public ReedBook(string path)
+        public ReedBook(string path, int mark)
         {
+
             _path = path;
             readBookViewModel = new ReadBookViewModel(_path);
+            readBookViewModel.Chapter_selection = mark;
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
-            Chapters.SelectedIndex = 0;
             InitializeComponent();
             DataContext = readBookViewModel;
+            Chapters.SelectedIndex = mark;
+            CurentWindows.reedBook = this;
+
         }
 
         private void Chapters_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -38,6 +42,8 @@ namespace VioletBookDiary.Views
             readBookViewModel.getParagraph(Chapters.SelectedIndex);
             DataContext = readBookViewModel;
             wbSample.Refresh();
+            CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
+            CurentWindows.pageViewBook.model.editBookMark();
         }
     }
 }

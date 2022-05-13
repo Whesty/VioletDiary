@@ -137,6 +137,27 @@ namespace VDService
         
         }
 
+        public bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence)
+        {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
+                USER_BOOKMARKS book = new USER_BOOKMARKS(){
+                    BOOKId = idBook,
+                    USERId = IdUser,
+                    MARKS = mark,
+                    STATUS_READING = status,
+                    PRESENCE = presence,
+                    DATA_ADD = DateTime.Now,
+                    DATA_READING = DateTime.Now
+                };
+                if (book == null)
+                    return false;
+                unitOfWork.UserBookmarksRepository.Add(book);
+                unitOfWork.Save();
+                return true;
+            }
+        }
+
         public string AddFeedBack(int idBook, string text, int idUser, string rating)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
@@ -192,6 +213,22 @@ namespace VDService
             }
         }
 
+        public bool editBookMarks(int idBook, int IdUser, int mark, string status, bool presence)
+        {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
+                USER_BOOKMARKS book = unitOfWork.UserBookmarksRepository.GetAll().Where(x => x.BOOKId == idBook && x.USERId == IdUser).FirstOrDefault();
+                if (book == null)
+                    return false;
+                book.MARKS = mark;
+                book.STATUS_READING = status;
+                book.PRESENCE = presence;
+                unitOfWork.UserBookmarksRepository.Update(book);
+                unitOfWork.Save();
+                return true;
+            }
+        }
+
         public List<Dictionary<string, string>> getAuthors()
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -225,6 +262,27 @@ namespace VDService
                     authorsList.Add(authorDict);
                 }
                 return authorsList;
+            }
+        }
+
+        public Dictionary<string, string> getBookMarks(int idBook, int IdUser)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                USER_BOOKMARKS book = unit.UserBookmarksRepository.GetAll().Where(x => x.BOOKId == idBook && x.USERId == IdUser).FirstOrDefault();
+                if (book == null)
+                {
+                    return null;
+                }
+                Dictionary<string, string> bookDict = new Dictionary<string, string>();
+                bookDict.Add("id", book.Id.ToString());
+                bookDict.Add("StatusReading", book.STATUS_READING);
+                bookDict.Add("Presence", book.PRESENCE.ToString());
+                bookDict.Add("Date", book.DATA_ADD.ToString());
+                bookDict.Add("Marks", book.MARKS.ToString());
+                return bookDict;
+
+
             }
         }
 

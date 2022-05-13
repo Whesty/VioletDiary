@@ -102,6 +102,24 @@
   <wsdl:message name="IService_getPaintBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:getPaintBookResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getBookMarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBookMarks" />
+  </wsdl:message>
+  <wsdl:message name="IService_getBookMarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBookMarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_addBookMarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:addBookMarks" />
+  </wsdl:message>
+  <wsdl:message name="IService_addBookMarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addBookMarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_editBookMarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:editBookMarks" />
+  </wsdl:message>
+  <wsdl:message name="IService_editBookMarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editBookMarksResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getBooks_InputMessage">
     <wsdl:part name="parameters" element="tns:getBooks" />
   </wsdl:message>
@@ -188,6 +206,18 @@
     <wsdl:operation name="getPaintBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getPaintBook" message="tns:IService_getPaintBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getPaintBookResponse" message="tns:IService_getPaintBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBookMarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getBookMarks" message="tns:IService_getBookMarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getBookMarksResponse" message="tns:IService_getBookMarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addBookMarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/addBookMarks" message="tns:IService_addBookMarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/addBookMarksResponse" message="tns:IService_addBookMarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editBookMarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/editBookMarks" message="tns:IService_editBookMarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/editBookMarksResponse" message="tns:IService_editBookMarks_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getBooks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getBooks" message="tns:IService_getBooks_InputMessage" />
@@ -315,6 +345,33 @@
     </wsdl:operation>
     <wsdl:operation name="getPaintBook">
       <soap12:operation soapAction="http://tempuri.org/IService/getPaintBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookMarks">
+      <soap12:operation soapAction="http://tempuri.org/IService/getBookMarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBookMarks">
+      <soap12:operation soapAction="http://tempuri.org/IService/addBookMarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editBookMarks">
+      <soap12:operation soapAction="http://tempuri.org/IService/editBookMarks" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -149,6 +149,57 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getBookMarks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+        <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBookMarksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBookMarksResult" nillable="true" type="q11:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addBookMarks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+        <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+        <xs:element minOccurs="0" name="mark" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="presence" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addBookMarksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addBookMarksResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="editBookMarks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+        <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+        <xs:element minOccurs="0" name="mark" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="presence" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="editBookMarksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="editBookMarksResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getBooks">
     <xs:complexType>
       <xs:sequence />
@@ -157,7 +208,7 @@
   <xs:element name="getBooksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBooksResult" nillable="true" type="q11:ArrayOfArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBooksResult" nillable="true" type="q12:ArrayOfArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -249,7 +300,7 @@
   <xs:element name="UpdateUserCallBack">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="result" nillable="true" type="q12:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="result" nillable="true" type="q13:ArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

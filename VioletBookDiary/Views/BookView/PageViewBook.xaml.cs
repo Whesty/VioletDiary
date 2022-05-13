@@ -30,5 +30,11 @@ namespace VioletBookDiary.Views
             DataContext = model;
             model.Open_PageViewBook();
         }
+
+        private void ViewStatusMarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            model.editBookMark();
+        }
     }
 }

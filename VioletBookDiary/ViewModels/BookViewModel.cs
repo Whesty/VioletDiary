@@ -190,18 +190,32 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
-        //public ObservableCollection<>
-        #region Commands
-        //public ICommand open_PageViewBook => new DelegateCommand(Open_PageViewBook);
-        //private void Open_PageViewBook()
-        //{
-        //    //Открытие страницы
-        //    PageViewBook viewBook = new PageViewBook();
+        #region BookMarks
+        public string status_reading { get; set; }
+        public int marks { get; set; }
+        public bool Presence { get; set; }
 
-        //    CurrentPage = new FeedBackBook(Book.Id);
-        //    win.Button_FeedBack.IsEnabled = false;
-        //    win.Button_Paint.IsEnabled = true;
-        //}
+        public bool getBookMark()
+        {
+            Dictionary<string, string> result = CurrentClient.service.getBookMarks(Book.Id, CurrentUser._User.Id);
+            if (result == null) return false;
+            status_reading = result["StatusReading"];
+            marks = int.Parse(result["Marks"]);
+            Presence = bool.Parse(result["Presence"]);
+            return true;
+        }
+        public void addBookMark()
+        {
+            CurrentClient.service.addBookMarks(Book.Id, CurrentUser._User.Id, marks, status_reading, Presence);
+        }
+        public void editBookMark()
+        {
+            CurrentClient.service.editBookMarks(Book.Id, CurrentUser._User.Id, marks, status_reading, Presence);
+
+        }
+        #endregion
+        #region Commands
+
         private Page currentpage;
         
         public Page CurrentPage
@@ -222,6 +236,15 @@ namespace VioletBookDiary.ViewModels
             CurrentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
+            if (getBookMark())
+            {
+                CurentWindows.pageViewBook.ViewLike.IsEnabled = false;
+                CurentWindows.pageViewBook.ViewStatusMarks.SelectedItem = status_reading;
+            }
+            else
+            {
+                CurentWindows.pageViewBook.ViewStatusMarks.IsEnabled = false;
+            }
         }
         public ICommand open_FeedBack => new DelegateCommand(Open_FeedBack);
         private void Open_FeedBack()
@@ -241,7 +264,17 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Reed => new DelegateCommand(Open_Reed);
         private void Open_Reed()
         {
-            CurentWindows.mainWindow.m.CurrentPage = new ReedBook(Book.File);
+            CurentWindows.mainWindow.m.CurrentPage = new ReedBook(Book.File, marks);
+        }
+        public ICommand button_Like => new DelegateCommand(ButtonLike);
+        private void ButtonLike()
+        {
+            CurentWindows.pageViewBook.ViewStatusMarks.SelectedIndex = 0;
+            marks = 0;
+            addBookMark();
+            CurentWindows.pageViewBook.ViewLike.IsEnabled = false;
+            CurentWindows.pageViewBook.ViewStatusMarks.IsEnabled = true;
+
         }
         #endregion
     }

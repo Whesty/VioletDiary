@@ -38,7 +38,7 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
-        private int Chapter_selection = 0;
+        public int Chapter_selection;
         private string chapter_selectionTitel;
         public string Chapter_selectionTitel
         {
@@ -106,7 +106,7 @@ namespace VioletBookDiary.ViewModels
             if (_fb2File != null)
             {
                 var body = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter];
-                chapter_selectionTitel = body.Title.ToString();
+                Chapter_selectionTitel = body.Title.ToString();
                 int i;
                 FileStream veb = new FileStream("page.html", FileMode.Create);
                 List<string> par = new List<string>();

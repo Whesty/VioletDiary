@@ -81,6 +81,24 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPaintBook", ReplyAction="http://tempuri.org/IService/getPaintBookResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintBookAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBookMarks", ReplyAction="http://tempuri.org/IService/getBookMarksResponse")]
+        System.Collections.Generic.Dictionary<string, string> getBookMarks(int idBook, int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBookMarks", ReplyAction="http://tempuri.org/IService/getBookMarksResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getBookMarksAsync(int idBook, int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/addBookMarks", ReplyAction="http://tempuri.org/IService/addBookMarksResponse")]
+        bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/addBookMarks", ReplyAction="http://tempuri.org/IService/addBookMarksResponse")]
+        System.Threading.Tasks.Task<bool> addBookMarksAsync(int idBook, int IdUser, int mark, string status, bool presence);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/editBookMarks", ReplyAction="http://tempuri.org/IService/editBookMarksResponse")]
+        bool editBookMarks(int idBook, int IdUser, int mark, string status, bool presence);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/editBookMarks", ReplyAction="http://tempuri.org/IService/editBookMarksResponse")]
+        System.Threading.Tasks.Task<bool> editBookMarksAsync(int idBook, int IdUser, int mark, string status, bool presence);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
         System.Collections.Generic.Dictionary<string, string>[] getBooks();
         
@@ -242,6 +260,30 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getPaintBookAsync(int id) {
             return base.Channel.getPaintBookAsync(id);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string> getBookMarks(int idBook, int IdUser) {
+            return base.Channel.getBookMarks(idBook, IdUser);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getBookMarksAsync(int idBook, int IdUser) {
+            return base.Channel.getBookMarksAsync(idBook, IdUser);
+        }
+        
+        public bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence) {
+            return base.Channel.addBookMarks(idBook, IdUser, mark, status, presence);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addBookMarksAsync(int idBook, int IdUser, int mark, string status, bool presence) {
+            return base.Channel.addBookMarksAsync(idBook, IdUser, mark, status, presence);
+        }
+        
+        public bool editBookMarks(int idBook, int IdUser, int mark, string status, bool presence) {
+            return base.Channel.editBookMarks(idBook, IdUser, mark, status, presence);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editBookMarksAsync(int idBook, int IdUser, int mark, string status, bool presence) {
+            return base.Channel.editBookMarksAsync(idBook, IdUser, mark, status, presence);
         }
         
         public System.Collections.Generic.Dictionary<string, string>[] getBooks() {

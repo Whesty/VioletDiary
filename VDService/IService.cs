@@ -36,7 +36,13 @@ namespace VDService
         
         [OperationContract]
         List<Dictionary<string, string>> getPaintBook(int id);
-        
+        [OperationContract]
+        Dictionary<string, string> getBookMarks(int idBook, int IdUser);
+        [OperationContract]
+        bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence);
+        [OperationContract]
+        bool editBookMarks(int idBook, int IdUser, int mark, string status, bool presence);
+
         [OperationContract]
         List<Dictionary<string, string>> getBooks();
         [OperationContract(IsOneWay = true)]
