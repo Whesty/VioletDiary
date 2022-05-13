@@ -31,9 +31,10 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
-            <ListView ItemsSource="{Binding Paragraph}" Background="{x:Null}" BorderBrush="{x:Null}" >
+            <!--<ListView ItemsSource="{Binding Paragraph}" Background="{x:Null}" BorderBrush="{x:Null}" >
                 
-            </ListView>
+            </ListView>-->
+            <WebBrowser Name="wbSample"  Source="file:///D:/VioletDiary/VioletBookDiary/bin/Debug/page.html"></WebBrowser>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="2"></Grid>
     </Grid>

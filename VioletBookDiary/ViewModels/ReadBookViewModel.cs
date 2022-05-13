@@ -20,6 +20,7 @@ namespace VioletBookDiary.ViewModels
     {
         private readonly string _filePath;
         Stream Stream;
+        public string Webpage = "page.html";
         private FB2File _fb2File;
         private List<string> chapter;
         public List<string> Chapter
@@ -107,16 +108,22 @@ namespace VioletBookDiary.ViewModels
                 var body = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter];
                 chapter_selectionTitel = body.Title.ToString();
                 int i;
+                FileStream veb = new FileStream("page.html", FileMode.Create);
                 List<string> par = new List<string>();
+                veb.Write(Encoding.UTF8.GetBytes("<html><head></head><body>"), 0, Encoding.UTF8.GetBytes("<html><head></head><body>").Length);
                 for (i=0;  i < body.Content.LongCount(); i++)
                 {
-                    TextBlock textBlock = new TextBlock();
-                    textBlock.Text = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
-                    string s = textBlock.Text;
+                    string str = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
+                    
                     //getStyleHelp(s);
-                    par.Add(s);
+                    //veb.Write(Encoding.UTF8.GetBytes(str), 0, str.Length);
+                    veb.Write(Encoding.Default.GetBytes(str), 0, str.Length);
+                    par.Add(str);
                 }
-                Paragraph = par;
+                veb.Write(Encoding.UTF8.GetBytes("</body></html>"), 0, Encoding.UTF8.GetBytes("</body></html>").Length);
+                veb.Close();
+                //veb.Write(Encoding.UTF8.GetBytes(par.ToString()), 0, par.ToString().Length);
+                //Paragraph = par;
             }
         }
         public string getStyleHelp(string s)

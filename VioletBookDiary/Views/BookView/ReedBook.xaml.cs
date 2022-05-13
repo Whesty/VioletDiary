@@ -28,6 +28,7 @@ namespace VioletBookDiary.Views
             _path = path;
             readBookViewModel = new ReadBookViewModel(_path);
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
+            Chapters.SelectedIndex = 0;
             InitializeComponent();
             DataContext = readBookViewModel;
         }
@@ -36,6 +37,7 @@ namespace VioletBookDiary.Views
         {
             readBookViewModel.getParagraph(Chapters.SelectedIndex);
             DataContext = readBookViewModel;
+            wbSample.Refresh();
         }
     }
 }
