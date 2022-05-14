@@ -74,17 +74,16 @@ namespace VioletBookDiary.ViewModels
             IServiceCallback callBack = new VDMyServiceCallBack();
             InstanceContext context = new InstanceContext(callBack);
             ServiceClient client = new ServiceClient(context);
-
+            if (Name == null)
+            {
+                MessengViewModel.Show("Ошибка", "Поле имя должно быть заполнено!");
+            }
             client.UpdateUser(Id, Name, Info, Avatar);
             CurentWindows.userUpdate.Close();
 
             UserInfo userInfo = new UserInfo();
-            CurentWindows.userInfo = userInfo;
-            //CurentWindows.Update();
-
-            //CurrentClient.service.UpdateUser(Id, Name, Info, Avatar);
-
-
+            CurentWindows.mainWindow.GridPage.GoBack();
+            CurentWindows.Add(userInfo);
         }
     }
 }

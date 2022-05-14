@@ -51,9 +51,15 @@ namespace VioletBookDiary.ViewModels
         public ICommand deleteBook => new DelegateCommand(DeleteBook);
         public void DeleteBook()
         {
-            int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;
-            CurrentClient.service.DeleteBooks(listBook[sel].Id);
-            getListBook();
+            try
+            {
+                int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;
+                CurrentClient.service.DeleteBooks(listBook[sel].Id);
+                getListBook();
+            } catch(Exception ex)
+            {
+                MessengViewModel.Show(ex.Message);
+            }
         }
 
     }

@@ -247,27 +247,28 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="VDMyServiceCallBack.cs" />
-    <Compile Include="ViewModels\AddBookViewModel.cs" />
-    <Compile Include="ViewModels\AdminListBookViewModel.cs" />
-    <Compile Include="ViewModels\AuthorizationViewModel.cs" />
-    <Compile Include="ViewModels\BookViewModel.cs" />
-    <Compile Include="ViewModels\EditItemsBookViewModel.cs" />
-    <Compile Include="ViewModels\FeedBackViewModel.cs" />
-    <Compile Include="ViewModels\ListBooksViewModel.cs" />
-    <Compile Include="ViewModels\ListPaintViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\Book\AddBookViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AdminListBookViewModel.cs" />
+    <Compile Include="ViewModels\LogIn\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModels\Book\BookViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EditItemsBookViewModel.cs" />
+    <Compile Include="ViewModels\Book\FeedBackViewModel.cs" />
+    <Compile Include="ViewModels\MessengViewModel.cs" />
+    <Compile Include="ViewModels\View\UserControl\ListBooksViewModel.cs" />
+    <Compile Include="ViewModels\View\UserControl\ListPaintViewModel.cs" />
+    <Compile Include="ViewModels\View\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\PaintBookViewModel.cs" />
-    <Compile Include="ViewModels\ReadBookViewModel.cs" />
-    <Compile Include="ViewModels\RegViewModel.cs" />
-    <Compile Include="ViewModels\UpdateUserViewModel.cs" />
-    <Compile Include="ViewModels\UserInfoViewModel.cs" />
+    <Compile Include="ViewModels\Book\PaintBookViewModel.cs" />
+    <Compile Include="ViewModels\Book\ReadBookViewModel.cs" />
+    <Compile Include="ViewModels\LogIn\RegViewModel.cs" />
+    <Compile Include="ViewModels\User\UpdateUserViewModel.cs" />
+    <Compile Include="ViewModels\User\UserInfoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\XmlLoadSettings.cs" />
     <Compile Include="Views\BookView\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdminListBook.xaml.cs">
+    <Compile Include="Views\Admin\AdminListBook.xaml.cs">
       <DependentUpon>AdminListBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BookView\FeedBackBook.xaml.cs">
@@ -276,14 +277,20 @@
     <Compile Include="Views\BookView\ListPaintView.xaml.cs">
       <DependentUpon>ListPaintView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BookView\PageReedBook.xaml.cs">
+      <DependentUpon>PageReedBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BookView\PaintBook.xaml.cs">
       <DependentUpon>PaintBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditItemsBook.xaml.cs">
+    <Compile Include="Views\Admin\EditItemsBook.xaml.cs">
       <DependentUpon>EditItemsBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BookView\ListViewsBooks.xaml.cs">
       <DependentUpon>ListViewsBooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Catalog.xaml.cs">
+      <DependentUpon>Catalog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LogIn\Logon.xaml.cs">
       <DependentUpon>Logon.xaml</DependentUpon>
@@ -307,6 +314,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\MessengeView.xaml.cs">
+      <DependentUpon>MessengeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserView\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
@@ -317,7 +327,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\AdminListBook.xaml">
+    <Page Include="Views\Admin\AdminListBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -329,17 +339,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BookView\PageReedBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BookView\PaintBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\EditItemsBook.xaml">
+    <Page Include="Views\Admin\EditItemsBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookView\ListViewsBooks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Catalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LogIn\Logon.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -364,6 +382,10 @@
     <Page Include="Views\LogIn\Registration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MessengeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Resources\Default.xaml">
       <Generator>MSBuild:Compile</Generator>

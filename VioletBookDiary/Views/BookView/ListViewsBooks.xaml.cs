@@ -30,13 +30,10 @@ namespace VioletBookDiary.Views
             model = new ListBooksViewModel();
             model.win = this;
             DataContext = model;
-            DataList.ItemsSource = model.BooksList;        
+            DataList.ItemsSource = model.BooksList;
+            DataList.SelectedItem = null;
         }
 
-        private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,13 +46,5 @@ namespace VioletBookDiary.Views
             }
         }
 
-        private void DataList_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            DataList.SelectedItem = DataList.Items.CurrentItem;
-            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
-
-            PageViewBook viewBook = new PageViewBook(selectedBook);
-            CurentWindows.Add(viewBook);
-        }
     }
 }

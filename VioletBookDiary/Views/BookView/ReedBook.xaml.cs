@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VioletBookDiary.ViewModels;
+using VioletBookDiary.Views.BookView;
 
 namespace VioletBookDiary.Views
 {
@@ -25,26 +26,31 @@ namespace VioletBookDiary.Views
         ReadBookViewModel readBookViewModel;
         public ReedBook(string path, int mark)
         {
-
+            InitializeComponent();
             _path = path;
             CurentWindows.reedBook = this;
             readBookViewModel = new ReadBookViewModel(_path);
             readBookViewModel.Chapter_selection = mark;
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
-            InitializeComponent();
             DataContext = readBookViewModel;
             Chapters.SelectedIndex = mark;
-            
-
+            pageVeb.Content = new PageReedBook();
         }
 
         private void Chapters_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             readBookViewModel.getParagraph(Chapters.SelectedIndex);
             DataContext = readBookViewModel;
-            wbSample.Refresh();
-            CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
+            //CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
             CurentWindows.pageViewBook.model.editBookMark();
+            //CurentWindows.Add(new ReedBook(_path, Chapters.SelectedIndex));
+            pageVeb.Content = new PageReedBook();
+
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            CurentWindows.mainWindow.GridPage.GoBack();
         }
     }
+   
 }

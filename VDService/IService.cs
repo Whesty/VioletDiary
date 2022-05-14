@@ -28,7 +28,9 @@ namespace VDService
         [OperationContract]
         List<Dictionary<string, string>> getTagsBook(int id);
         [OperationContract]
-        List<Dictionary<string, string>> getGenresBook(int id);
+        List<Dictionary<string, string>> getGenresBook(int id); 
+        [OperationContract]
+        Dictionary<string, string> getUserInfo(int id);
         
         [OperationContract]
         List<Dictionary<string, string>> getFeedBackBook(int id);
@@ -51,6 +53,8 @@ namespace VDService
         void UpdateUser(int id, string name, string info, string avatar);
         [OperationContract]
         void Disconnect(int id);
+        [OperationContract] 
+        void ClearDataBase();
         [OperationContract]
         string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
         [OperationContract]

@@ -21,6 +21,7 @@ namespace VioletBookDiary.Views
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Book book = BookViewList.SelectedItem as Book;
+            if (book == null) return;
             book.getGenres();
             book.getAuthors();
             book.getTags();

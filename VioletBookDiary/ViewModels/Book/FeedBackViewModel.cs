@@ -51,15 +51,30 @@ namespace VioletBookDiary.ViewModels
         }
         #endregion
         #region Commands
+        public ICommand viewUserInfo => new DelegateCommand(ViewUserInfo);
+        private void ViewUserInfo()
+        { 
+            //Task! запрос к серверу
+        }
         public ICommand addFeedBack => new DelegateCommand(AddFeedback);
         private void AddFeedback()
         {
-            string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar );
-            if (result == "Отправлен!")
+            try
             {
-                GetFeedbacks();
-                CurrentUserComment = "";
-                CurrentUserStar = "";
+                if(CurrentUserComment == null || CurrentUserStar == null)
+                {
+                    MessengViewModel.Show("Ошибка", "Не все поля заполнены");
+                }
+                string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar);
+                if (result == "Отправлен!")
+                {
+                    GetFeedbacks();
+                    CurrentUserComment = "";
+                    CurrentUserStar = "";
+                }
+            }catch(Exception ex)
+            {
+                MessengViewModel.Show("Ошибка", ex.Message);
             }
         }
         #endregion

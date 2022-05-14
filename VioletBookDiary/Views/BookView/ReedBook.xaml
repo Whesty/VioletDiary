@@ -21,21 +21,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Margin="0,0,360,390" Grid.RowSpan="2"></Grid>
-        <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-            <DockPanel HorizontalAlignment="Right" Margin="0,10,0,0">
-                <TextBlock Text="{Binding Chapter_selectionTitel}" HorizontalAlignment="Left" Margin="0,0,10,0" FontSize="20"></TextBlock>
-                <ComboBox x:Name="Chapters" ItemsSource="{Binding Chapter}" HorizontalAlignment="Right" MinWidth="60" Margin="0,0,10,0" SelectionChanged="Chapters_SelectionChanged"/>
-                <Button Width="30" Height="30" HorizontalAlignment="Right">
-                    <materialDesign:PackIcon Kind="BookMark"  Width="24" Height="24"/>
-                </Button>
+        <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch">
+            <DockPanel Margin="0,10,0,0" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Chapter_selectionTitel}" HorizontalAlignment="Center" Margin="0,0,0,0" FontSize="15"></TextBlock>
+                <ComboBox x:Name="Chapters" ItemsSource="{Binding Chapter}" SelectedItem="Chapter_selection" HorizontalAlignment="Stretch" Margin="0,0,10,0" SelectionChanged="Chapters_SelectionChanged" MinWidth="17" MaxWidth="17"/>
+                
+                <!--<Button Width="30" Height="30" HorizontalAlignment="Stretch">
+                   <materialDesign:PackIcon Kind="BookMark"  Width="12" Height="12"/>
+                </Button>-->
+            
             </DockPanel>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <!--<ListView ItemsSource="{Binding Paragraph}" Background="{x:Null}" BorderBrush="{x:Null}" >
-                
-            </ListView>-->
-            <WebBrowser Name="wbSample"  Source="file:///D:/VioletDiary/VioletBookDiary/bin/Debug/page.html"></WebBrowser>
+        <Grid  Grid.Column="1" Grid.Row="1">
+            <Frame x:Name="pageVeb" ></Frame>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="2"></Grid>
+        <Grid>
+            <Button x:Name="Back" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Click="Back_Click" IsCancel="True" Width="40">
+                <materialDesign:PackIcon Kind="Undo" Width="24" Height="24"/>
+            </Button>
+        </Grid>
     </Grid>
 </Page>

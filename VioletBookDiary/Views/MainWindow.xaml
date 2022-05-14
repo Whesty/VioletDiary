@@ -48,6 +48,7 @@
         </Grid>
         <Grid x:Name="GridSearch" Grid.Column="1">
             <DockPanel HorizontalAlignment="Right" Margin="0,0,10,0">
+                
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White" Margin="0,0,40,0" FontFamily="Sitka Small">VioletBookDiary</TextBlock>
                 <materialDesign:PackIcon Kind="Search" Width="24" Height="24" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center"/>
 

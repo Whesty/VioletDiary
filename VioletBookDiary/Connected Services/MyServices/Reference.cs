@@ -69,6 +69,12 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGenresBook", ReplyAction="http://tempuri.org/IService/getGenresBookResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getGenresBookAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getUserInfo", ReplyAction="http://tempuri.org/IService/getUserInfoResponse")]
+        System.Collections.Generic.Dictionary<string, string> getUserInfo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getUserInfo", ReplyAction="http://tempuri.org/IService/getUserInfoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getUserInfoAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getFeedBackBook", ReplyAction="http://tempuri.org/IService/getFeedBackBookResponse")]
         System.Collections.Generic.Dictionary<string, string>[] getFeedBackBook(int id);
         
@@ -122,6 +128,12 @@ namespace VioletBookDiary.MyServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         System.Threading.Tasks.Task DisconnectAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ClearDataBase", ReplyAction="http://tempuri.org/IService/ClearDataBaseResponse")]
+        void ClearDataBase();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ClearDataBase", ReplyAction="http://tempuri.org/IService/ClearDataBaseResponse")]
+        System.Threading.Tasks.Task ClearDataBaseAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
         string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
@@ -258,6 +270,14 @@ namespace VioletBookDiary.MyServices {
             return base.Channel.getGenresBookAsync(id);
         }
         
+        public System.Collections.Generic.Dictionary<string, string> getUserInfo(int id) {
+            return base.Channel.getUserInfo(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getUserInfoAsync(int id) {
+            return base.Channel.getUserInfoAsync(id);
+        }
+        
         public System.Collections.Generic.Dictionary<string, string>[] getFeedBackBook(int id) {
             return base.Channel.getFeedBackBook(id);
         }
@@ -328,6 +348,14 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task DisconnectAsync(int id) {
             return base.Channel.DisconnectAsync(id);
+        }
+        
+        public void ClearDataBase() {
+            base.Channel.ClearDataBase();
+        }
+        
+        public System.Threading.Tasks.Task ClearDataBaseAsync() {
+            return base.Channel.ClearDataBaseAsync();
         }
         
         public string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser) {

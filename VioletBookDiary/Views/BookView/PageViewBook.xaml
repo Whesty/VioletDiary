@@ -48,14 +48,8 @@
                                 <!-- Иконки -->
                                 <DockPanel>
                                     <materialDesign:PackIcon Kind="Star"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Rating}"/>
+                                    <TextBlock  Text="{Binding Rating}" Foreground="#FF9D35FF"/>
                                     <!-- Рейтинг -->
-                                    <materialDesign:PackIcon Kind="Heart"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock/>
-                                    <!-- Нравится -->
-                                    <materialDesign:PackIcon Kind="ImageAdd"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock/>
-                                    <!-- Количество картинок -->
                                     <materialDesign:PackIcon Kind="Calendar"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding Realease}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
                                 </DockPanel>
@@ -88,7 +82,7 @@
                                 </Button>
                             </Grid>
                             <Grid>
-                                <Frame Content="{Binding CurrentPage}"></Frame>
+                                <Frame x:Name="UserBookInfo"  Content="{Binding CurentPage}"></Frame>
                             </Grid>
                         </StackPanel>
                     </Grid>

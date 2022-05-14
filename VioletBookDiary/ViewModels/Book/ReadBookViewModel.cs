@@ -38,7 +38,13 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
-        public int Chapter_selection;
+        private int chapterSelected;
+        public int Chapter_selection { get => chapterSelected; set
+            {
+                chapterSelected = value;
+                OnPropertyChanged("Chapter_selection");
+            }
+        }
         private string chapter_selectionTitel;
         public string Chapter_selectionTitel
         {
@@ -136,6 +142,8 @@ namespace VioletBookDiary.ViewModels
             style = Regex.Replace(s, @"(\w*)<a>(\w*)</a>", @"$1\[$2\]");
             return style;
         }
+
+
 
     }
 }

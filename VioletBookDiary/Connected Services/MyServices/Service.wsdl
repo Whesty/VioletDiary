@@ -90,6 +90,12 @@
   <wsdl:message name="IService_getGenresBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:getGenresBookResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_getUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserInfoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getFeedBackBook_InputMessage">
     <wsdl:part name="parameters" element="tns:getFeedBackBook" />
   </wsdl:message>
@@ -140,6 +146,12 @@
   </wsdl:message>
   <wsdl:message name="IService_Disconnect_OutputMessage">
     <wsdl:part name="parameters" element="tns:DisconnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClearDataBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDataBase" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClearDataBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDataBaseResponse" />
   </wsdl:message>
   <wsdl:message name="IService_AddBook_InputMessage">
     <wsdl:part name="parameters" element="tns:AddBook" />
@@ -211,6 +223,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getGenresBook" message="tns:IService_getGenresBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getGenresBookResponse" message="tns:IService_getGenresBook_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getUserInfo" message="tns:IService_getUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getUserInfoResponse" message="tns:IService_getUserInfo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getFeedBackBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getFeedBackBook" message="tns:IService_getFeedBackBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getFeedBackBookResponse" message="tns:IService_getFeedBackBook_OutputMessage" />
@@ -245,6 +261,10 @@
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DisconnectResponse" message="tns:IService_Disconnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDataBase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ClearDataBase" message="tns:IService_ClearDataBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ClearDataBaseResponse" message="tns:IService_ClearDataBase_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
@@ -354,6 +374,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/IService/getUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getFeedBackBook">
       <soap12:operation soapAction="http://tempuri.org/IService/getFeedBackBook" style="document" />
       <wsdl:input>
@@ -425,6 +454,15 @@
     </wsdl:operation>
     <wsdl:operation name="Disconnect">
       <soap12:operation soapAction="http://tempuri.org/IService/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearDataBase">
+      <soap12:operation soapAction="http://tempuri.org/IService/ClearDataBase" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

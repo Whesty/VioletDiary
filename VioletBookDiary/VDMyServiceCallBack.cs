@@ -19,7 +19,7 @@ namespace VioletBookDiary
 
         public void UpdateUserCallBack(Dictionary<string, string> result)
         {
-            MessageBox.Show("User updated");
+            MessengViewModel.Show("Изменения прошли успешно!");
             User user = new User()
             {
                 Id = int.Parse(result["id"]),

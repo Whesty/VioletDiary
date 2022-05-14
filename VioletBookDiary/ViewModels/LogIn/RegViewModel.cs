@@ -28,11 +28,11 @@ namespace VioletBookDiary.ViewModels
             {
                 //string str = client.Registration(email, password);
                 string str = CurrentClient.service.Registration(email, password);
-                MessageBox.Show(str);
+                MessengViewModel.Show(str);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                 MessengViewModel.Show(ex.Message);
                 return;
             }
             //client.Open();

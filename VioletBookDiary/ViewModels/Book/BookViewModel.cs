@@ -221,13 +221,13 @@ namespace VioletBookDiary.ViewModels
 
         private Page currentpage;
         
-        public Page CurrentPage
+        public Page CurentPage
         {
             get { return currentpage; }
             set
             {
                 this.currentpage = value;
-                OnPropertyChanged(nameof(CurrentPage));
+                OnPropertyChanged(nameof(CurentPage));
             }
         }
         private FeedBackBook feedBack;
@@ -241,7 +241,7 @@ namespace VioletBookDiary.ViewModels
             paintBook = new PaintBook(Book.Id);
             CountImage = paintBook.model.Count;
             Rating = feedBack.model.Rating;
-            CurrentPage = feedBack;
+            CurentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
             if (getBookMark())
@@ -255,16 +255,18 @@ namespace VioletBookDiary.ViewModels
             }
         }
         public ICommand open_FeedBack => new DelegateCommand(Open_FeedBack);
-        private void Open_FeedBack()
+        public void Open_FeedBack()
         {
-            CurrentPage = feedBack;
+            feedBack = new FeedBackBook(Book.Id);
+            CurentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
         public ICommand open_Paint => new DelegateCommand(Open_Paint);
-        private void Open_Paint()
+        public void Open_Paint()
         {
-            CurrentPage = paintBook;
+            paintBook = new PaintBook(Book.Id);
+            CurentPage = paintBook;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = true;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = false;
 

@@ -124,10 +124,10 @@ namespace VioletBookDiary.ViewModels
         {
             if (Title == null || Authors == null || Genres == null || Description == null || Image == null || Tags == null)
             {
-                // Win.Error.Text = "Please fill all fields";
+                MessengViewModel.Show("Ошибка", "Поля: Название, Автор, Жанр, Описание, Обложка и Таги - должны быть заполнены");
             }
             string result = CurrentClient.service.AddBook(Title, Authors, Genres, Tags, Description, Image, File, Series, Realease, CurrentUser._User.Id);
-            MessageBox.Show(result);
+             MessengViewModel.Show(result);
 
         }
     }

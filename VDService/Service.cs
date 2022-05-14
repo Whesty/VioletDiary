@@ -19,6 +19,7 @@ namespace VDService
         private List<ServerUser> ConnectUsers = new List<ServerUser>();
         private List<ServerUser> ConnectAdmins = new List<ServerUser>();
         private ServerUser serverUser;
+        #region Add
         public string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser)
         {
             string str = "";
@@ -56,15 +57,16 @@ namespace VDService
                     {
                         //"\n" + match.Value;
                         str += "\nmath avtors" + match.Value;
-
-                        AUTHOR author1 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        string value = match.Value;
+                        value.Remove(value.Length - 1, 1);
+                        AUTHOR author1 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == value).FirstOrDefault();
                         str += "\nget av";
 
                         if (author1 == null)
                         {
                             author1 = new AUTHOR()
                             {
-                                AUTHOR_NAME = match.Value,
+                                AUTHOR_NAME = value,
                                 COUNTRY = null
                             };
                             str += "\nadd av";
@@ -74,7 +76,7 @@ namespace VDService
 
                             //unitOfWork.
                         }
-                        AUTHOR author2 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == match.Value).FirstOrDefault();
+                        AUTHOR author2 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == value).FirstOrDefault();
                         str += "\nCreate av2";
                         unitOfWork.BookAuthorsRepository.Add(new BOOK_AUTHOR()
                         {
@@ -90,13 +92,15 @@ namespace VDService
                     foreach (Match match in match1)
                     {
                         //"\n" + match.Value;
-                        TAG tag1 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == match.Value).FirstOrDefault();
+                        string value = match.Value;
+                        value.Remove(value.Length - 1, 1);
+                        TAG tag1 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == value).FirstOrDefault();
                         str += "\nCreat tag1";
                         if (tag1 == null)
                         {
                             tag1 = new TAG()
                             {
-                                TAG_NAME = match.Value
+                                TAG_NAME = value
                             };
                             str += "\nCreate tag1+";
                             unitOfWork.TagsRepository.Add(tag1);
@@ -104,7 +108,7 @@ namespace VDService
                             unitOfWork.Save();
                             str += "\nSave";
                         }
-                        TAG tag2 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == match.Value).FirstOrDefault();
+                        TAG tag2 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == value).FirstOrDefault();
                         str += "\nCreate tag2";
                         unitOfWork.BookTagsRepository.Add(new BOOK_TAG()
                         {
@@ -193,16 +197,67 @@ namespace VDService
             } 
         }
 
+        #endregion
+        #region Delete
         public void DeleteBooks(int idBook)
         {
-           using (UnitOfWork unit = new UnitOfWork())
+            string str = "";
+            try
             {
-               // BOOK book = unit.BooksRepository.GetAll().Where(x => x.Id == idBook).FirstOrDefault();
-                unit.BooksRepository.Remove(idBook);
-                unit.Save();
+
+                using (UnitOfWork unit = new UnitOfWork())
+                {
+                    BOOK book = unit.BooksRepository.GetAll().Where(x => x.Id == idBook).FirstOrDefault();
+                    foreach (BOOK_TAG i in unit.BookTagsRepository.GetAll().Where(x => x.BOOKId == idBook).ToList())
+                    {
+                        unit.BookTagsRepository.Remove(i.Id);
+                        unit.Save();
+                        //int count = unit.BookTagsRepository.GetAll().Where(x => x.TAGId == i.TAGId).Count();
+                        //if(count > 1)
+                        //{
+                       // unit.TagsRepository.Remove(i.TAGId);
+                        //    unit.Save();
+                        //}
+                    }
+                    foreach (BOOK_AUTHOR i in unit.BookAuthorsRepository.GetAll().Where(x => x.BOOKId == idBook).ToList())
+                    {
+                        unit.BookAuthorsRepository.Remove(i.Id);
+                        unit.Save();
+                        //int count = unit.BookAuthorsRepository.GetAll().Where(x => x.AUTHORId == i.AUTHORId).Count();
+                        //if(count > 1)
+                        //{
+                        //    unit.AuthorsRepository.Remove(i.AUTHORId);
+                        //    unit.Save();
+                        //}
+
+                    }
+                    foreach (BOOK_GENRE i in unit.BookGenresRepository.GetAll().Where(x => x.BOOKId == idBook).ToList())
+                    {
+                        unit.BookGenresRepository.Remove(i.Id);
+                        unit.Save();
+                    }
+                    foreach (FEEDBACK i in unit.FeedbacksRepository.GetAll().Where(x => x.ID_BOOK == idBook).ToList())
+                    {
+                        unit.FeedbacksRepository.Remove(i.Id);
+                        unit.Save();
+                    }
+                    foreach (PAINT i in unit.PaintsRepository.GetAll().Where(x => x.ID_BOOK == idBook).ToList())
+                    {
+                        unit.PaintsRepository.Remove(i.Id);
+                        unit.Save();
+                    }
+                    unit.Save();
+                    unit.BooksRepository.Remove(idBook);
+                    unit.Save();
+                    ClearDataBase();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
-
+        #endregion
         public void Disconnect(int id)
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -222,7 +277,7 @@ namespace VDService
                 }
             }
         }
-
+        #region Edit
         public string EditBook(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
@@ -265,7 +320,8 @@ namespace VDService
                 return true;
             }
         }
-
+        #endregion
+        #region Get
         public List<Dictionary<string, string>> getAuthors()
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -417,7 +473,6 @@ namespace VDService
                     paintDict.Add("dataAdd", paint.DATA.ToString());
                     paintDict.Add("userAdd", paint.ID_USER_ADD.ToString());
                     paintsList.Add(paintDict);
-
                 }
                 return paintsList;
             }                
@@ -479,6 +534,25 @@ namespace VDService
                 return tagsList;
             }
         }
+
+        public Dictionary<string, string> getUserInfo(int id)
+        {
+            using(UnitOfWork unit = new UnitOfWork())
+            {
+                USER user = unit.UserRepository.Get(id);
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                result.Add("id", user.Id.ToString());
+                result.Add("name", user.USER_NAME);
+                result.Add("AccessLevel", user.ACCESS_LEVEL.ToString());
+                result.Add("avatar", user.USER_AVATAR);
+                result.Add("data_create", user.DATA_CREATE.ToString());
+                result.Add("id_authorized", user.ID_AUTHORIZED.ToString());
+                result.Add("info", user.USER_INFO);
+                return result;
+            }
+        }
+        #endregion
+        #region User
 
         public Dictionary<string, string> Login(string mail, string password)
         {
@@ -594,6 +668,24 @@ namespace VDService
                 IMyServiceCallback callback = serverUser.OperationContext.GetCallbackChannel<IMyServiceCallback>();
                 
                 callback.UpdateUserCallBack(result);   
+            }
+        }
+        #endregion
+
+        public void ClearDataBase()
+        {
+            using(UnitOfWork unit = new UnitOfWork())
+            {
+                foreach (TAG i in unit.TagsRepository.GetAll().Where(x => x.BOOK_TAG.Count == 0).ToList())
+                {
+                    unit.TagsRepository.Remove(i.TAGId);
+                    unit.Save();
+                }
+                foreach (AUTHOR i in unit.AuthorsRepository.GetAll().Where(x => x.BOOK_AUTHOR.Count == 0).ToList())
+                {
+                    unit.AuthorsRepository.Remove(i.Id);
+                    unit.Save();
+                }
             }
         }
     }

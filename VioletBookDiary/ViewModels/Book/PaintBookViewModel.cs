@@ -15,7 +15,12 @@ namespace VioletBookDiary.ViewModels
 {
     public class PaintBookViewModel : ViewModelBase
     {
-        public List<Paint> ListPaint { get; set; }
+        private List<Paint> paints { get; set; }
+        public List<Paint> ListPaint { get => paints; set 
+            {
+                paints = value;
+                OnPropertyChanged("ListPaint");
+            } }
         private string link;
         public int Count { get; set; }
         public string Link
@@ -75,9 +80,10 @@ namespace VioletBookDiary.ViewModels
                 if (result == "Загружен!")
                 {
                     GetListPaint();
-                    MessageBox.Show("Загружено!", "Успешно", MessageBoxButton.OK);
+                     MessengViewModel.Show("Загружено!", "Успешно");
+                    CurentWindows.pageViewBook.model.Open_Paint();
                 }
-                else MessageBox.Show("Ошибка!", result, MessageBoxButton.OK);
+                else  MessengViewModel.Show("Ошибка!", result);
             }
         }
 

@@ -34,7 +34,7 @@ namespace VioletBookDiary.ViewModels
             string password = this.password;
             if (email == null || password == null)
             {
-                MessageBox.Show("Введите логин и пароль");
+                 MessengViewModel.Show("Введите логин и пароль");
                 return;
             }
 
@@ -49,7 +49,7 @@ namespace VioletBookDiary.ViewModels
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message.ToString());
+                 MessengViewModel.Show(ex.Message.ToString());
 
                 return;
             }

@@ -55,12 +55,10 @@ namespace VioletBookDiary.ViewModels
         public UserInfoViewModel()
         {
             User = CurrentUser._User;
+        }
+        public UserInfoViewModel(int Id)
+        {
 
-            //Name = user.Name;
-            //Avatar = user.Avatar;
-            //Info = user.Info;
-            //Id = user.Id;
-            //DataCreate = user.DataCreate;
         }
         public ICommand userUpdate => new DelegateCommand(User_Update);
         public void User_Update()

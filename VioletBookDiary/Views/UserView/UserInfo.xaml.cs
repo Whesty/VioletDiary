@@ -15,6 +15,11 @@ namespace VioletBookDiary.Views
             InitializeComponent();
             model = new UserInfoViewModel();
             DataContext = model;
+        } public UserInfo(int id)
+        {
+            InitializeComponent();
+            model = new UserInfoViewModel(id);
+            DataContext = model;
         }
     }
 }
