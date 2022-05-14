@@ -17,13 +17,15 @@ namespace VioletBookDiary.ViewModels
         public string CurrentUserStar { get; set; }
         public string CurrentUserComment { get; set; }
         public string CurrentUserAvatar { get => CurrentUser._User.Avatar; set { } }
-        public ObservableCollection<Feedback> Feedbacks { get; set; }
+        public List<Feedback> Feedbacks { get; set; }
         public int IdBook;
         public FeedBackBook win;
+        public float Rating { get; set; }
+
 
         public FeedBackViewModel(int idbook)
         {
-            Feedbacks = new ObservableCollection<Feedback>();
+            Feedbacks = new List<Feedback>();
             IdBook = idbook;
             GetFeedbacks();
         }
@@ -41,6 +43,10 @@ namespace VioletBookDiary.ViewModels
                 feedback.Pating = float.Parse(item["pating"]);
                 feedback.UserAvatar = item["useravatar"];
                 Feedbacks.Add(feedback);
+            }
+            if (Feedbacks.Count > 0)
+            {
+                Rating = Feedbacks.Average(x => x.Pating);
             }
         }
         #endregion

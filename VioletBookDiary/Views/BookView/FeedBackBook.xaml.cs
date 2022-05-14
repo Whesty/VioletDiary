@@ -21,10 +21,11 @@ namespace VioletBookDiary.Views.BookView
     /// </summary>
     public partial class FeedBackBook : Page
     {
-        FeedBackViewModel model;
+        public FeedBackViewModel model;
         public FeedBackBook(int idbook)
         {
             InitializeComponent();
+            CurentWindows.feedBackBook = this;
             model = new FeedBackViewModel(idbook);
             model.win = this;
             DataContext = model;

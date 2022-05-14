@@ -25,6 +25,7 @@ namespace VioletBookDiary.Views.BookView
         public ListPaintView()
         {
             InitializeComponent();
+            CurentWindows.listPaint = this;
             DataContext = model;
         }
     }

@@ -23,17 +23,23 @@ namespace VioletBookDiary
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainViewModel m;
-        User user = new User();
+        public MainViewModel model;
         
-        public MainWindow(User u)
+        public MainWindow()
         {
             InitializeComponent();
             CurentWindows.mainWindow = this;
-            m = new MainViewModel(u);
-            user = u;
-            m.user = user;
-            DataContext = m;
+            model = new MainViewModel();
+            DataContext = model;
+            model.Main = new MainPage();
+            CurentWindows.Add(model.Main);
+            if(CurrentUser._User.AccessLevel != true)
+            {
+                AdminAccept.IsEnabled = false;
+                AdminAccept.Visibility = Visibility.Hidden;
+            }
         }
+        
+        
     }
 }

@@ -12,8 +12,9 @@ namespace VioletBookDiary.Views
         public Logon()
         {
             InitializeComponent();
-            authorizationViewModel = new AuthorizationViewModel(this);
+            authorizationViewModel = new AuthorizationViewModel();
             DataContext = authorizationViewModel;
+            CurentWindows.logon = this;
         }
 
         private void Passvord_Box_PasswordChanged(object sender, RoutedEventArgs e)

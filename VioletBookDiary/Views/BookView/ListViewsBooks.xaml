@@ -9,7 +9,7 @@
      >
 
     <Grid>
-        <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
+        <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" SelectionChanged="Button_Click" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
            
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -23,12 +23,11 @@
 
                     <Grid VerticalAlignment="Stretch" Width="210" Height="297"  >
 
-                        <Button Click="Button_Click" Width="210" Height="297" Background="{x:Null}"  BorderBrush="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.IsSharedSizeScope="False" Padding="0,0,0,0" >
-                            <!--<Button.Background>
+                         <!--<Button.Background>
                                 <ImageBrush ImageSource="{Binding Path=Image}"/>
                             </Button.Background>-->
                             <Image Source="{Binding Path=Image}" Width="210" Height="297" ></Image>
-                        </Button>
+                        
                         <!--<StackPanel VerticalAlignment="Bottom">
                             <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
                             <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>

@@ -15,8 +15,9 @@ namespace VioletBookDiary.ViewModels
 {
     public class PaintBookViewModel : ViewModelBase
     {
-        public ObservableCollection<Paint> ListPaint { get; set; }
+        public List<Paint> ListPaint { get; set; }
         private string link;
+        public int Count { get; set; }
         public string Link
         {
             get { return link; }
@@ -29,14 +30,14 @@ namespace VioletBookDiary.ViewModels
         int IdBook;
         public PaintBookViewModel(int idBook)
         {
-            ListPaint = new ObservableCollection<Paint>();
+            ListPaint = new List<Paint>();
             IdBook = idBook;
             GetListPaint();
         }
         #region Function Service
         public void GetListPaint()
         {
-            ListPaint = new ObservableCollection<Paint>();
+            ListPaint = new List<Paint>();
             foreach (Dictionary<string, string> items in CurrentClient.service.getPaintBook(IdBook))
             {
                 ListPaint.Add(new Paint()
@@ -50,6 +51,7 @@ namespace VioletBookDiary.ViewModels
                     Id_User_Add = int.Parse(items["userAdd"]),
                 });
             }
+            Count = ListPaint.Count;
         }
         #endregion
         #region Command

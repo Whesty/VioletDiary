@@ -4,6 +4,7 @@ using System.Windows;
 using VioletBookDiary.Models;
 using VioletBookDiary.MyServices;
 using VioletBookDiary.ViewModels;
+using VioletBookDiary.Views;
 
 namespace VioletBookDiary
 {
@@ -30,7 +31,9 @@ namespace VioletBookDiary
                 IdAuthorized = int.Parse(result["id_authorized"])
             };
             CurrentUser.SetUser(user);
-            userinfoVM = new UserInfoViewModel();
+            UserInfo userInfo = new UserInfo();
+            CurentWindows.userInfo = userInfo;
+            //CurentWindows.Update();
         }
     }
 }

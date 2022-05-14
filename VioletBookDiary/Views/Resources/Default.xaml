@@ -7,7 +7,7 @@
         <Setter Property="Background" Value="#FFF1F0F1"/>
     </Style>
     <Style x:Key="GridLeftBarButton" TargetType="Button">
-        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Background" Value="#9D35FF"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="40"/>

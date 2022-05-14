@@ -53,7 +53,7 @@ namespace VioletBookDiary.ViewModels
 
         public string Genres { get; set; }
 
-        private ObservableCollection<Genre> genre = new ObservableCollection<Genre>();
+        private List<Genre> genre = new List<Genre>();
         public string Description
         {
             get { return book.Description; }
@@ -81,12 +81,8 @@ namespace VioletBookDiary.ViewModels
         public string Tags { get; set; }
         public string File { get; set; }
         public Book book { get; set; }
-        MyServices.ServiceClient client;
-        AddBook Win;
-        public AddBookViewModel(AddBook window)
+        public AddBookViewModel()
         {
-            Win = window;
-            client = Win.Client;
             book = new Book();
             //Получаем от сервера список жанров
             foreach (Dictionary<string, string> item in CurrentClient.service.getGenrs())
@@ -96,7 +92,7 @@ namespace VioletBookDiary.ViewModels
                 genre1.Name = item["name"];
                 genre.Add(genre1);
             }
-            Win.GenresComboBox.ItemsSource = genre;
+            CurentWindows.addBook.GenresComboBox.ItemsSource = genre;
         }
 
         public ICommand open_LoadImage => new DelegateCommand(Open_LoadImage);
@@ -109,7 +105,7 @@ namespace VioletBookDiary.ViewModels
                 string selFileName = openFile.FileName;
                 Image = selFileName;
             }
-            Win.LoadingImage.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Image)));
+            CurentWindows.addBook.LoadingImage.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Image)));
         }
         public ICommand open_LoadFile => new DelegateCommand(Open_LoadFile);
         private void Open_LoadFile()
@@ -134,25 +130,5 @@ namespace VioletBookDiary.ViewModels
             MessageBox.Show(result);
 
         }
-        //public ICommand update_Aothors => new DelegateCommand(Update_Authors);
-        //private void Update_Authors()
-        //{
-        //    EditItemsBook win_A = new EditItemsBook(book, 1);
-        //    win_A.Show();
-        //}
-        //public ICommand update_Ganres => new DelegateCommand(Update_Ganres);
-        //private void Update_Ganres()
-        //{
-
-        //    EditItemsBook win_G = new EditItemsBook(book, 2);
-        //    win_G.Show();
-        //}
-        //public ICommand update_Tags => new DelegateCommand(Update_Tags);
-        //private void Update_Tags()
-        //{
-
-        //    EditItemsBook win_T = new EditItemsBook(book, 3);
-        //    win_T.Show();
-        //}
     }
 }

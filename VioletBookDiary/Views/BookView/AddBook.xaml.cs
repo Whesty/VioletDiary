@@ -10,11 +10,11 @@ namespace VioletBookDiary.Views
     {
         AddBookViewModel Model;
         public ServiceClient Client;
-        public AddBook(ServiceClient client)
+        public AddBook()
         {
             InitializeComponent();
-            Model = new AddBookViewModel(this);
-            Client = client;
+            CurentWindows.addBook = this;
+            Model = new AddBookViewModel();
             DataContext = Model;
         }
     }

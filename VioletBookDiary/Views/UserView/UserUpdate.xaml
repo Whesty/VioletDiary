@@ -9,8 +9,10 @@
     <Grid Style="{DynamicResource GridFull}">
         <StackPanel>
             <Grid>
-                <Button Command="{Binding open_LoadImage}" Width="148" Height="148" Background="{x:Null}" Foreground="{x:Null}" Margin="0,20,0,0">
-                    <Image Stretch="UniformToFill" Source="{Binding Avatar}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Image>
+                <Button Command="{Binding open_LoadImage}" Width="148" Height="148" Foreground="{x:Null}" Margin="0,20,0,0" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Avatar}" />
+                    </Button.Background>
                 </Button>
             </Grid>
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Name}"

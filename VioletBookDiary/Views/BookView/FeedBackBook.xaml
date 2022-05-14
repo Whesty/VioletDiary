@@ -20,7 +20,7 @@
                     <TextBlock Text="{Binding CurrentUserName}" FontSize="20" Margin="5,5,5,5"/>
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Star" Width="20" Height="20" Foreground="#FF673AB7"/>
-                            <TextBox Text="{Binding CurrentUserStar}" FontSize="20" Width="50" Height="25" HorizontalAlignment="Left"/>
+                            <TextBox Text="{Binding CurrentUserStar}" FontSize="12" Width="50" Height="25" HorizontalAlignment="Left"/>
                     </DockPanel>
                     <TextBox Text="{Binding  CurrentUserComment}" materialDesign:HintAssist.Hint="Поделитесь своим мнением" TextWrapping = "Wrap"></TextBox>
                     <Button Command="{Binding addFeedBack}" MaxWidth="100" MaxHeight="30" HorizontalAlignment="Left">

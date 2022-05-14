@@ -27,13 +27,14 @@ namespace VioletBookDiary.Views
         {
 
             _path = path;
+            CurentWindows.reedBook = this;
             readBookViewModel = new ReadBookViewModel(_path);
             readBookViewModel.Chapter_selection = mark;
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
             InitializeComponent();
             DataContext = readBookViewModel;
             Chapters.SelectedIndex = mark;
-            CurentWindows.reedBook = this;
+            
 
         }
 

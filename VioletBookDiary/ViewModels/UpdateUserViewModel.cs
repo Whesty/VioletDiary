@@ -9,6 +9,7 @@ using System.Windows.Input;
 using VioletBookDiary.Commands;
 using VioletBookDiary.Models;
 using VioletBookDiary.MyServices;
+using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -75,6 +76,11 @@ namespace VioletBookDiary.ViewModels
             ServiceClient client = new ServiceClient(context);
 
             client.UpdateUser(Id, Name, Info, Avatar);
+            CurentWindows.userUpdate.Close();
+
+            UserInfo userInfo = new UserInfo();
+            CurentWindows.userInfo = userInfo;
+            //CurentWindows.Update();
 
             //CurrentClient.service.UpdateUser(Id, Name, Info, Avatar);
 

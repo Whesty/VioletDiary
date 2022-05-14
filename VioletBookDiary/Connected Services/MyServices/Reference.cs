@@ -105,6 +105,12 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBooks", ReplyAction="http://tempuri.org/IService/getBooksResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getBooksAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBooks", ReplyAction="http://tempuri.org/IService/DeleteBooksResponse")]
+        void DeleteBooks(int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBooks", ReplyAction="http://tempuri.org/IService/DeleteBooksResponse")]
+        System.Threading.Tasks.Task DeleteBooksAsync(int idBook);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/UpdateUser")]
         void UpdateUser(int id, string name, string info, string avatar);
         
@@ -122,6 +128,12 @@ namespace VioletBookDiary.MyServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
         System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBook", ReplyAction="http://tempuri.org/IService/EditBookResponse")]
+        string EditBook(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBook", ReplyAction="http://tempuri.org/IService/EditBookResponse")]
+        System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFeedBack", ReplyAction="http://tempuri.org/IService/AddFeedBackResponse")]
         string AddFeedBack(int idBook, string text, int idUser, string pating);
@@ -294,6 +306,14 @@ namespace VioletBookDiary.MyServices {
             return base.Channel.getBooksAsync();
         }
         
+        public void DeleteBooks(int idBook) {
+            base.Channel.DeleteBooks(idBook);
+        }
+        
+        public System.Threading.Tasks.Task DeleteBooksAsync(int idBook) {
+            return base.Channel.DeleteBooksAsync(idBook);
+        }
+        
         public void UpdateUser(int id, string name, string info, string avatar) {
             base.Channel.UpdateUser(id, name, info, avatar);
         }
@@ -316,6 +336,14 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<string> AddBookAsync(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser) {
             return base.Channel.AddBookAsync(name, author, genre, tag, description, image, file, Serialize, Realese, idUser);
+        }
+        
+        public string EditBook(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus) {
+            return base.Channel.EditBook(id, name, description, image, file, Serialize, Realese, idUser, bookstatus);
+        }
+        
+        public System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus) {
+            return base.Channel.EditBookAsync(id, name, description, image, file, Serialize, Realese, idUser, bookstatus);
         }
         
         public string AddFeedBack(int idBook, string text, int idUser, string pating) {

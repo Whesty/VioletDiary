@@ -35,22 +35,27 @@ namespace VioletBookDiary.Views
 
         private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
-
-            //PageViewBook viewBook = new PageViewBook();
-            //viewBook.model = selectedBook;
-            //viewBook.DataContext = viewBook.model;
-            //model.main.CurrentPage = viewBook;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BookViewModel selectedBook = model.win.DataList.SelectedItem as BookViewModel;
-            CurentWindows.mainWindow.Back.IsEnabled = true;
+            //DataList.SelectedItem = DataList.Items.CurrentItem;
+            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
+            if (selectedBook != null)
+            {
+                PageViewBook viewBook = new PageViewBook(selectedBook);
+                CurentWindows.Add(viewBook);
+            }
+        }
+
+        private void DataList_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            DataList.SelectedItem = DataList.Items.CurrentItem;
+            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
 
             PageViewBook viewBook = new PageViewBook(selectedBook);
-            CurentWindows.mainWindow.m.CurrentPage = viewBook;
-
+            CurentWindows.Add(viewBook);
         }
     }
 }

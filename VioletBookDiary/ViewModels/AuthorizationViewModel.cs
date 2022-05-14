@@ -14,56 +14,12 @@ namespace VioletBookDiary.ViewModels
 {
     internal class AuthorizationViewModel : ViewModelBase
     {
-        public void OnCallback(string message)
-        {
-            throw new NotImplementedException();
-        }
-        ContentControl control;
-        private double contentOpacity;
+        
         public string login { get; set; }
 
         public string password { get; set; }
-        public double ContentOpacity
-        {
-            get => contentOpacity;
-            set
-            {
-                contentOpacity = value;
-                OnPropertyChanged("Opacity");
-            }
-        }
-
-        public ContentControl Content
-        {
-            get => control;
-            set
-            {
-                control = value;
-                OnPropertyChanged("Control");
-            }
-        }
-
         public ICommand gotoregistration => new DelegateCommand(GoToRegistration);
-        private Logon logon;
-
-        public AuthorizationViewModel()
-        {
-
-            //logon = new Logon(window);
-            //Content = logon.GetPage("login");
-            ContentOpacity = 1.0;
-        }
-        public AuthorizationViewModel(Logon window)
-        {
-
-            logon = window;
-
-            //Content = logon.GetPage("login");
-            ContentOpacity = 1.0;
-        }
-
-
-
+       
         private void GoToRegistration()
         {
             Registration registration = new Registration();
@@ -108,31 +64,10 @@ namespace VioletBookDiary.ViewModels
                 DataCreate = log["data_create"],
                 IdAuthorized = int.Parse(log["id_authorized"])
             };
-            MainWindow window = new MainWindow(user);
+            CurrentUser.SetUser(user);
+            MainWindow window = new MainWindow();
             window.Show();
-            //Service.ServiceClient.Login(email, password);
-            logon.Close();
-
-        }
-
-        private async void SlowOpacity(UserControl control)
-        {
-            await Task.Factory.StartNew(() =>
-            {
-                for (double i = 1.0; i > 0.0; i -= 0.1)
-                {
-                    ContentOpacity = i;
-                    Thread.Sleep(50);
-                }
-
-                Content = control;
-
-                for (double i = 0.0; i < 1.1; i += 0.1)
-                {
-                    ContentOpacity = i;
-                    Thread.Sleep(50);
-                }
-            });
+            CurentWindows.logon.Close();
         }
     }
 }

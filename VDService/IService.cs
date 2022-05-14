@@ -45,12 +45,16 @@ namespace VDService
 
         [OperationContract]
         List<Dictionary<string, string>> getBooks();
+        [OperationContract]
+        void DeleteBooks(int idBook);
         [OperationContract(IsOneWay = true)]
         void UpdateUser(int id, string name, string info, string avatar);
         [OperationContract]
         void Disconnect(int id);
         [OperationContract]
         string AddBook(string name, string author, string genre, string tag, string description, string image, string file, string Serialize, string Realese, int idUser);
+        [OperationContract]
+        string EditBook(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus);
         [OperationContract]
         string AddFeedBack(int idBook, string text, int idUser, string pating);
         [OperationContract]

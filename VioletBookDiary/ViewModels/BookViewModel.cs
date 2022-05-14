@@ -85,6 +85,7 @@ namespace VioletBookDiary.ViewModels
                 {
                     authStr += author.Name + ", ";
                 }
+                if(authStr != "")
                 authStr = authStr.Substring(0, authStr.Length - 2);
                 return authStr;
             }
@@ -132,6 +133,7 @@ namespace VioletBookDiary.ViewModels
                 {
                     genreStr += genre.Name + ", ";
                 }
+                if(genreStr!="")
                 genreStr = genreStr.Remove(genreStr.Length - 2);
                 return genreStr;
             }set { } }
@@ -154,6 +156,7 @@ namespace VioletBookDiary.ViewModels
                 {
                     tagStr += tag.Name + ", ";
                 }
+                if(tagStr!="")
                 tagStr = tagStr.Substring(0, tagStr.Length - 2);
                 return tagStr;
             } set { } }
@@ -229,10 +232,15 @@ namespace VioletBookDiary.ViewModels
         }
         private FeedBackBook feedBack;
         private PaintBook paintBook;
+        public float Rating { get; set; }
+        public int SaveMark { get; set; }
+        public int CountImage { get; set; }
         public void Open_PageViewBook()
         {
             feedBack = new FeedBackBook(Book.Id);
             paintBook = new PaintBook(Book.Id);
+            CountImage = paintBook.model.Count;
+            Rating = feedBack.model.Rating;
             CurrentPage = feedBack;
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
@@ -264,7 +272,7 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Reed => new DelegateCommand(Open_Reed);
         private void Open_Reed()
         {
-            CurentWindows.mainWindow.m.CurrentPage = new ReedBook(Book.File, marks);
+            CurentWindows.Add(new ReedBook(Book.File, marks));
         }
         public ICommand button_Like => new DelegateCommand(ButtonLike);
         private void ButtonLike()

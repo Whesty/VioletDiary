@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:VioletBookDiary.Views"
+      xmlns:local="clr-namespace:VioletBookDiary.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminListBook">
@@ -14,19 +14,38 @@
             <RowDefinition Height="208*"/>
         </Grid.RowDefinitions>
         <Grid>
-            <ComboBox Width="300" HorizontalAlignment="Left">
-                <ComboBoxItem>Пользователи</ComboBoxItem>
-                <ComboBoxItem>Книги</ComboBoxItem>
-                <ComboBoxItem>Авторы</ComboBoxItem>
-                <ComboBoxItem>Картинки</ComboBoxItem>
-                <ComboBoxItem>Отзывы</ComboBoxItem>
-                <ComboBoxItem>Тэги</ComboBoxItem>
-                <ComboBoxItem>Жанры</ComboBoxItem>
-                <ComboBoxItem>Художники</ComboBoxItem>
-                <ComboBoxItem>Авторизация</ComboBoxItem>
-            </ComboBox>
         </Grid>
-        <DataGrid Grid.Row="1"  x:Name="TableAdmin">
-        </DataGrid>
+        <!--<ListView Grid.Row="1" x:Name="BookViewList"  ItemsSource="{Binding listBook}" SelectionChanged="ListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <Image Width="148" Height="210" Source="{Binding Image}"></Image>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <Button Command="{Binding acceptBook}" Click="Button_Click">
+                            <materialDesign:PackIcon Kind="Check" Width="20" Height="20" Foreground="#9D35FF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                        </Button>
+                        <Button Command="{Binding deleteBook}" Click="Button_Click2">
+                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" Foreground="#9D35FF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                        </Button>
+                    </DockPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        <ListBox Grid.Row="1" x:Name="BookViewList"  ItemsSource="{Binding listBook}" SelectionChanged="ListView_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <Image Width="148" Height="210" Source="{Binding Image}"></Image>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Button Command="{Binding acceptBook}" Click="Button_Click">
+                            <materialDesign:PackIcon Kind="Check" Width="20" Height="20" Foreground="#9D35FF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                        </Button>
+                        <Button Command="{Binding deleteBook}" Click="Button_Click2">
+                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" Foreground="#9D35FF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                        </Button>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

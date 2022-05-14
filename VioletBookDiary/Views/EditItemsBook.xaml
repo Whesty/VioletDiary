@@ -13,14 +13,27 @@
         </Grid.RowDefinitions>
         <Grid>
             <DockPanel VerticalAlignment="Bottom" Margin="0,0,0,10">
-                <TextBlock FontSize="20" Padding="0,0,10,0">Весь список</TextBlock>
+                <TextBlock FontSize="20" Padding="0,0,10,0">Таблица</TextBlock>
                 <TextBox Text="{Binding NameSearch}" Width="400"></TextBox>
-                <Button Width="32" HorizontalAlignment="Right" Margin="0,0,10,0">Добавить</Button>
+                <ComboBox x:Name="NameTable" Width="200" SelectionChanged="NameTable_SelectionChanged">
+                    <ComboBoxItem>
+                        <TextBlock>Книги</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock>Авторы</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock>Жанры</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock>Тэги</TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Width="100" HorizontalAlignment="Right" Margin="0,0,10,0">Добавить</Button>
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <DataGrid x:Name="AllItemsTable">
-                
+            <DataGrid x:Name="AllItemsTable" IsReadOnly="True">
             </DataGrid>
         </Grid>
        

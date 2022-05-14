@@ -21,10 +21,11 @@ namespace VioletBookDiary.Views.BookView
     /// </summary>
     public partial class PaintBook : Page
     {
-        PaintBookViewModel model;
+        public PaintBookViewModel model;
         public PaintBook(int idbook)
         {
             InitializeComponent();
+            CurentWindows.paintBook = this;
             model = new PaintBookViewModel(idbook);
             DataContext = model;
         }

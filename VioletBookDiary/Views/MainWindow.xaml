@@ -20,9 +20,7 @@
         </Grid.ColumnDefinitions>
         <Grid x:Name="MenuTools" Style="{DynamicResource ResourceKey=GridLeftBar}" Grid.Column="0" Grid.Row="1">
             <StackPanel>
-                <Button x:Name="Back"  IsEnabled="False" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Command="{Binding open_Main}" IsCancel="True">
-                    <materialDesign:PackIcon Kind="Undo" Width="24" Height="24"/>
-                </Button>
+               
                 <Button  Style="{DynamicResource ResourceKey=GridLeftBarButton}" Command="{Binding open_Main}">
                     <materialDesign:PackIcon Kind="Home" Width="24" Height="24"/>
                 </Button>
@@ -35,6 +33,9 @@
 
                 <Button  Style="{DynamicResource ResourceKey=GridLeftBarButton}">
                     <materialDesign:PackIcon Kind="FileDocumentPlus"  Width="24" Height="24"/>
+                </Button>
+                <Button x:Name="AdminAccept"  Command="{Binding open_Admin}" Style="{DynamicResource ResourceKey=GridLeftBarButton}">
+                    <materialDesign:PackIcon Kind="Edit"  Width="24" Height="24"/>
                 </Button>
                 <Button  Style="{DynamicResource ResourceKey=GridLeftBarButton}">
                     <materialDesign:PackIcon Kind="Settings"  Width="24" Height="24"/>
@@ -57,13 +58,10 @@
                 <Button Height="40" Command="{Binding open_UserInfo}" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Width="40">
                     <materialDesign:PackIcon Kind="User" Width="24" Height="24"/>
                 </Button> 
-                <Button Height="40" Command="{Binding updateWindow}" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Width="40">
-                    <materialDesign:PackIcon Kind="Update" Width="24" Height="24"/>
-                </Button>
             </DockPanel>
         </Grid>
-        <Grid x:Name="GridPage" Grid.Column="1" Grid.Row="1">
-            <Frame Content="{Binding CurrentPage}" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"/>
+        <Grid  Grid.Column="1" Grid.Row="1">
+            <Frame x:Name="GridPage" Content="{Binding CurrentPage}" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>

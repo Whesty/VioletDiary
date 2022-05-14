@@ -126,6 +126,12 @@
   <wsdl:message name="IService_getBooks_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBooksResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DeleteBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBooks" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBooksResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
   </wsdl:message>
@@ -140,6 +146,12 @@
   </wsdl:message>
   <wsdl:message name="IService_AddBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_EditBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_EditBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBookResponse" />
   </wsdl:message>
   <wsdl:message name="IService_AddFeedBack_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFeedBack" />
@@ -223,6 +235,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getBooks" message="tns:IService_getBooks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getBooksResponse" message="tns:IService_getBooks_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBooks" message="tns:IService_DeleteBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBooksResponse" message="tns:IService_DeleteBooks_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
     </wsdl:operation>
@@ -233,6 +249,10 @@
     <wsdl:operation name="AddBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBookResponse" message="tns:IService_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/EditBook" message="tns:IService_EditBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/EditBookResponse" message="tns:IService_EditBook_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddFeedBack">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddFeedBack" message="tns:IService_AddFeedBack_InputMessage" />
@@ -388,6 +408,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteBooks">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <soap12:operation soapAction="http://tempuri.org/IService/UpdateUser" style="document" />
       <wsdl:input>
@@ -405,6 +434,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddBook">
       <soap12:operation soapAction="http://tempuri.org/IService/AddBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditBook">
+      <soap12:operation soapAction="http://tempuri.org/IService/EditBook" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

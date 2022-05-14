@@ -15,5 +15,6 @@ namespace VioletBookDiary
             _User.Avatar = user.Avatar;
             _User.Info = user.Info;
         }
+        
     }
 }

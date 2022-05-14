@@ -10,23 +10,27 @@ namespace VioletBookDiary.Views
     public partial class EditItemsBook : Window
     {
         public EditItemsBookViewModel viewModel;
-        public int _t;
         public Book book;
         public EditItemsBook()
         {
-            viewModel = new EditItemsBookViewModel(book, this, _t);
             InitializeComponent();
+            NameTable.SelectedIndex = 0;
+            viewModel = new EditItemsBookViewModel(book, this);
             DataContext = viewModel;
+            AllItemsTable.FrozenColumnCount = 1;
         }
-        public EditItemsBook(Book _b, int t)
+
+        private void NameTable_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
-            InitializeComponent();
-            book = _b;
-            _t = t;
-            viewModel = new EditItemsBookViewModel(book, this, _t);
-            DataContext = viewModel;
+            if (NameTable.SelectedIndex != 0)
+            {
+                viewModel = new EditItemsBookViewModel(book, this);
+            }
         }
-
+        private void AllItemsTable_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            int sel = AllItemsTable.SelectedIndex;
+            
+        }
     }
 }

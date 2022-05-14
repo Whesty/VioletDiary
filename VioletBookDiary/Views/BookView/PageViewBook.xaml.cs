@@ -33,8 +33,13 @@ namespace VioletBookDiary.Views
 
         private void ViewStatusMarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             model.editBookMark();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            CurentWindows.mainWindow.GridPage.GoBack();
+            CurentWindows.listViewsBooks.DataList.SelectedItem = null; 
         }
     }
 }

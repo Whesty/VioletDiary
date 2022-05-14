@@ -68,7 +68,6 @@ namespace VioletBookDiary.ViewModels
             UserUpdate win = new UserUpdate(CurrentUser._User);
             CurrentClient.callBack.userinfoVM = this;
             win.Show();
-            
         }
     }
 }

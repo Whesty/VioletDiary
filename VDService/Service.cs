@@ -193,6 +193,16 @@ namespace VDService
             } 
         }
 
+        public void DeleteBooks(int idBook)
+        {
+           using (UnitOfWork unit = new UnitOfWork())
+            {
+               // BOOK book = unit.BooksRepository.GetAll().Where(x => x.Id == idBook).FirstOrDefault();
+                unit.BooksRepository.Remove(idBook);
+                unit.Save();
+            }
+        }
+
         public void Disconnect(int id)
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -209,6 +219,33 @@ namespace VDService
                 else
                 {
                     ConnectUsers.Remove(ConnectAdmins.Where(x => x.Id == id).FirstOrDefault());
+                }
+            }
+        }
+
+        public string EditBook(int id, string name, string description, string image, string file, string Serialize, string Realese, int idUser, bool bookstatus)
+        {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
+                try
+                {
+                    BOOK book = unitOfWork.BooksRepository.GetAll().Where(x => x.Id == id).FirstOrDefault();
+                    if (book == null)
+                        return "Книга не найдена!";
+                    book.BOOK_NAME = name;
+                    book.BOOK_DESCRIPTION = description;
+                    book.BOOK_IMAGE = image;
+                    book.BOOK_FILE = file;
+                    book.BOOK_SERIES = Serialize;
+                    book.DATA_RELEASE = int.Parse(Realese);
+                    book.BOOK_STATUS = bookstatus;
+                    unitOfWork.BooksRepository.Update(book);
+                    unitOfWork.Save();
+                    return "Книга отредактирована!";
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
                 }
             }
         }
@@ -544,6 +581,7 @@ namespace VDService
                 user.USER_NAME = name;
                 user.USER_INFO = info;
                 user.USER_AVATAR = avatar;
+                unit.UserRepository.Update(user);
                 unit.Save();
                 Dictionary<string, string> result = new Dictionary<string, string>();
                 result.Add("id", user.Id.ToString());
