@@ -22,7 +22,7 @@
             <TextBox x:Name="searchBox"  materialDesign:HintAssist.Hint="Поиск по названию" VerticalAlignment="Bottom" TextChanged="TextBox_TextChanged"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
-            <ListView x:Name="DataList"  ItemsSource="{Binding BooksList, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
+            <ListView x:Name="DataList" SelectionChanged="Button_Click" ItemsSource="{Binding BooksList, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="4"/>

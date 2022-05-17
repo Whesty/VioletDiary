@@ -114,6 +114,12 @@
   <wsdl:message name="IService_getBookMarks_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBookMarksResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getBookMarksUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBookMarksUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_getBookMarksUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBookMarksUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_addBookMarks_InputMessage">
     <wsdl:part name="parameters" element="tns:addBookMarks" />
   </wsdl:message>
@@ -238,6 +244,10 @@
     <wsdl:operation name="getBookMarks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getBookMarks" message="tns:IService_getBookMarks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getBookMarksResponse" message="tns:IService_getBookMarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBookMarksUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getBookMarksUser" message="tns:IService_getBookMarksUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getBookMarksUserResponse" message="tns:IService_getBookMarksUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="addBookMarks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/addBookMarks" message="tns:IService_addBookMarks_InputMessage" />
@@ -403,6 +413,15 @@
     </wsdl:operation>
     <wsdl:operation name="getBookMarks">
       <soap12:operation soapAction="http://tempuri.org/IService/getBookMarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookMarksUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/getBookMarksUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

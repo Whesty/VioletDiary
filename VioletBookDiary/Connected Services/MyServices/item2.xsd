@@ -178,6 +178,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getBookMarksUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBookMarksUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBookMarksUserResult" nillable="true" type="q13:ArrayOfArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="addBookMarks">
     <xs:complexType>
       <xs:sequence>
@@ -222,7 +236,7 @@
   <xs:element name="getBooksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBooksResult" nillable="true" type="q13:ArrayOfArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBooksResult" nillable="true" type="q14:ArrayOfArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -358,7 +372,7 @@
   <xs:element name="UpdateUserCallBack">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="result" nillable="true" type="q14:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="result" nillable="true" type="q15:ArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -69,10 +69,40 @@ namespace VioletBookDiary.ViewModels
             win.Show();
         }
         #endregion
+        public List<Book> BooksList { get; set; }
+        public List<Book> Reading { get; set; }
+        public List<Book> WillRead { get; set; }
+        public List<Book> Read { get; set; }
+
         #region Service
         public void getBookMarks()
         {
-            
+            Reading = new List<Book>();
+            WillRead = new List<Book>();
+            Read = new List<Book>();
+            foreach (Dictionary<string, string> result in CurrentClient.service.getBookMarksUser(User.Id))
+            {
+                Book book = new Book();
+                book.Id = Convert.ToInt32(result["Id"]);
+                book.Name = result["Name"];
+                book.Description = result["Description"];
+                book.Image = result["Image"];
+                book.Dete = DateTime.Parse(result["Date"]);
+                book.Bookmark = Convert.ToInt32(result["Mark"]);
+                book.BookReading = result["StatusReading"];
+                if(book.BookReading == "Читаю")
+                {
+                    Reading.Add(book);
+                }
+                if(book.BookReading =="Буду читать")
+                {
+                    WillRead.Add(book);
+                }
+                if (book.BookReading == "Прочитанно")
+                {
+                    Read.Add(book);
+                }
+            }
         }
         #endregion
 

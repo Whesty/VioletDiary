@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace VioletBookDiary.Models
 {
     public class Book
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool Status { get; set; }
+       
         public string Series { get; set; }
+        public bool Status { get; set; }
         public string Realease { get; set; }
         public List<Authors> Authors { get; set; }
         public string Description { get; set; }
@@ -14,8 +16,12 @@ namespace VioletBookDiary.Models
         public List<Tag> Tags { get; set; }
         public string Image { get; set; }
         public string File { get; set; }
-        //Брать из UserTable
+        
         public int Bookmark { get; set; }
+        public string BookReading { get; set; }
+       
+        public DateTime Dete { get; set; } 
+
         public string getAuthors()
         {
             string str = "";

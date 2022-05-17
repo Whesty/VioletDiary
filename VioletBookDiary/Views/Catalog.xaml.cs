@@ -29,6 +29,7 @@ namespace VioletBookDiary.Views
             CurentWindows.catalog = this;
             model = new CatalogViewModel();
             this.DataContext = model;
+            DataList.SelectedItem = null;            
         }
         void OnComboboxTextChanged(object sender, RoutedEventArgs e)
         {
@@ -97,6 +98,16 @@ namespace VioletBookDiary.Views
         {
             model.BooksList = model.FiltrList;
             model.serch(searchBox.Text);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //DataList.SelectedItem = DataList.Items.CurrentItem;
+            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
+            if (selectedBook != null)
+            {
+                PageViewBook viewBook = new PageViewBook(selectedBook);
+                CurentWindows.Add(viewBook);
+            }
         }
     }
 }

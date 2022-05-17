@@ -93,6 +93,12 @@ namespace VioletBookDiary.MyServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBookMarks", ReplyAction="http://tempuri.org/IService/getBookMarksResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getBookMarksAsync(int idBook, int IdUser);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBookMarksUser", ReplyAction="http://tempuri.org/IService/getBookMarksUserResponse")]
+        System.Collections.Generic.Dictionary<string, string>[] getBookMarksUser(int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getBookMarksUser", ReplyAction="http://tempuri.org/IService/getBookMarksUserResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getBookMarksUserAsync(int IdUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/addBookMarks", ReplyAction="http://tempuri.org/IService/addBookMarksResponse")]
         bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence);
         
@@ -300,6 +306,14 @@ namespace VioletBookDiary.MyServices {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> getBookMarksAsync(int idBook, int IdUser) {
             return base.Channel.getBookMarksAsync(idBook, IdUser);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string>[] getBookMarksUser(int IdUser) {
+            return base.Channel.getBookMarksUser(IdUser);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>[]> getBookMarksUserAsync(int IdUser) {
+            return base.Channel.getBookMarksUserAsync(IdUser);
         }
         
         public bool addBookMarks(int idBook, int IdUser, int mark, string status, bool presence) {

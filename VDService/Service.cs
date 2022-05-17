@@ -378,7 +378,32 @@ namespace VDService
 
             }
         }
-
+        public List<Dictionary<string, string>> getBookMarksUser(int IdUser)
+        {
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<Dictionary<string, string>> bookDict = new List<Dictionary<string, string>>();
+                foreach ( USER_BOOKMARKS items in unit.UserBookmarksRepository.GetAll().Where(x => x.USERId == IdUser).ToList())
+                {
+                    Dictionary<string, string> result = new Dictionary<string, string>();
+                    result.Add("id", items.Id.ToString());
+                    result.Add("StatusReading", items.STATUS_READING);
+                    result.Add("Presence", items.PRESENCE.ToString());
+                    result.Add("Date", items.DATA_ADD.ToString());
+                    result.Add("Marks", items.MARKS.ToString());
+                    BOOK book = items.BOOK;
+                    result.Add("id", book.Id.ToString());
+                    result.Add("name", book.BOOK_NAME);
+                    result.Add("status", book.BOOK_STATUS.ToString());
+                    result.Add("file", book.BOOK_FILE);
+                    result.Add("image", book.BOOK_IMAGE);
+                    result.Add("description", book.BOOK_DESCRIPTION);
+                    result.Add("Realese", book.DATA_RELEASE.ToString());
+                }
+               
+                return bookDict;
+            }
+        }
         public List<Dictionary<string, string>> getBooks()
         {
             using (UnitOfWork unit = new UnitOfWork())
@@ -688,5 +713,7 @@ namespace VDService
                 }
             }
         }
+
+       
     }
 }
