@@ -38,6 +38,7 @@ namespace VioletBookDiary.ViewModels
         private Page User_Info;
         private Page currentpage;
         private Page Admin;
+        private Page Catalog;
         private Window AddBook;
         private EditItemsBook EditItemsBook;
         public ServiceClient client;
@@ -93,6 +94,12 @@ namespace VioletBookDiary.ViewModels
         {
             Admin = new AdminListBook();
             CurentWindows.Add(Admin);
+        }
+        public ICommand open_Catalog => new DelegateCommand(Open_Catalog);
+        private void Open_Catalog()
+        {
+            Catalog = new Catalog();
+            CurentWindows.Add(Catalog);
         }
 
         #endregion

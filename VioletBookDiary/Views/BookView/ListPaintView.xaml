@@ -15,7 +15,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Image Stretch="UniformToFill" Width="200" Height="200" Source="{Binding link}" MinWidth="200" MinHeight="200"></Image>
+                    <Image Stretch="UniformToFill"  Source="{Binding link}" MinWidth="200" MinHeight="200"></Image>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -249,6 +249,7 @@
     <Compile Include="VDMyServiceCallBack.cs" />
     <Compile Include="ViewModels\Book\AddBookViewModel.cs" />
     <Compile Include="ViewModels\Admin\AdminListBookViewModel.cs" />
+    <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\LogIn\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\Book\BookViewModel.cs" />
     <Compile Include="ViewModels\Admin\EditItemsBookViewModel.cs" />
@@ -441,6 +442,7 @@
     <Resource Include="Views\Resources\Icons\Diary.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Themes\" />
     <Folder Include="Validators\" />
   </ItemGroup>
   <ItemGroup>

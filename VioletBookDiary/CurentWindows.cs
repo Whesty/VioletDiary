@@ -21,6 +21,7 @@ namespace VioletBookDiary
         public static PageViewBook pageViewBook;
         public static ListViewsBooks listViewsBooks;
         public static ReedBook reedBook;
+        public static Catalog catalog;
         public static AdminListBook adminListBook;
         //public static List<Page> History = new List<Page>();
         public static Page CurrentPage { get; set; }

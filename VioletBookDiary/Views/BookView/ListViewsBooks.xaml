@@ -13,7 +13,7 @@
            
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="6"/>
+                    <UniformGrid Columns="4"/>
                     <!--<WrapPanel></WrapPanel>-->
                 </ItemsPanelTemplate>
                 
@@ -21,12 +21,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
 
-                    <Grid VerticalAlignment="Stretch" Width="210" Height="297"  >
+                    <Grid VerticalAlignment="Stretch"  >
 
                          <!--<Button.Background>
                                 <ImageBrush ImageSource="{Binding Path=Image}"/>
                             </Button.Background>-->
-                            <Image Source="{Binding Path=Image}" Width="210" Height="297" ></Image>
+                            <Image Source="{Binding Path=Image}" Stretch="UniformToFill"></Image>
                         
                         <!--<StackPanel VerticalAlignment="Bottom">
                             <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>

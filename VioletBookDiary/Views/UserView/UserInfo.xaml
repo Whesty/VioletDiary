@@ -18,7 +18,7 @@
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                     <DockPanel>
                         <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
-                <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
+                        <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
                         <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
                     </DockPanel>
                     <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
@@ -30,9 +30,44 @@
                     <RowDefinition Height="59*"/>
                 </Grid.RowDefinitions>
                 <Grid>
-                    <StackPanel></StackPanel>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button IsEnabled="False">Читаю</Button>
+                    <Button Grid.Column="1" Cursor="Hand"> Буду читать</Button>
                 </Grid>
-                <Grid Grid.Row="1"></Grid>
+                <Grid Grid.Row="1">
+                    <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" SelectionChanged="Button_Click" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4"/>
+                                <!--<WrapPanel></WrapPanel>-->
+                            </ItemsPanelTemplate>
+
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid VerticalAlignment="Stretch"  >
+
+                                    <!--<Button.Background>
+                                <ImageBrush ImageSource="{Binding Path=Image}"/>
+                            </Button.Background>-->
+                                    <Image Source="{Binding Path=Image}" Stretch="UniformToFill"></Image>
+
+                                    <!--<StackPanel VerticalAlignment="Bottom">
+                            <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
+                            <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
+                        </StackPanel>-->
+                                </Grid>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
