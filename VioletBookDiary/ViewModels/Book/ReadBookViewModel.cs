@@ -143,7 +143,27 @@ namespace VioletBookDiary.ViewModels
             return style;
         }
 
+        #region #Commands
+        public ICommand next => new DelegateCommand(Next);
+        private void Next()
+        {
+            if (Chapter_selection < Chapter.Count - 1)
+            {
+                Chapter_selection++;
+                CurentWindows.reedBook.Chapters.SelectedIndex = Chapter_selection;
+            }
+        }
+        public ICommand prev => new DelegateCommand(Prev);
+        private void Prev()
+        {
+            if (Chapter_selection > 0)
+            {
+                Chapter_selection--;
+                CurentWindows.reedBook.Chapters.SelectedIndex = Chapter_selection;
+            }
+        }
 
+        #endregion
 
     }
 }

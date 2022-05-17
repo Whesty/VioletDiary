@@ -66,6 +66,7 @@ namespace VioletBookDiary.ViewModels
             };
             CurrentUser.SetUser(user);
             MainWindow window = new MainWindow();
+            CurentWindows.listViewsBooks.DataList.SelectedItem = null;
             window.Show();
             CurentWindows.logon.Close();
         }

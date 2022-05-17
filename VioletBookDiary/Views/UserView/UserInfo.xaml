@@ -6,69 +6,62 @@
         xmlns:local="clr-namespace:VioletBookDiary.Views"
         mc:Ignorable="d"
         Title="UserInfo" Height="450" Width="800">
-    <Grid>
-
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="79*"/>
-                <RowDefinition Height="126*"/>
-            </Grid.RowDefinitions>
-            <DockPanel VerticalAlignment="Top">
-                <Image Stretch="UniformToFill" Height="200" Width="200" Source="{Binding Avatar, UpdateSourceTrigger=PropertyChanged}"></Image>
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <DockPanel>
-                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
-                        <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
-                        <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
-                    </DockPanel>
-                    <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
-                </StackPanel>
-            </DockPanel>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="59*"/>
-                </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Button IsEnabled="False">Читаю</Button>
-                    <Button Grid.Column="1" Cursor="Hand"> Буду читать</Button>
-                </Grid>
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Visible"> 
+        <ScrollViewer >
+            <StackPanel   >
+                <DockPanel VerticalAlignment="Top">
+                    <Image Stretch="UniformToFill" Height="200" Width="200" Source="{Binding Avatar, UpdateSourceTrigger=PropertyChanged}"></Image>
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <DockPanel>
+                            <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
+                            <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
+                            <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
+                        </DockPanel>
+                        <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
                 <Grid Grid.Row="1">
-                    <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" SelectionChanged="Button_Click" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="59*"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="bReading" IsEnabled="False" Command="{Binding buttonReading}">Читаю</Button>
+                        <Button x:Name="bWillRead" Grid.Column="1" Command="{Binding buttonWillRead}" Cursor="Hand">Буду читать</Button>
+                        <Button x:Name="bRead" Grid.Column="3" Command="{Binding buttonRead}" Cursor="Hand">Прочитанно</Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ListBox x:Name="DataList"  ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid Columns="4"/>
-                                <!--<WrapPanel></WrapPanel>-->
-                            </ItemsPanelTemplate>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="150">
+                                        <DockPanel>
+                                            <Button Click="Button_Click" BorderBrush="{x:Null}" Background="{x:Null}" Height="145" HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                                                <Image  Source="{Binding Path=Image}" Stretch="Uniform"/>
+                                            </Button>
 
-                                <Grid VerticalAlignment="Stretch"  >
+                                            <StackPanel VerticalAlignment="Bottom">
+                                                <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" Margin="10,0,10,0"/>
+                                                <TextBlock Text="{Binding Path=Description}" Margin="10,0,10,0"/>
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </Grid>
+                                </DataTemplate>
 
-                                    <!--<Button.Background>
-                                <ImageBrush ImageSource="{Binding Path=Image}"/>
-                            </Button.Background>-->
-                                    <Image Source="{Binding Path=Image}" Stretch="UniformToFill"></Image>
-
-                                    <!--<StackPanel VerticalAlignment="Bottom">
-                            <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
-                            <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
-                        </StackPanel>-->
-                                </Grid>
-
-                            </DataTemplate>
-
-                        </ListView.ItemTemplate>
-                    </ListView>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Grid>
+           
+        </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Page>

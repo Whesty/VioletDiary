@@ -34,7 +34,8 @@ namespace VioletBookDiary.Views
             Task task = readBookViewModel.ReadFB2FileStreamAsync();
             DataContext = readBookViewModel;
             Chapters.SelectedIndex = mark;
-            pageVeb.Content = new PageReedBook();
+            pageVeb.Children.Clear();
+            pageVeb.Children.Add(new PageReedBook());
         }
 
         private void Chapters_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +45,8 @@ namespace VioletBookDiary.Views
             //CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
             CurentWindows.pageViewBook.model.editBookMark();
             //CurentWindows.Add(new ReedBook(_path, Chapters.SelectedIndex));
-            pageVeb.Content = new PageReedBook();
+            pageVeb.Children.Clear();
+            pageVeb.Children.Add( new PageReedBook());
 
         }
         private void Back_Click(object sender, RoutedEventArgs e)

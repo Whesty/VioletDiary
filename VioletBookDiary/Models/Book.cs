@@ -71,7 +71,7 @@ namespace VioletBookDiary.Models
         }
         public Book()
         {
-            Image = @"D:\VioletDiary\VioletBookDiary\Views\Resources\Icons\Diary.ico";
+            //Image = @"D:\VioletDiary\VioletBookDiary\Views\Resources\Icons\Diary.ico";
             Tags = new List<Tag>();
             Genres = new List<Genre>();
             Authors = new List<Authors>();

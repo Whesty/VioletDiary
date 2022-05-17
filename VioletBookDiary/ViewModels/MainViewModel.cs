@@ -29,7 +29,7 @@ namespace VioletBookDiary.ViewModels
         {
             //BooksList = new List<BookViewModel>();
             
-            User_Info = new UserInfo();
+           
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             Admin = new AdminListBook();
         }
@@ -60,7 +60,7 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_UserInfo => new DelegateCommand(Open_UserInfo);
         private void Open_UserInfo()
         {
-
+            User_Info = new UserInfo();
             CurentWindows.Add(User_Info);
         }
         public ICommand open_AddBook => new DelegateCommand(Open_AddBook);

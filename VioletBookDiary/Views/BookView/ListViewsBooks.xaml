@@ -9,34 +9,31 @@
      >
 
     <Grid>
-        <ListView x:Name="DataList"  ItemsSource="{Binding BooksList}" SelectionChanged="Button_Click" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
-           
-            <ListView.ItemsPanel>
+        <ListBox x:Name="DataList" ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
+            
+            <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="4"/>
                     <!--<WrapPanel></WrapPanel>-->
                 </ItemsPanelTemplate>
-                
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
                 <DataTemplate>
-
-                    <Grid VerticalAlignment="Stretch"  >
-
-                         <!--<Button.Background>
-                                <ImageBrush ImageSource="{Binding Path=Image}"/>
-                            </Button.Background>-->
-                            <Image Source="{Binding Path=Image}" Stretch="UniformToFill"></Image>
-                        
+                    <Button  Click="Button_Click"  BorderBrush="{x:Null}" Background="{x:Null}" Height="{Binding RelativeSource={RelativeSource AncestorType=DataGridCell}, Path=ActualHeight}">
+                        <Image  Source="{Binding Path=Image}" Stretch="UniformToFill"/>
+                    </Button>
+                    
                         <!--<StackPanel VerticalAlignment="Bottom">
                             <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
                             <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
                         </StackPanel>-->
-                    </Grid>
 
                 </DataTemplate>
-                    
-            </ListView.ItemTemplate>
-        </ListView>
+                
+
+            </ListBox.ItemTemplate>
+            
+            
+        </ListBox>
     </Grid>
 </UserControl>

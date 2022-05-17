@@ -21,6 +21,7 @@ namespace VioletBookDiary.ViewModels
         {
 
             getListBook();
+            SelectedBook = null;
             
         }
         public void getListBook()
@@ -42,6 +43,10 @@ namespace VioletBookDiary.ViewModels
                     BooksList.Add(new BookViewModel(book));
             }
         }
+        private BookViewModel selectedBook { get; set; }
+        public BookViewModel SelectedBook
+        {
+            get => selectedBook; set { selectedBook = value; OnPropertyChanged("SelectedBook"); } }
         public ICommand open_PageViewBook => new DelegateCommand(Open_PageViewBook);
         private void Open_PageViewBook()
         {
@@ -54,8 +59,11 @@ namespace VioletBookDiary.ViewModels
             viewBook.model = selectedBook;
             viewBook.model.win = viewBook;
             viewBook.DataContext = viewBook.model;
-            
-            main.CurrentPage = viewBook;
+            if (win.DataList.SelectedItem != null)
+            {
+               // PageViewBook viewBook = new PageViewBook(selectedBook);
+                CurentWindows.Add(viewBook);
+            }
         }
         
     }

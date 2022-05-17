@@ -30,21 +30,16 @@ namespace VioletBookDiary.Views
             model = new ListBooksViewModel();
             model.win = this;
             DataContext = model;
-            DataList.ItemsSource = model.BooksList;
-            DataList.SelectedItem = null;
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //DataList.SelectedItem = DataList.Items.CurrentItem;
-            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
-            if (selectedBook != null)
-            {
-                PageViewBook viewBook = new PageViewBook(selectedBook);
-                CurentWindows.Add(viewBook);
-            }
-        }
+            Button button = e.Source as Button;
+            BookViewModel selectedBook = button.DataContext as BookViewModel;
 
+            PageViewBook viewBook = new PageViewBook(selectedBook);
+            CurentWindows.Add(viewBook);
+        }
     }
 }

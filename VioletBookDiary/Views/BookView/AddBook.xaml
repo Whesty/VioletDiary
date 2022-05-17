@@ -12,10 +12,11 @@
             <DockPanel>
             <Border x:Name="LoadingImage" Width="148" Height="210" Margin="40,10,0,0" BorderBrush="#FF9D35FF" BorderThickness="1,1,1,1" HorizontalAlignment="Left" >
                 <Grid>
+                    <materialDesign:PackIcon x:Name="IcomLoad"  Kind="Cloudupload" Width="100" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9D35FF"/>
+                    <Image Width="148" Height="210"  Source="{Binding Image}"></Image>
+
                     <Button Width="146" Command="{Binding open_LoadImage}" Height="210" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="Hand">
-                        <materialDesign:PackIcon x:Name="IcomLoad"  Kind="Cloudupload" Width="100" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9D35FF"/>
                     </Button>
-                    <Image Width="148" Height="210" Source="{Binding Image}"></Image>
                 </Grid>
             </Border>
                 <StackPanel>

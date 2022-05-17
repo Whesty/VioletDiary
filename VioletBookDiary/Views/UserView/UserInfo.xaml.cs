@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using VioletBookDiary.Models;
 using VioletBookDiary.ViewModels;
 
 namespace VioletBookDiary.Views
@@ -15,6 +16,7 @@ namespace VioletBookDiary.Views
         {
             InitializeComponent();
             model = new UserInfoViewModel();
+            CurentWindows.userInfo = this;
             DataContext = model;
         } public UserInfo(int id)
         {
@@ -24,13 +26,11 @@ namespace VioletBookDiary.Views
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //DataList.SelectedItem = DataList.Items.CurrentItem;
-            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
-            if (selectedBook != null)
-            {
-                PageViewBook viewBook = new PageViewBook(selectedBook);
-                CurentWindows.Add(viewBook);
-            }
+            Button button = e.Source as Button;
+            Book selectedBook = button.DataContext as Book;
+
+            PageViewBook viewBook = new PageViewBook(new BookViewModel(selectedBook));
+            CurentWindows.Add(viewBook);
         }
     }
 }

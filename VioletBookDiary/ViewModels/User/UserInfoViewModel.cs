@@ -55,10 +55,13 @@ namespace VioletBookDiary.ViewModels
         public UserInfoViewModel()
         {
             User = CurrentUser._User;
+            getBookMarks();
+            
         }
         public UserInfoViewModel(int Id)
         {
-
+            getBookMarks();
+            BooksList = Reading;
         }
         #region Commands
         public ICommand userUpdate => new DelegateCommand(User_Update);
@@ -68,8 +71,39 @@ namespace VioletBookDiary.ViewModels
             CurrentClient.callBack.userinfoVM = this;
             win.Show();
         }
+        public ICommand buttonReading => new DelegateCommand(Button_Reading);
+        public void Button_Reading()
+        {
+            BooksList = Reading;
+            CurentWindows.userInfo.bReading.IsEnabled = false;
+            CurentWindows.userInfo.bWillRead.IsEnabled = true;
+            CurentWindows.userInfo.bRead.IsEnabled = true;      
+            CurentWindows.userInfo.DataList.ItemsSource = BooksList;
+        }
+        public ICommand buttonWillRead => new DelegateCommand(Button_WillRead);
+        public void Button_WillRead()
+        {
+            BooksList = WillRead;
+            CurentWindows.userInfo.bReading.IsEnabled = true;
+            CurentWindows.userInfo.bWillRead.IsEnabled = false;
+            CurentWindows.userInfo.bRead.IsEnabled = true;      
+            CurentWindows.userInfo.DataList.ItemsSource = BooksList;
+        }
+        public ICommand buttonRead => new DelegateCommand(Button_Read);
+        public void Button_Read()
+        {
+            BooksList = Read;
+            CurentWindows.userInfo.bReading.IsEnabled = true;
+            CurentWindows.userInfo.bWillRead.IsEnabled = true;
+            CurentWindows.userInfo.bRead.IsEnabled = false;
+            CurentWindows.userInfo.DataList.ItemsSource = BooksList;
+        }
         #endregion
-        public List<Book> BooksList { get; set; }
+        private List<Book> _BooksList;
+        public List<Book> BooksList { get=> _BooksList; set {
+                _BooksList = value;
+                OnPropertyChanged("BooksList");
+            } }
         public List<Book> Reading { get; set; }
         public List<Book> WillRead { get; set; }
         public List<Book> Read { get; set; }
@@ -83,12 +117,14 @@ namespace VioletBookDiary.ViewModels
             foreach (Dictionary<string, string> result in CurrentClient.service.getBookMarksUser(User.Id))
             {
                 Book book = new Book();
-                book.Id = Convert.ToInt32(result["Id"]);
-                book.Name = result["Name"];
-                book.Description = result["Description"];
-                book.Image = result["Image"];
+                book.Id = Convert.ToInt32(result["idBook"]);
+                book.Name = result["name"];
+                book.Description = result["description"];
+                book.Image = result["image"];
                 book.Dete = DateTime.Parse(result["Date"]);
-                book.Bookmark = Convert.ToInt32(result["Mark"]);
+                book.Bookmark = Convert.ToInt32(result["Marks"]);
+                book.File = result["file"];
+                book.Realease = result["Realese"];
                 book.BookReading = result["StatusReading"];
                 if(book.BookReading == "Читаю")
                 {

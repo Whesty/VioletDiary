@@ -42,7 +42,7 @@ namespace VioletBookDiary.Views
             CurentWindows.mainWindow.GridPage.GoBack();
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = !CurentWindows.pageViewBook.Button_FeedBack.IsEnabled;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = !CurentWindows.pageViewBook.Button_Paint.IsEnabled;
-            CurentWindows.listViewsBooks.DataList.SelectedItem = null; 
+            
         }
     }
 }

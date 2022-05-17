@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using VioletBookDiary.Models;
 using VioletBookDiary.ViewModels;
 
@@ -18,15 +19,14 @@ namespace VioletBookDiary.Views
             CurentWindows.adminListBook = this;
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click3(object sender, RoutedEventArgs e)
         {
-            Book book = BookViewList.SelectedItem as Book;
-            if (book == null) return;
-            book.getGenres();
-            book.getAuthors();
-            book.getTags();
-           
-            CurentWindows.mainWindow.model.CurrentPage = new PageViewBook(new ViewModels.BookViewModel(book));
+            Button button = e.Source as Button;
+            Book selectedBook = button.DataContext as Book;
+
+            PageViewBook viewBook = new PageViewBook(new BookViewModel(selectedBook));
+            CurentWindows.Add(viewBook);
+
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -18,7 +18,7 @@ namespace VioletBookDiary.Views.BookView
     /// <summary>
     /// Логика взаимодействия для PageReedBook.xaml
     /// </summary>
-    public partial class PageReedBook : Page
+    public partial class PageReedBook : UserControl
     {
         public PageReedBook()
         {

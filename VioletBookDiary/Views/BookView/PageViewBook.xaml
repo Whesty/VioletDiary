@@ -33,6 +33,8 @@
                                 <ComboBox x:Name="ViewStatusMarks" Text="{Binding status_reading}" Margin="10,10,10,10" Height="30" Background="{x:Null}" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" SelectionChanged="ViewStatusMarks_SelectionChanged" >
                                     <ComboBoxItem Content="Читаю" />
                                     <ComboBoxItem Content="Буду читать" />
+                                    <ComboBoxItem Content="Прочитанно" />
+                                    <ComboBoxItem Content="Брошенно" />
                                 </ComboBox>
                                 <!-- Читать книгу, если есть файл -->
                                 <Button Command="{Binding open_Reed}" x:Name="ReedBookButton"  Margin="10,10,10,10" Cursor="Hand">
@@ -48,15 +50,17 @@
                                 <!-- Иконки -->
                                 <DockPanel>
                                     <materialDesign:PackIcon Kind="Star"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock  Text="{Binding Rating}" Foreground="#FF9D35FF"/>
+                                    <TextBlock  Text="{Binding Rating}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center"/>
                                     <!-- Рейтинг -->
                                     <materialDesign:PackIcon Kind="Calendar"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding Realease}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                                    <materialDesign:PackIcon Kind="Bookmark"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding SaveMark}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
                                 </DockPanel>
 
                                 <!-- Описания -->
                                 <TextBlock Text="{Binding  Series}" materialDesign:HintAssist.Hint="Серия" FontSize="30" FontWeight="Bold"></TextBlock>
-                                <TextBlock Text="{Binding AuthStr}" materialDesign:HintAssist.Hint="Атор" MaxHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}">
+                                <TextBlock Text="{Binding AuthStr}" materialDesign:HintAssist.Hint="Автор" MaxHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}">
                                 </TextBlock>
                                 <TextBlock Text="{Binding TagStr}" materialDesign:HintAssist.Hint="Тэги" MinHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}"></TextBlock>
 

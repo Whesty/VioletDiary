@@ -27,9 +27,8 @@ namespace VioletBookDiary.Views
         {
             InitializeComponent();
             CurentWindows.mainPage = this;
-            Filters.SelectedItem = Filters.Items[0];
             CurentWindows.mainPage.Button_ListBook.IsEnabled = false;
-            CurentWindows.mainPage.Filters.IsEnabled = true;
+            
             vm = new MainPageViewModel();
             DataContext = vm;
         }
@@ -38,5 +37,7 @@ namespace VioletBookDiary.Views
             vm = new MainPageViewModel();
             DataContext = vm;
         }
+
+       
     }
 }

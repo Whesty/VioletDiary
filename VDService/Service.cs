@@ -392,13 +392,14 @@ namespace VDService
                     result.Add("Date", items.DATA_ADD.ToString());
                     result.Add("Marks", items.MARKS.ToString());
                     BOOK book = items.BOOK;
-                    result.Add("id", book.Id.ToString());
+                    result.Add("idBook", book.Id.ToString());
                     result.Add("name", book.BOOK_NAME);
                     result.Add("status", book.BOOK_STATUS.ToString());
                     result.Add("file", book.BOOK_FILE);
                     result.Add("image", book.BOOK_IMAGE);
                     result.Add("description", book.BOOK_DESCRIPTION);
                     result.Add("Realese", book.DATA_RELEASE.ToString());
+                    bookDict.Add(result);
                 }
                
                 return bookDict;
@@ -690,9 +691,7 @@ namespace VDService
                 result.Add("data_create", user.DATA_CREATE.ToString());
                 result.Add("id_authorized", user.ID_AUTHORIZED.ToString());
                 result.Add("info", user.USER_INFO);
-                IMyServiceCallback callback = serverUser.OperationContext.GetCallbackChannel<IMyServiceCallback>();
-                
-                callback.UpdateUserCallBack(result);   
+                 
             }
         }
         #endregion

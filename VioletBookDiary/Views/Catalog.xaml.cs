@@ -29,7 +29,7 @@ namespace VioletBookDiary.Views
             CurentWindows.catalog = this;
             model = new CatalogViewModel();
             this.DataContext = model;
-            DataList.SelectedItem = null;            
+            
         }
         void OnComboboxTextChanged(object sender, RoutedEventArgs e)
         {
@@ -101,13 +101,12 @@ namespace VioletBookDiary.Views
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //DataList.SelectedItem = DataList.Items.CurrentItem;
-            BookViewModel selectedBook = DataList.SelectedItem as BookViewModel;
-            if (selectedBook != null)
-            {
-                PageViewBook viewBook = new PageViewBook(selectedBook);
-                CurentWindows.Add(viewBook);
-            }
+            Button button = e.Source as Button;
+            BookViewModel selectedBook = button.DataContext as BookViewModel;
+
+            PageViewBook viewBook = new PageViewBook(selectedBook);
+            CurentWindows.Add(viewBook); CurentWindows.Add(viewBook);
+            
         }
     }
 }

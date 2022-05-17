@@ -19,6 +19,8 @@ namespace VioletBookDiary.ViewModels
 
             listViewsBooks = new ListViewsBooks();
             listPaintView = new ListPaintView();
+            listViewsBooks.model.BooksList.OrderBy(x => x.Realease);
+            listPaintView.model.ListPaint.OrderBy(x => x.Data);
             CurentWindows.mainPage.ViewsListData.Children.Add(listViewsBooks);
             CurentWindows.mainPage.Button_ListBook.IsEnabled = false;
         }
