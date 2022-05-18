@@ -29,7 +29,7 @@ namespace VioletBookDiary.ViewModels
                 Book book = new Book();
                 book.Id = Convert.ToInt32(item["id"]);
                 book.Name = item["name"];
-                book.Realease = item["Realese"];
+                book.Realease = int.Parse(item["Realese"]);
                 book.Description = item["description"];
                 book.Image = item["image"];
                 book.Status = bool.Parse(item["status"]);
@@ -45,7 +45,7 @@ namespace VioletBookDiary.ViewModels
         public void AcceptBook()
         {
             int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;    
-            CurrentClient.service.EditBook(listBook[sel].Id, listBook[sel].Name, listBook[sel].Description, listBook[sel].Image, listBook[sel].File, listBook[sel].Series, listBook[sel].Realease, CurrentUser._User.Id,  true );
+            CurrentClient.service.EditBook(listBook[sel].Id, listBook[sel].Name, listBook[sel].Description, listBook[sel].Image, listBook[sel].File, listBook[sel].Series, listBook[sel].Realease.ToString(), CurrentUser._User.Id,  true );
             getListBook();
         }
         public ICommand deleteBook => new DelegateCommand(DeleteBook);

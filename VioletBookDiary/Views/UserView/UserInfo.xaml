@@ -15,7 +15,7 @@
                         <DockPanel>
                             <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
                             <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
-                            <Button Width="100" Height="32" Command="{Binding userUpdate}" >Изменить</Button>
+                            <Button Width="100" Height="32" Command="{Binding userUpdate}" Content="{DynamicResource Edit}"></Button>
                         </DockPanel>
                         <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
                     </StackPanel>
@@ -31,9 +31,9 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="bReading" IsEnabled="False" Command="{Binding buttonReading}">Читаю</Button>
-                        <Button x:Name="bWillRead" Grid.Column="1" Command="{Binding buttonWillRead}" Cursor="Hand">Буду читать</Button>
-                        <Button x:Name="bRead" Grid.Column="3" Command="{Binding buttonRead}" Cursor="Hand">Прочитанно</Button>
+                        <Button x:Name="bReading" IsEnabled="False" Command="{Binding buttonReading}" Content="{DynamicResource Reading}"></Button>
+                        <Button x:Name="bWillRead" Grid.Column="1" Command="{Binding buttonWillRead}" Cursor="Hand" Content="{DynamicResource WillRead}"></Button>
+                        <Button x:Name="bRead" Grid.Column="3" Command="{Binding buttonRead}" Cursor="Hand" Content="{DynamicResource Read}"></Button>
                     </Grid>
                     <Grid Grid.Row="1">
                         <ListBox x:Name="DataList"  ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top">

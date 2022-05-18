@@ -37,7 +37,7 @@ namespace VioletBookDiary.ViewModels
                     Id = int.Parse(items["id"]),
                     File = items["file"],
                     Image = items["image"],
-                    Realease = items["Realese"]
+                    Realease = int.Parse(items["Realese"])
                 };
                 if (book.Status)
                     BooksList.Add(new BookViewModel(book));

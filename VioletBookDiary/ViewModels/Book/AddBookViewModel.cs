@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -11,7 +13,7 @@ using VioletBookDiary.Views;
 
 namespace VioletBookDiary.ViewModels
 {
-    public class AddBookViewModel : ViewModelBase
+    public class AddBookViewModel : ViewModelBase, IDataErrorInfo
     {
         public string Title
         {
@@ -37,7 +39,7 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
-        public string Realease
+        public int Realease
         {
             get { return book.Realease; }
             set
@@ -79,11 +81,41 @@ namespace VioletBookDiary.ViewModels
             }
         }
         public string Tags { get; set; }
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = String.Empty;
+                string pattern = @"(\w*; )*";
+                switch (columnName)
+                {
+                    case "Tags":
+                        if (!Regex.IsMatch(Tags, pattern, RegexOptions.IgnoreCase))
+                        {
+                            error = "Неправильный формат поля Тэги";
+                        }
+                        break;
+                    case "Authors":
+                        if (!Regex.IsMatch(Authors, pattern, RegexOptions.IgnoreCase))
+                        {
+                            error = "Неправильный формат поля Авторы";
+                        }
+                        break;
+                }
+                return error;
+            }
+        }
+        public string Error
+        {
+            get { throw new FormatException(); }
+        }        
         public string File { get; set; }
         public Book book { get; set; }
         public AddBookViewModel()
         {
             book = new Book();
+            Tags = "";
+            Authors = "";
             //Получаем от сервера список жанров
             foreach (Dictionary<string, string> item in CurrentClient.service.getGenrs())
             {
@@ -126,7 +158,7 @@ namespace VioletBookDiary.ViewModels
             {
                 MessengViewModel.Show("Ошибка", "Поля: Название, Автор, Жанр, Описание, Обложка и Таги - должны быть заполнены");
             }
-            string result = CurrentClient.service.AddBook(Title, Authors, Genres, Tags, Description, Image, File, Series, Realease, CurrentUser._User.Id);
+            string result = CurrentClient.service.AddBook(Title, Authors, Genres, Tags, Description, Image, File, Series, Realease.ToString(), CurrentUser._User.Id);
              MessengViewModel.Show(result);
 
         }

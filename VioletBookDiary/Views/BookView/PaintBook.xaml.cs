@@ -19,7 +19,7 @@ namespace VioletBookDiary.Views.BookView
     /// <summary>
     /// Логика взаимодействия для PaintBook.xaml
     /// </summary>
-    public partial class PaintBook : Page
+    public partial class PaintBook : UserControl
     {
         public PaintBookViewModel model;
         public PaintBook(int idbook)

@@ -11,16 +11,31 @@ using VioletBookDiary.Views.BookView;
 
 namespace VioletBookDiary.ViewModels
 {
-    public class FeedBackViewModel
+    public class FeedBackViewModel: ViewModelBase
     {
         public string CurrentUserName { get=> CurrentUser._User.Name; set { } }
-        public string CurrentUserStar { get; set; }
-        public string CurrentUserComment { get; set; }
+        private float userStar { get; set; }
+        public float CurrentUserStar { get => userStar; set {
+                userStar = value;
+                OnPropertyChanged("CurrentUserStar");
+         
+         } }
+        private string userComment { get; set; }
+        public string CurrentUserComment { get => userComment; set {
+                userComment = value;
+                OnPropertyChanged("CurrentUserComment");
+            }
+        }
+   
         public string CurrentUserAvatar { get => CurrentUser._User.Avatar; set { } }
         public List<Feedback> Feedbacks { get; set; }
         public int IdBook;
         public FeedBackBook win;
-        public float Rating { get; set; }
+        private float rating;
+        public float Rating { get => rating; set {
+                rating = value;
+                OnPropertyChanged("rating");
+            } }
 
 
         public FeedBackViewModel(int idbook)
@@ -39,6 +54,7 @@ namespace VioletBookDiary.ViewModels
                 feedback.Id = int.Parse(item["id"]);
                 feedback.UserName = item["username"];
                 feedback.feedback = item["text"];
+                feedback.Id_user = int.Parse(item["userId"]);
                 feedback.DateCreat = DateTime.Parse(item["date"]);
                 feedback.Pating = float.Parse(item["pating"]);
                 feedback.UserAvatar = item["useravatar"];
@@ -47,6 +63,7 @@ namespace VioletBookDiary.ViewModels
             if (Feedbacks.Count > 0)
             {
                 Rating = Feedbacks.Average(x => x.Pating);
+                Rating = (float)Math.Round(Rating, 1);
             }
         }
         #endregion
@@ -64,13 +81,14 @@ namespace VioletBookDiary.ViewModels
                 if(CurrentUserComment == null || CurrentUserStar == null)
                 {
                     MessengViewModel.Show("Ошибка", "Не все поля заполнены");
+                    return;
                 }
-                string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar);
+                string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar.ToString());
                 if (result == "Отправлен!")
                 {
-                    GetFeedbacks();
+                    //GetFeedbacks();
                     CurrentUserComment = "";
-                    CurrentUserStar = "";
+                    CurrentUserStar = 0;
                 }
             }catch(Exception ex)
             {

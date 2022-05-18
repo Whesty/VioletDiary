@@ -252,7 +252,6 @@
     <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\LogIn\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\Book\BookViewModel.cs" />
-    <Compile Include="ViewModels\Admin\EditItemsBookViewModel.cs" />
     <Compile Include="ViewModels\Book\FeedBackViewModel.cs" />
     <Compile Include="ViewModels\MessengViewModel.cs" />
     <Compile Include="ViewModels\View\UserControl\ListBooksViewModel.cs" />
@@ -283,9 +282,6 @@
     </Compile>
     <Compile Include="Views\BookView\PaintBook.xaml.cs">
       <DependentUpon>PaintBook.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\EditItemsBook.xaml.cs">
-      <DependentUpon>EditItemsBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BookView\ListViewsBooks.xaml.cs">
       <DependentUpon>ListViewsBooks.xaml</DependentUpon>
@@ -318,6 +314,9 @@
     <Compile Include="Views\MessengeView.xaml.cs">
       <DependentUpon>MessengeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Resources\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserView\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
@@ -345,10 +344,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookView\PaintBook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Admin\EditItemsBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -391,6 +386,22 @@
     <Page Include="Views\Resources\Default.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Resources\Language\lang.ru_Ru.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\Language\lang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\Night.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserView\UserInfo.xaml">
       <SubType>Designer</SubType>

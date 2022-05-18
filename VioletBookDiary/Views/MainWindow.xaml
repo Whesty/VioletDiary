@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900"
+        Title="{DynamicResource MainWindow}" Height="600" Width="900"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" MinWidth="851"
         >
     <Grid Style="{DynamicResource GridFull}">
@@ -37,7 +37,7 @@
                 <Button x:Name="AdminAccept"  Command="{Binding open_Admin}" Style="{DynamicResource ResourceKey=GridLeftBarButton}">
                     <materialDesign:PackIcon Kind="Edit"  Width="24" Height="24"/>
                 </Button>
-                <Button  Style="{DynamicResource ResourceKey=GridLeftBarButton}">
+                <Button  Style="{DynamicResource ResourceKey=GridLeftBarButton}" Command="{Binding open_Setting}">
                     <materialDesign:PackIcon Kind="Settings"  Width="24" Height="24"/>
                 </Button>
             </StackPanel>

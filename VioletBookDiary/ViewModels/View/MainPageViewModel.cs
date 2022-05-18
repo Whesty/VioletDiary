@@ -34,7 +34,6 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.mainPage.ViewsListData.Children.Add(listPaintView);
             CurentWindows.mainPage.Button_ListBook.IsEnabled = true;
             CurentWindows.mainPage.Button_ListImage.IsEnabled = false;
-            CurentWindows.mainPage.Filters.IsEnabled = false;
         }
         public ICommand open_BookList => new DelegateCommand(Open_BookList);
         private void Open_BookList()
@@ -43,7 +42,6 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.mainPage.ViewsListData.Children.Add(listViewsBooks);
             CurentWindows.mainPage.Button_ListBook.IsEnabled = false;
             CurentWindows.mainPage.Button_ListImage.IsEnabled = true;
-            CurentWindows.mainPage.Filters.IsEnabled = true;
 
         }
     }

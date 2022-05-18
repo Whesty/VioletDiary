@@ -22,11 +22,11 @@
                 <materialDesign:PackIcon Kind="Password" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="37,0,10,0"/>
                 <PasswordBox x:Name="Passvord_Box" Margin="0,30,70,0" Height="35" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20" PasswordChanged="Passvord_Box_PasswordChanged"></PasswordBox>
             </DockPanel>
-            <Button Command="{Binding log_In}"  Margin="70,30,70,0" Height="40" FontSize="20">
-                Войти
+            <Button Command="{Binding log_In}" Content="{DynamicResource Log_in}"  Margin="70,30,70,0" Height="40" FontSize="20" Cursor="Hand">
+                
             </Button>
             <Button HorizontalAlignment="Center" Command="{Binding gotoregistration}" VerticalAlignment="Center" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}">
-                <TextBlock Foreground="#FF9D35FF">Регистрация</TextBlock>
+                <TextBlock Foreground="#FF9D35FF" Text="{DynamicResource Reg_in}"></TextBlock>
             </Button>
         </StackPanel>
     </Grid>

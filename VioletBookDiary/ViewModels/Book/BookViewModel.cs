@@ -10,6 +10,7 @@ using VioletBookDiary.Commands;
 using VioletBookDiary.Views;
 using System.Windows.Controls;
 using VioletBookDiary.Views.BookView;
+using System.ComponentModel;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -160,7 +161,7 @@ namespace VioletBookDiary.ViewModels
                 tagStr = tagStr.Substring(0, tagStr.Length - 2);
                 return tagStr;
             } set { } }
-        public string Realease 
+        public int Realease 
         { 
             get { return Book.Realease; }
             set 
@@ -195,7 +196,12 @@ namespace VioletBookDiary.ViewModels
         }
         #region BookMarks
         public string status_reading { get; set; }
-        public int marks { get; set; }
+        private int Marks { get; set; }
+        public int marks { get => Marks; set {
+                Marks = value;
+                OnPropertyChanged("marks");
+            }
+        }           
         public bool Presence { get; set; }
 
         public bool getBookMark()
@@ -213,6 +219,7 @@ namespace VioletBookDiary.ViewModels
         }
         public void editBookMark()
         {
+            CurentWindows.pageViewBook.ViewMarks.Text = marks.ToString();
             CurrentClient.service.editBookMarks(Book.Id, CurrentUser._User.Id, marks, status_reading, Presence);
 
         }
@@ -241,13 +248,15 @@ namespace VioletBookDiary.ViewModels
             paintBook = new PaintBook(Book.Id);
             CountImage = paintBook.model.Count;
             Rating = feedBack.model.Rating;
-            CurentPage = feedBack;
+            CurentWindows.pageViewBook.UserBookInfo.Children.Clear();
+            CurentWindows.pageViewBook.UserBookInfo.Children.Add(feedBack);
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
             if (getBookMark())
             {
                 CurentWindows.pageViewBook.ViewLike.IsEnabled = false;
                 CurentWindows.pageViewBook.ViewStatusMarks.SelectedItem = status_reading;
+                CurentWindows.pageViewBook.ViewMarks.Text = marks.ToString();
             }
             else
             {
@@ -258,7 +267,9 @@ namespace VioletBookDiary.ViewModels
         public void Open_FeedBack()
         {
             feedBack = new FeedBackBook(Book.Id);
-            CurentPage = feedBack;
+
+            CurentWindows.pageViewBook.UserBookInfo.Children.Clear();
+            CurentWindows.pageViewBook.UserBookInfo.Children.Add(feedBack);
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = false;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = true;
         }
@@ -266,7 +277,9 @@ namespace VioletBookDiary.ViewModels
         public void Open_Paint()
         {
             paintBook = new PaintBook(Book.Id);
-            CurentPage = paintBook;
+
+            CurentWindows.pageViewBook.UserBookInfo.Children.Clear();
+            CurentWindows.pageViewBook.UserBookInfo.Children.Add(paintBook);
             CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = true;
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = false;
 

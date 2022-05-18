@@ -439,6 +439,7 @@ namespace VDService
                     feedbackDict.Add("id", feedback1.Id.ToString());
                     feedbackDict.Add("text", feedback1.FEEDBACK1);
                     feedbackDict.Add("date", feedback1.DATE.ToString());
+                    feedbackDict.Add("userId", feedback1.ID_USER.ToString());
                     feedbackDict.Add("username", feedback1.USER.USER_NAME);
                     feedbackDict.Add("pating", feedback1.RATING.ToString());
                     feedbackDict.Add("useravatar", feedback1.USER.USER_AVATAR);

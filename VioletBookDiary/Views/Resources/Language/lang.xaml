@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=System.Runtime">
+    <v:String x:Key="Log_in">Log in</v:String>
+    <v:String x:Key="Log_out">Exit</v:String>
+    <v:String x:Key="Reg_in">Register</v:String>
+    <v:String x:Key="MainWindow">Main window</v:String>
+    <v:String x:Key="Search">Search by name</v:String>
+    <v:String x:Key="Ganre">Genre</v:String>
+    <v:String x:Key="Author">Author</v:String>
+    <v:String x:Key="Authors">Authors</v:String>
+    <v:String x:Key="Filtres">Filter</v:String>
+    <v:String x:Key="UserName">User Name</v:String>
+    <v:String x:Key="Description">Description</v:String>
+    <v:String x:Key="Add">Add</v:String>
+    <v:String x:Key="Delete">Delete</v:String>
+    <v:String x:Key="Edit">Edit</v:String>
+    <v:String x:Key="Save">Save</v:String>
+    <v:String x:Key="Reading">Reading</v:String>
+    <v:String x:Key="Read">Read</v:String>
+    <v:String x:Key="WillRead">I will read</v:String>
+    <v:String x:Key="SelectedFile">Select file</v:String>
+    <v:String x:Key="AddBook">Add a book</v:String>
+    <v:String x:Key="Upload">Upload</v:String>
+    <v:String x:Key="Series">Series</v:String>
+    <v:String x:Key="BookName">Book Title</v:String>
+    <v:String x:Key="Tags">Tags</v:String>
+    <v:String x:Key="ShareOpinion">Share your opinion</v:String>
+    <v:String x:Key="Send">Send</v:String>
+    <v:String x:Key="BookCycle">Book cycle name</v:String>
+    <v:String x:Key="YearsRealese">Year of publication</v:String>
+    <v:String x:Key="HelpAuthorsbyBook">Example: 'Daria Varlamova; Anton Zainiev'</v:String>
+    <v:String x:Key="HelpTagsbyBook">Example: 'Fiction; Adventure'</v:String>
+    <v:String x:Key="UploadFileBook">Upload a book file</v:String>
+</ResourceDictionary>

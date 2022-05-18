@@ -42,7 +42,7 @@ namespace VioletBookDiary.Views
         {
             readBookViewModel.getParagraph(Chapters.SelectedIndex);
             DataContext = readBookViewModel;
-            //CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
+            CurentWindows.pageViewBook.model.marks = Chapters.SelectedIndex;
             CurentWindows.pageViewBook.model.editBookMark();
             //CurentWindows.Add(new ReedBook(_path, Chapters.SelectedIndex));
             pageVeb.Children.Clear();

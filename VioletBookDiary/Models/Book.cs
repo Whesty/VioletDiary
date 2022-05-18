@@ -9,7 +9,7 @@ namespace VioletBookDiary.Models
        
         public string Series { get; set; }
         public bool Status { get; set; }
-        public string Realease { get; set; }
+        public int Realease { get; set; }
         public List<Authors> Authors { get; set; }
         public string Description { get; set; }
         public List<Genre> Genres { get; set; }
@@ -51,7 +51,7 @@ namespace VioletBookDiary.Models
         }
 
 
-        public Book(int id, string name, bool status, string series, string realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
+        public Book(int id, string name, bool status, string series, int realease, List<Authors> authors, string discription, List<Genre> genres, List<Tag> tags, string image)
         {
             Id = id;
             Name = name;

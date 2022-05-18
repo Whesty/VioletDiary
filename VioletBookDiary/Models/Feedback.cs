@@ -18,6 +18,7 @@ namespace VioletBookDiary.Models
 
         public float Pating { get; set; }
 
+
         public DateTime DateCreat { get; set; }
 
         public string UserName { get; set; }

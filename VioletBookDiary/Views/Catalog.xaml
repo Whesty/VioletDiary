@@ -19,7 +19,7 @@
             <ColumnDefinition Width="252*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="1">
-            <TextBox x:Name="searchBox"  materialDesign:HintAssist.Hint="Поиск по названию" VerticalAlignment="Bottom" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBox x:Name="searchBox"  materialDesign:HintAssist.Hint="{DynamicResource Search}" VerticalAlignment="Bottom" TextChanged="TextBox_TextChanged"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
             <ListBox x:Name="DataList"  ItemsSource="{Binding BooksList}" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="200">
@@ -49,11 +49,11 @@
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <StackPanel>
-            <ComboBox materialDesign:HintAssist.Hint="Жанр" ItemsSource="{Binding Path=Ganres}" x:Name="GanreFiltr"
+            <ComboBox materialDesign:HintAssist.Hint="{DynamicResource Ganre}" ItemsSource="{Binding Path=Ganres}" x:Name="GanreFiltr"
           TextBoxBase.TextChanged="OnComboboxTextChanged"
           IsTextSearchEnabled="False" IsEditable="True"
           VerticalAlignment="Top" Margin="0,10,0,0"/>
-            <ComboBox materialDesign:HintAssist.Hint="Автор" ItemsSource="{Binding Path=Authors}" x:Name="AuthorsFiltr"
+            <ComboBox materialDesign:HintAssist.Hint="{DynamicResource Author}" ItemsSource="{Binding Path=Authors}" x:Name="AuthorsFiltr"
           TextBoxBase.TextChanged="AuthorsFiltr_TextChanged"
           IsTextSearchEnabled="False" IsEditable="True"
           VerticalAlignment="Top" Margin="0,10,0,0"/>
@@ -65,8 +65,8 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button Command="{Binding button_Filtr}">
-                    Фильтровать
+                <Button Command="{Binding button_Filtr}" Content="{DynamicResource Filtres}">
+                    
                 </Button>
             </StackPanel>
         </Grid>

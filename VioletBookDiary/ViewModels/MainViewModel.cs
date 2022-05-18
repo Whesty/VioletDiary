@@ -12,6 +12,7 @@ using VioletBookDiary.Views;
 using VioletBookDiary.Commands;
 using VioletBookDiary.MyServices;
 using System.ServiceModel;
+using VioletBookDiary.Views.Resources;
 
 namespace VioletBookDiary.ViewModels
 {
@@ -40,7 +41,6 @@ namespace VioletBookDiary.ViewModels
         private Page Admin;
         private Page Catalog;
         private Window AddBook;
-        private EditItemsBook EditItemsBook;
         public ServiceClient client;
         public Page CurrentPage
         {
@@ -69,19 +69,13 @@ namespace VioletBookDiary.ViewModels
             AddBook = new AddBook();
             AddBook.Show();
         }
-        public ICommand open_EditDataBase => new DelegateCommand(Open_EditDataBase);
-        private void Open_EditDataBase()
-        {
-            EditItemsBook = new EditItemsBook();
-            EditItemsBook.Show();
-        }
         public ICommand updateWindow => new DelegateCommand(UpdateWindow);
         private void UpdateWindow()
         {
 
             Main = new MainPage();
             CurentWindows.mainPage.Button_ListBook.IsEnabled = false;
-            CurentWindows.mainPage.Filters.IsEnabled = true;
+            
             User_Info = new UserInfo();
             CurrentUser.SetUser(user);
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
@@ -95,11 +89,18 @@ namespace VioletBookDiary.ViewModels
             Admin = new AdminListBook();
             CurentWindows.Add(Admin);
         }
+        public ICommand open_Setting => new DelegateCommand(Open_Setting);
+        private void Open_Setting()
+        {
+            Setting setting = new Setting();
+            setting.Show();
+        }
         public ICommand open_Catalog => new DelegateCommand(Open_Catalog);
         private void Open_Catalog()
         {
             Catalog = new Catalog();
             CurentWindows.Add(Catalog);
+            //open_Setting
         }
 
         #endregion

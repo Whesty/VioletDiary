@@ -25,8 +25,8 @@
                 <materialDesign:PackIcon Kind="PasswordCheck" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="37,0,10,0"/>
                 <PasswordBox x:Name="Passvord2_Box"  PasswordChanged="Passvord2_Box_PasswordChanged" Margin="0,30,70,0" Height="30" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
             </DockPanel>
-            <Button x:Name="Reg_Button" Command="{Binding reg_In}" Margin="70,30,70,0" Height="40" FontSize="20" IsEnabled="False" FontWeight="Normal" Cursor="Hand">
-                Зарегестрироваться</Button>
+            <Button x:Name="Reg_Button" Command="{Binding reg_In}" Content="{DynamicResource Reg_in}" Margin="70,30,70,0" Height="40" FontSize="20" IsEnabled="False" FontWeight="Normal" Cursor="Hand">
+                </Button>
         </StackPanel>
     </Grid>
 </Window>

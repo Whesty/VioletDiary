@@ -47,7 +47,15 @@ namespace VioletBookDiary.ViewModels
                 }
             }
         }
-        public int Id { get; set; }
+        public int Id
+        {
+            get => User.Id; set
+            {
+             
+            }
+        }            
+        
+    
         public string DataCreate { get; set; }
         public string AccessLevel { get; set; }
        
@@ -60,6 +68,18 @@ namespace VioletBookDiary.ViewModels
         }
         public UserInfoViewModel(int Id)
         {
+            Dictionary<string, string> result = CurrentClient.service.getUserInfo(Id);
+            
+                User = new User()
+                {
+                    Id = Convert.ToInt32(result["id"]),
+                    Name = result["name"],
+                    Avatar = result["avatar"],
+                    Info = result["info"],
+                    DataCreate = result["data_create"],
+                    AccessLevel = bool.Parse(result["AccessLevel"])
+                };
+            
             getBookMarks();
             BooksList = Reading;
         }
@@ -124,7 +144,7 @@ namespace VioletBookDiary.ViewModels
                 book.Dete = DateTime.Parse(result["Date"]);
                 book.Bookmark = Convert.ToInt32(result["Marks"]);
                 book.File = result["file"];
-                book.Realease = result["Realese"];
+                book.Realease = int.Parse(result["Realese"]);
                 book.BookReading = result["StatusReading"];
                 if(book.BookReading == "Читаю")
                 {

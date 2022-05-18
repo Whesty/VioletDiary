@@ -43,7 +43,7 @@
 
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Column="1" MaxHeight="300px" VerticalAlignment="Top">
+                        <Grid Grid.Column="1" VerticalAlignment="Top">
 
                             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,0,0">
                                 <TextBlock Text="{Binding Title}" FontSize="30" FontWeight="Bold"></TextBlock>
@@ -55,16 +55,16 @@
                                     <materialDesign:PackIcon Kind="Calendar"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding Realease}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
                                     <materialDesign:PackIcon Kind="Bookmark"  Foreground="#FF9D35FF" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding SaveMark}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock x:Name="ViewMarks" Text="{Binding mark}" Foreground="#FF9D35FF" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
                                 </DockPanel>
 
                                 <!-- Описания -->
-                                <TextBlock Text="{Binding  Series}" materialDesign:HintAssist.Hint="Серия" FontSize="30" FontWeight="Bold"></TextBlock>
-                                <TextBlock Text="{Binding AuthStr}" materialDesign:HintAssist.Hint="Автор" MaxHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}">
+                                <TextBlock Text="{Binding  Series}" materialDesign:HintAssist.HelperText="{DynamicResource Series}" FontSize="30" FontWeight="Bold"></TextBlock>
+                                <TextBlock Text="{Binding AuthStr}" materialDesign:HintAssist.HelperText="{DynamicResource Author}" MaxHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}">
                                 </TextBlock>
-                                <TextBlock Text="{Binding TagStr}" materialDesign:HintAssist.Hint="Тэги" MinHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}"></TextBlock>
+                                <TextBlock Text="{Binding TagStr}" materialDesign:HintAssist.HelperText="{DynamicResource Tags}" MinHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}"></TextBlock>
 
-                                <TextBlock Text="{Binding GenreStr}" materialDesign:HintAssist.Hint="Жанр" MinHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}"></TextBlock>
+                                <TextBlock Text="{Binding GenreStr}" materialDesign:HintAssist.HelperText="{DynamicResource Ganre}" MinHeight="30" Padding="0,5,0,0" UseLayoutRounding="True" Foreground="#FF9D35FF" Background="{x:Null}"></TextBlock>
                                 <TextBlock Text="{Binding Description}"></TextBlock>
 
                             </StackPanel>
@@ -85,8 +85,7 @@
                                     <materialDesign:PackIcon Kind="ImageAlbum" Height="24" VerticalAlignment="Center"/>
                                 </Button>
                             </Grid>
-                            <Grid>
-                                <Frame x:Name="UserBookInfo"  Content="{Binding CurentPage}"></Frame>
+                            <Grid x:Name="UserBookInfo">
                             </Grid>
                         </StackPanel>
                     </Grid>
