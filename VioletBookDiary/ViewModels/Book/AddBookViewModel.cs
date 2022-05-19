@@ -86,7 +86,7 @@ namespace VioletBookDiary.ViewModels
             get
             {
                 string error = String.Empty;
-                string pattern = @"(\w*; )*";
+                string pattern = @"(\w*; )+";
                 switch (columnName)
                 {
                     case "Tags":
@@ -157,6 +157,7 @@ namespace VioletBookDiary.ViewModels
             if (Title == null || Authors == null || Genres == null || Description == null || Image == null || Tags == null)
             {
                 MessengViewModel.Show("Ошибка", "Поля: Название, Автор, Жанр, Описание, Обложка и Таги - должны быть заполнены");
+                return;
             }
             string result = CurrentClient.service.AddBook(Title, Authors, Genres, Tags, Description, Image, File, Series, Realease.ToString(), CurrentUser._User.Id);
              MessengViewModel.Show(result);

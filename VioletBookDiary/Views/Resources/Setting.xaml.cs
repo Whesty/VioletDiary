@@ -23,6 +23,7 @@ namespace VioletBookDiary.Views.Resources
         public Setting()
         {
             InitializeComponent();
+            CurentWindows.setting = this;
             App.LanguageChanged += LanguageChanged;
 
             CultureInfo currLang = App.Language;

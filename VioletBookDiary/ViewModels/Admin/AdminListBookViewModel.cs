@@ -44,9 +44,17 @@ namespace VioletBookDiary.ViewModels
         public ICommand acceptBook => new DelegateCommand(AcceptBook);
         public void AcceptBook()
         {
-            int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;    
-            CurrentClient.service.EditBook(listBook[sel].Id, listBook[sel].Name, listBook[sel].Description, listBook[sel].Image, listBook[sel].File, listBook[sel].Series, listBook[sel].Realease.ToString(), CurrentUser._User.Id,  true );
-            getListBook();
+            try
+            {
+                int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;
+                CurrentClient.service.EditBook(listBook[sel].Id, listBook[sel].Name, listBook[sel].Description, listBook[sel].Image, listBook[sel].File, listBook[sel].Series, listBook[sel].Realease.ToString(), CurrentUser._User.Id, true);
+                CurentWindows.adminListBook = new Views.AdminListBook();
+                CurentWindows.mainWindow.GridPage.GoBack();
+                CurentWindows.Add(CurentWindows.adminListBook);
+            }
+            catch (Exception ex) {
+                MessengViewModel.Show(ex.Message);
+            }
         }
         public ICommand deleteBook => new DelegateCommand(DeleteBook);
         public void DeleteBook()
@@ -55,7 +63,9 @@ namespace VioletBookDiary.ViewModels
             {
                 int sel = CurentWindows.adminListBook.BookViewList.SelectedIndex;
                 CurrentClient.service.DeleteBooks(listBook[sel].Id);
-                getListBook();
+                CurentWindows.adminListBook = new Views.AdminListBook();
+                CurentWindows.mainWindow.GridPage.GoBack();
+                CurentWindows.Add(CurentWindows.adminListBook);
             } catch(Exception ex)
             {
                 MessengViewModel.Show(ex.Message);

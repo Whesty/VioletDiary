@@ -29,7 +29,7 @@ namespace VDService
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     str += "\ncreate UnitofWork";
-                    Regex regex = new Regex(@"(\w*);");
+                    Regex regex = new Regex(@"([\w ]+);");
                     MatchCollection math = regex.Matches(author);
                     str += "\ncreate BOOK 1";
                     BOOK book = new BOOK()
@@ -57,8 +57,7 @@ namespace VDService
                     {
                         //"\n" + match.Value;
                         str += "\nmath avtors" + match.Value;
-                        string value = match.Value;
-                        value.Remove(value.Length - 1, 1);
+                        string value = match.Groups[1].Value;
                         AUTHOR author1 = unitOfWork.AuthorsRepository.GetAll().Where(a => a.AUTHOR_NAME == value).FirstOrDefault();
                         str += "\nget av";
 
@@ -92,8 +91,7 @@ namespace VDService
                     foreach (Match match in match1)
                     {
                         //"\n" + match.Value;
-                        string value = match.Value;
-                        value.Remove(value.Length - 1, 1);
+                        string value = match.Groups[1].Value;
                         TAG tag1 = unitOfWork.TagsRepository.GetAll().Where(a => a.TAG_NAME == value).FirstOrDefault();
                         str += "\nCreat tag1";
                         if (tag1 == null)

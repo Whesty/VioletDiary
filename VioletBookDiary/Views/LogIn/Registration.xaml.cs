@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using VioletBookDiary.ViewModels;
 
@@ -34,6 +36,23 @@ namespace VioletBookDiary.Views
                 Passvord2_Box.BorderBrush = Brushes.Green;
                 Reg_Button.IsEnabled = true;
             }
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            if (text.Text != null)
+                if (reg.IsValidEmail(text.Text))
+                {
+                    text.BorderBrush = Brushes.Red;
+                    Reg_Button.IsEnabled = false;
+                }
+                else
+                {
+                    text.BorderBrush = Brushes.Green;
+                    Reg_Button.IsEnabled = true;
+                }
+           
         }
     }
 }

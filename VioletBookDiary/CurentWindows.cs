@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using VioletBookDiary.ViewModels;
 using VioletBookDiary.Views;
 using VioletBookDiary.Views.BookView;
+using VioletBookDiary.Views.Resources;
 
 namespace VioletBookDiary
 {
@@ -23,6 +24,7 @@ namespace VioletBookDiary
         public static ReedBook reedBook;
         public static Catalog catalog;
         public static AdminListBook adminListBook;
+        public static Setting setting;
         //public static List<Page> History = new List<Page>();
         public static Page CurrentPage { get; set; }
         public static void Add(Page page)

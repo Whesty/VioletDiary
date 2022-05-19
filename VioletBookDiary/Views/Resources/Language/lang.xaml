@@ -31,4 +31,6 @@
     <v:String x:Key="HelpAuthorsbyBook">Example: 'Daria Varlamova; Anton Zainiev'</v:String>
     <v:String x:Key="HelpTagsbyBook">Example: 'Fiction; Adventure'</v:String>
     <v:String x:Key="UploadFileBook">Upload a book file</v:String>
+    <v:String x:Key="Langueage">Language</v:String>
+    <v:String x:Key="Thems">Themes</v:String>
 </ResourceDictionary>

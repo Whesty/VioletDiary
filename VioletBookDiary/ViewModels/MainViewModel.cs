@@ -66,6 +66,10 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_AddBook => new DelegateCommand(Open_AddBook);
         private void Open_AddBook()
         {
+            if(CurentWindows.addBook != null)
+            {
+                CurentWindows.addBook.Close();
+            }
             AddBook = new AddBook();
             AddBook.Show();
         }
@@ -92,6 +96,10 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Setting => new DelegateCommand(Open_Setting);
         private void Open_Setting()
         {
+            if(CurentWindows.setting != null)
+            {
+                CurentWindows.setting.Close();
+            }
             Setting setting = new Setting();
             setting.Show();
         }

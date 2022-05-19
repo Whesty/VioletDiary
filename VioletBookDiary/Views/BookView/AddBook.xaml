@@ -21,16 +21,16 @@
             </Border>
                 <StackPanel>
                     <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Title}"
-            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookName}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookName}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF">
                     </TextBox>
                     <ComboBox x:Name="GenresComboBox" Margin="40,20,40,0" Height="30" Text="{Binding Genres}"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Ganre}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Ganre}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF">
                     </ComboBox>
                     <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Series}"
-            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookCycle}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF" Cursor="Arrow">
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookCycle}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF" Cursor="Arrow">
                     </TextBox>
                     <TextBox Margin="40,20,40,0" Height="30"
-            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource YearsRealese}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF" Cursor="Arrow">
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource YearsRealese}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF" Cursor="Arrow">
                         <TextBox.Text>
                             <Binding Path="Realease">
                                 <Binding.ValidationRules>
@@ -42,19 +42,17 @@
                 </StackPanel>
             </DockPanel>
 
-            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Authors}" 
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Authors}" materialDesign:HintAssist.HelperText="{DynamicResource HelpAuthorsbyBook}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF">
-                
-            </TextBox> 
-            
-            <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Tags}"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Tags}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+            <TextBox x:Name="ButAuth" Margin="40,20,40,0" Height="30" Text="{Binding Authors}" 
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Authors}" materialDesign:HintAssist.HelperText="{DynamicResource HelpAuthorsbyBook}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF" TextChanged="ButAuth_TextChanged"/>
+
+            <TextBox x:Name="ButTag"  Margin="40,20,40,0" Height="30" Text="{Binding Tags}"
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Tags}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF" TextChanged="ButAuth_TextChanged">
             </TextBox>
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Description}" TextWrapping="Wrap"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Description}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" Background="White" BorderBrush="#FF9D35FF">
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Description}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF">
             </TextBox>
             <Button Margin="30,20,30,0" Command="{Binding open_LoadFile}" Content="{DynamicResource UploadFileBook}"></Button>
-            <Button Margin="30,20,30,0" Command="{Binding button_AddBook}" Content="{DynamicResource AddBook}"></Button>
+            <Button x:Name="ButAdd" Margin="30,20,30,0" Command="{Binding button_AddBook}" Content="{DynamicResource AddBook}"></Button>
         </StackPanel>
     </Grid>
 </Window>

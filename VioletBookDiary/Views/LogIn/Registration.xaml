@@ -14,7 +14,7 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#9D35FF" FontFamily="Sitka Small" >VioletBookDiary</TextBlock>
             <DockPanel>
                 <materialDesign:PackIcon Kind="User" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="36,0,10,0"/>
-                <TextBox Text="{Binding login}" Margin="0,30,70,0" Height="30"  BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20">
+                <TextBox x:Name="EmailBox" TextChanged="TextBox_TextChanged" Text="{Binding login}"  Margin="0,30,70,0" Height="30"  BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20">
                 </TextBox>
             </DockPanel>
             <DockPanel>

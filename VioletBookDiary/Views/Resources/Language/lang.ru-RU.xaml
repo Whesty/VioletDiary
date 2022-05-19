@@ -31,4 +31,7 @@
     <v:String x:Key="HelpAuthorsbyBook">Пример: 'Дарья Варламова; Антон Зайниев'</v:String>
     <v:String x:Key="HelpTagsbyBook">Пример: 'Фантастика; Приключения'</v:String>
     <v:String x:Key="UploadFileBook">Загрузить файл книги</v:String>
+    <v:String x:Key="Langueage">Язык</v:String>
+    <v:String x:Key="Thems">Темы</v:String>
+    
 </ResourceDictionary>

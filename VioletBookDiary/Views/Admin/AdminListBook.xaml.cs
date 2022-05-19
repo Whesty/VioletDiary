@@ -31,12 +31,16 @@ namespace VioletBookDiary.Views
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            BookViewList.SelectedItem = BookViewList.Items.CurrentItem;
+            Button button = e.Source as Button;
+            Book selectedBook = button.DataContext as Book;
+            BookViewList.SelectedItem = selectedBook;
             model.AcceptBook();
         }
         private void Button_Click2(object sender, System.Windows.RoutedEventArgs e)
         {
-            BookViewList.SelectedItem = BookViewList.Items.CurrentItem;
+            Button button = e.Source as Button;
+            Book selectedBook = button.DataContext as Book;
+            BookViewList.SelectedItem = selectedBook;
             model.DeleteBook();
         }
     }
