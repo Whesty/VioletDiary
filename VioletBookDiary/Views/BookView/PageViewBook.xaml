@@ -30,11 +30,11 @@
                                     <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center"/>
                                 </Button>
                                 <!-- Если книга сохранена выбрать статус сохранения -->
-                                <ComboBox x:Name="ViewStatusMarks" Text="{Binding status_reading}" Margin="10,10,10,10" Height="30" Background="{x:Null}" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" SelectionChanged="ViewStatusMarks_SelectionChanged" >
-                                    <ComboBoxItem Content="Читаю" />
-                                    <ComboBoxItem Content="Буду читать" />
-                                    <ComboBoxItem Content="Прочитанно" />
-                                    <ComboBoxItem Content="Брошенно" />
+                                <ComboBox x:Name="ViewStatusMarks" SelectionChanged="ViewStatusMarks_SelectionChanged" Margin="10,10,10,10" Height="30" Background="{x:Null}" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF"  >
+                                    <ComboBoxItem Content="{DynamicResource Reading}" />
+                                    <ComboBoxItem Content="{DynamicResource WillRead}" />
+                                    <ComboBoxItem Content="{DynamicResource Read}" />
+                                    <ComboBoxItem Content="{DynamicResource Dropped}" />
                                 </ComboBox>
                                 <!-- Читать книгу, если есть файл -->
                                 <Button Command="{Binding open_Reed}" x:Name="ReedBookButton"  Margin="10,10,10,10" Cursor="Hand">
@@ -96,7 +96,7 @@
 
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
 
-            <Button x:Name="Back" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Click="Back_Click" IsCancel="True" Width="40">
+            <Button x:Name="Back" Style="{DynamicResource ResourceKey=GridLeftBarButton}" Command="{Binding back}" IsCancel="True" Width="40">
                 <materialDesign:PackIcon Kind="Undo" Width="24" Height="24"/>
             </Button>
         </Grid>

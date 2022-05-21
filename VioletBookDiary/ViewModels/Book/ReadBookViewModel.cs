@@ -77,7 +77,8 @@ namespace VioletBookDiary.ViewModels
                 FB2File file = await new FB2Reader().ReadAsync(Stream, loadSettings);
                 _fb2File = file;
                 Chapter = new List<string>();
-                foreach (var item in _fb2File.Bodies[0].Sections.ToList())
+                int i = 0;
+                foreach (var item in _fb2File.Bodies[i].Sections.ToList())
                 {
                     Chapter.Add(item.Title.ToString());
                 }
@@ -111,7 +112,8 @@ namespace VioletBookDiary.ViewModels
 
             if (_fb2File != null)
             {
-                var body = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter];
+                int j = 0;
+                    var body = _fb2File.Bodies.ToList()[j].Sections.ToList()[chapter];
                 Chapter_selectionTitel = body.Title.ToString();
                 int i;
                 FileStream veb = new FileStream("page.html", FileMode.Create);
@@ -119,7 +121,7 @@ namespace VioletBookDiary.ViewModels
                 veb.Write(Encoding.UTF8.GetBytes("<html><head></head><body>"), 0, Encoding.UTF8.GetBytes("<html><head></head><body>").Length);
                 for (i=0;  i < body.Content.LongCount(); i++)
                 {
-                    string str = _fb2File.Bodies.ToList()[0].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
+                    string str = _fb2File.Bodies.ToList()[j].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
                     
                     //getStyleHelp(s);
                     //veb.Write(Encoding.UTF8.GetBytes(str), 0, str.Length);

@@ -4,6 +4,7 @@ namespace VDService.Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("USERS")]
     public partial class USER
@@ -14,7 +15,6 @@ namespace VDService.Model
             BOOKS = new HashSet<BOOK>();
             FEEDBACKs = new HashSet<FEEDBACK>();
             PAINTs = new HashSet<PAINT>();
-            SUBSCRIPTIONs = new HashSet<SUBSCRIPTION>();
             USER_BOOKMARKS = new HashSet<USER_BOOKMARKS>();
         }
 
@@ -46,9 +46,6 @@ namespace VDService.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PAINT> PAINTs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SUBSCRIPTION> SUBSCRIPTIONs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USER_BOOKMARKS> USER_BOOKMARKS { get; set; }

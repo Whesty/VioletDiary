@@ -65,8 +65,7 @@ namespace VDService
                         {
                             author1 = new AUTHOR()
                             {
-                                AUTHOR_NAME = value,
-                                COUNTRY = null
+                                AUTHOR_NAME = value
                             };
                             str += "\nadd av";
                             unitOfWork.AuthorsRepository.Add(author1);
@@ -186,8 +185,7 @@ namespace VDService
                     ID_BOOK = idBook,
                     ID_USER_ADD = idUser,
                     LINK = pating,
-                    DATA = DateTime.Now,
-                    ID_ARTIST = 1
+                    DATA = DateTime.Now
                 };
                 unitOfWork.PaintsRepository.Add(paint);
                 unitOfWork.Save();
@@ -313,6 +311,7 @@ namespace VDService
                 book.MARKS = mark;
                 book.STATUS_READING = status;
                 book.PRESENCE = presence;
+                book.DATA_READING = DateTime.Now;
                 unitOfWork.UserBookmarksRepository.Update(book);
                 unitOfWork.Save();
                 return true;
@@ -331,7 +330,6 @@ namespace VDService
                     Dictionary<string, string> authorDict = new Dictionary<string, string>();
                     authorDict.Add("id", author.Id.ToString());
                     authorDict.Add("name", author.AUTHOR_NAME);
-                    authorDict.Add("country", author.COUNTRY);
                     authorsList.Add(authorDict);
                 }
                 return authorsList;
@@ -349,7 +347,6 @@ namespace VDService
                     Dictionary<string, string> authorDict = new Dictionary<string, string>();
                     authorDict.Add("id", author.Id.ToString());
                     authorDict.Add("name", author.AUTHOR_NAME);
-                    authorDict.Add("country", author.COUNTRY);
                     authorsList.Add(authorDict);
                 }
                 return authorsList;
@@ -386,6 +383,7 @@ namespace VDService
                     Dictionary<string, string> result = new Dictionary<string, string>();
                     result.Add("id", items.Id.ToString());
                     result.Add("StatusReading", items.STATUS_READING);
+                    result.Add("DateReading", items.DATA_READING.ToString());
                     result.Add("Presence", items.PRESENCE.ToString());
                     result.Add("Date", items.DATA_ADD.ToString());
                     result.Add("Marks", items.MARKS.ToString());
@@ -493,8 +491,6 @@ namespace VDService
                     Dictionary<string, string> paintDict = new Dictionary<string, string>();
                     paintDict.Add("id", paint.Id.ToString());
                     paintDict.Add("link", paint.LINK);
-                    paintDict.Add("idArtist", paint.ID_ARTIST.ToString());
-                    paintDict.Add("nameArtist", paint.ARTIST.ARTIST_NAME);
                     paintDict.Add("dataAdd", paint.DATA.ToString());
                     paintDict.Add("userAdd", paint.ID_USER_ADD.ToString());
                     paintsList.Add(paintDict);
@@ -515,8 +511,6 @@ namespace VDService
                     paintDict.Add("id", paint.Id.ToString());
                     paintDict.Add("link", paint.LINK);
                     paintDict.Add("idBook", paint.ID_BOOK.ToString());
-                    paintDict.Add("idArtist", paint.ID_ARTIST.ToString());
-                    paintDict.Add("nameArtist", paint.ARTIST.ARTIST_NAME);
                     paintDict.Add("dataAdd", paint.DATA.ToString());
                     paintDict.Add("userAdd", paint.ID_USER_ADD.ToString());
                     paintsList.Add(paintDict);
@@ -650,7 +644,7 @@ namespace VDService
                     {
                         USER_NAME = "User",
                         USER_INFO = "Info",
-                        USER_AVATAR = null,
+                        USER_AVATAR = @"D:\VioletDiary\File\AvatarNewUser.jpg",
                         ACCESS_LEVEL = false,
                         DATA_CREATE = DateTime.Now,
                         ID_AUTHORIZED = id,

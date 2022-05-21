@@ -235,9 +235,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="CurentWindows.cs" />
-    <Compile Include="CurrentClient.cs" />
-    <Compile Include="CurrentUser.cs" />
+    <Compile Include="Current\CurentWindows.cs" />
+    <Compile Include="Current\CurrentClient.cs" />
+    <Compile Include="Current\CurrentUser.cs" />
     <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="Models\Authors.cs" />
     <Compile Include="Models\Book.cs" />
@@ -246,7 +246,7 @@
     <Compile Include="Models\Paint.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="VDMyServiceCallBack.cs" />
+    <Compile Include="Current\VDMyServiceCallBack.cs" />
     <Compile Include="ViewModels\Book\AddBookViewModel.cs" />
     <Compile Include="ViewModels\Admin\AdminListBookViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
@@ -452,10 +452,7 @@
   <ItemGroup>
     <Resource Include="Views\Resources\Icons\Diary.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\" />
-    <Folder Include="Validators\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

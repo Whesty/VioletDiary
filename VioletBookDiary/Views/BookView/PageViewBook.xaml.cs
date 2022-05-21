@@ -33,16 +33,31 @@ namespace VioletBookDiary.Views
 
         private void ViewStatusMarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            switch (ViewStatusMarks.SelectedIndex)
+            {
+                case 0:
+                    model.status_reading = "Читаю";
+                    break;
+                case 1:
+                    model.status_reading = "Буду читать";
+                    break;
+                case 2:
+                    model.status_reading = "Прочитанно";
+                    break;
+                default:
+                    model.status_reading = "Брошенно";
+                    break;
+            }
             model.editBookMark();
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            //UserBookInfo.GoBack();
-            CurentWindows.mainWindow.GridPage.GoBack();
-            CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = !CurentWindows.pageViewBook.Button_FeedBack.IsEnabled;
-            CurentWindows.pageViewBook.Button_Paint.IsEnabled = !CurentWindows.pageViewBook.Button_Paint.IsEnabled;
+        //private void Back_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //UserBookInfo.GoBack();
+        //    CurentWindows.mainWindow.GridPage.GoBack();
+        //    CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = !CurentWindows.pageViewBook.Button_FeedBack.IsEnabled;
+        //    CurentWindows.pageViewBook.Button_Paint.IsEnabled = !CurentWindows.pageViewBook.Button_Paint.IsEnabled;
             
-        }
+        //}
     }
 }

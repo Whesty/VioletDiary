@@ -39,6 +39,7 @@ namespace VioletBookDiary.ViewModels
                     listBook.Add(book);
                 }
             }
+            listBook.Reverse();
         }
 
         public ICommand acceptBook => new DelegateCommand(AcceptBook);

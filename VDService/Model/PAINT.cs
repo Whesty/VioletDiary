@@ -11,8 +11,6 @@ namespace VDService.Model
     {
         public int Id { get; set; }
 
-        public int ID_ARTIST { get; set; }
-
         public int ID_BOOK { get; set; }
 
         public int ID_USER_ADD { get; set; }
@@ -21,8 +19,6 @@ namespace VDService.Model
 
         [Column(TypeName = "smalldatetime")]
         public DateTime DATA { get; set; }
-
-        public virtual ARTIST ARTIST { get; set; }
 
         public virtual BOOK BOOK { get; set; }
 

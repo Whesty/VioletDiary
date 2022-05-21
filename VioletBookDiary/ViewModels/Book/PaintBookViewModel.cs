@@ -49,14 +49,13 @@ namespace VioletBookDiary.ViewModels
                 {
                     Id = int.Parse(items["id"]),
                     link = items["link"],
-                    Id_Artist = int.Parse(items["idArtist"]),
-                    NameArtist = items["nameArtist"],
                     Id_Book = IdBook,
                     Data = DateTime.Parse(items["dataAdd"]),
                     Id_User_Add = int.Parse(items["userAdd"]),
                 });
             }
             Count = ListPaint.Count;
+            ListPaint = ListPaint.OrderByDescending(x => x.Data).ToList();
         }
         #endregion
         #region Command

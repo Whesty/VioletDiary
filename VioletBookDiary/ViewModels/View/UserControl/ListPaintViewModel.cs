@@ -27,8 +27,6 @@ namespace VioletBookDiary.ViewModels
                     Id = int.Parse(items["id"]),
                     link = items["link"],
                     Id_Book = int.Parse(items["idBook"]),
-                    Id_Artist = int.Parse(items["idArtist"]),
-                    NameArtist = items["nameArtist"],
                     Data = DateTime.Parse(items["dataAdd"]),
                     Id_User_Add = int.Parse(items["userAdd"]),
                 });

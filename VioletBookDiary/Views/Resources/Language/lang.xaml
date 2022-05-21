@@ -18,6 +18,7 @@
     <v:String x:Key="Reading">Reading</v:String>
     <v:String x:Key="Read">Read</v:String>
     <v:String x:Key="WillRead">I will read</v:String>
+    <v:String x:Key="Dropped">Dropped</v:String>
     <v:String x:Key="SelectedFile">Select file</v:String>
     <v:String x:Key="AddBook">Add a book</v:String>
     <v:String x:Key="Upload">Upload</v:String>

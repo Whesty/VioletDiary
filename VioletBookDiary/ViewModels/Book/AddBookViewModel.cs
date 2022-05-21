@@ -113,31 +113,45 @@ namespace VioletBookDiary.ViewModels
         public Book book { get; set; }
         public AddBookViewModel()
         {
-            book = new Book();
-            Tags = "";
-            Authors = "";
-            //Получаем от сервера список жанров
-            foreach (Dictionary<string, string> item in CurrentClient.service.getGenrs())
+            try
             {
-                Genre genre1 = new Genre();
-                genre1.Id = Convert.ToInt32(item["id"]);
-                genre1.Name = item["name"];
-                genre.Add(genre1);
+                book = new Book();
+                Tags = "";
+                Authors = "";
+                //Получаем от сервера список жанров
+                foreach (Dictionary<string, string> item in CurrentClient.service.getGenrs())
+                {
+                    Genre genre1 = new Genre();
+                    genre1.Id = Convert.ToInt32(item["id"]);
+                    genre1.Name = item["name"];
+                    genre.Add(genre1);
+                }
+                CurentWindows.addBook.GenresComboBox.ItemsSource = genre;
             }
-            CurentWindows.addBook.GenresComboBox.ItemsSource = genre;
+            catch (Exception ex)
+            {
+                MessengViewModel.Show(ex.Message);
+            }
         }
 
         public ICommand open_LoadImage => new DelegateCommand(Open_LoadImage);
         private void Open_LoadImage()
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "Image file (*.png;*jpg)|*png;*.jpg";
-            if (openFile.ShowDialog() == true)
-            {
-                string selFileName = openFile.FileName;
-                Image = selFileName;
+            try {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Image file (*.png;*jpg)|*png;*.jpg";
+                if (openFile.ShowDialog() == true)
+                {
+                    string selFileName = openFile.FileName;
+                    Image = selFileName;
+                }
+                CurentWindows.addBook.LoadingImage.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Image)));
+
             }
-            CurentWindows.addBook.LoadingImage.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Image)));
+            catch (Exception ex)
+            {
+                MessengViewModel.Show("Ошибка загрузки изображения");
+            }
         }
         public ICommand open_LoadFile => new DelegateCommand(Open_LoadFile);
         private void Open_LoadFile()

@@ -42,6 +42,7 @@ namespace VioletBookDiary.ViewModels
                 if (book.Status)
                     BooksList.Add(new BookViewModel(book));
             }
+            BooksList = BooksList.OrderByDescending(x => x.Realease).ToList();
         }
         private BookViewModel selectedBook { get; set; }
         public BookViewModel SelectedBook

@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VioletBookDiary.CurentWindows">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEJAAAACAAAAIAAAQAESAAAAFAAAAAAAAEAYAAAAgAY=</HashCode>
+      <FileName>CurentWindows.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.CurrentClient">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CurrentClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.CurrentUser">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>CurrentUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.App" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Commands.CommandReference" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAACAAUAAEAABAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Commands\CommandReference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Commands.DelegateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAQACCAQQAAEQAAAAAAAAAAAAAAAAAAACAAEA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Commands.DelegateCommand&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAQACCAQQAAEQAAAAAAAAAAAAAAAAAAACAAEA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Commands.CommandManagerHelper" Collapsed="true">
+    <Position X="19" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.MyServices.ServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgVEAAAQQAIAQA4OpCoBIAUAESSBCAACwAAUACQGIgA=</HashCode>
+      <FileName>Connected Services\MyServices\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.DataBase.DataBase" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBase\DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Authors" Collapsed="true">
+    <Position X="15.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Authors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Book" Collapsed="true">
+    <Position X="17.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFCAAAEgABgAAAAAAIAAAQAAABEAFAAQAAAEAAEAAE=</HashCode>
+      <FileName>Models\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Feedback" Collapsed="true">
+    <Position X="17.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACIAAAAEAAAAAAADAAAAAQAAACAAAAA=</HashCode>
+      <FileName>Models\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Genre" Collapsed="true">
+    <Position X="15.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Paint">
+    <Position X="4.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAAAAAAAAAAgAAAAAAAAABAQAABAAAAAAEA=</HashCode>
+      <FileName>Models\Paint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.Tag" Collapsed="true">
+    <Position X="19" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Models.User" Collapsed="true">
+    <Position X="15.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAACAAAAAAAAQAAAQEAEAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Properties.Resources" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Properties.Settings" Collapsed="true">
+    <Position X="17.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.AdminListBookViewModel">
+    <Position X="13.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAgACAAAAACAAAAIAAgEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin\AdminListBookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.AddBookViewModel">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAAEAAgAUAASAIAQEACAABEQFAAAAAQAAAAAAE=</HashCode>
+      <FileName>ViewModels\Book\AddBookViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.BookViewModel">
+    <Position X="8.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAAWBAAgSEhAoAIWAIEIEAVBBFEBIAQEABAAAgE=</HashCode>
+      <FileName>ViewModels\Book\BookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.FeedBackViewModel">
+    <Position X="3" Y="9.75" Width="1.5" />
+    <InheritanceLine Type="VioletBookDiary.ViewModels.ViewModelBase" ManuallyRouted="true">
+      <Path>
+        <Point X="7.5" Y="2.055" />
+        <Point X="7.5" Y="2.875" />
+        <Point X="6.352" Y="2.875" />
+        <Point X="6.352" Y="9.272" />
+        <Point X="5.583" Y="9.272" Type="JumpStart" />
+        <Point X="5.417" Y="9.272" Type="JumpEnd" />
+        <Point X="4.602" Y="9.272" />
+        <Point X="4.602" Y="9.551" />
+        <Point X="3.75" Y="9.551" />
+        <Point X="3.75" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAgAAAQAAAAAQDBAIAASAAAAEAAAABEAAAgAA=</HashCode>
+      <FileName>ViewModels\Book\FeedBackViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.PaintBookViewModel">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEAQAAAAAAAAAAAQACAAAAAgAAAAQQABAgEA=</HashCode>
+      <FileName>ViewModels\Book\PaintBookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.ReadBookViewModel">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ClAAAAAQAAAQAgAAAACCAAAAEAAKAEAQAgBAEAMAAAA=</HashCode>
+      <FileName>ViewModels\Book\ReadBookViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.CatalogViewModel">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgAAAgCAAACAAAAIAAAACAABICACAQAAAgAwAAAA=</HashCode>
+      <FileName>ViewModels\CatalogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.AuthorizationViewModel">
+    <Position X="13.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAAABAAAAAAAAAAAAAIAAABgAAEAA=</HashCode>
+      <FileName>ViewModels\LogIn\AuthorizationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.RegViewModel" Collapsed="true">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAIAAAAAAAAABABgAAMAA=</HashCode>
+      <FileName>ViewModels\LogIn\RegViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.MainViewModel">
+    <Position X="6.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="VioletBookDiary.ViewModels.ViewModelBase" ManuallyRouted="true">
+      <Path>
+        <Point X="7.5" Y="2.055" />
+        <Point X="7.5" Y="2.875" />
+        <Point X="6.41" Y="2.875" />
+        <Point X="6.41" Y="8.888" />
+        <Point X="7.25" Y="8.888" />
+        <Point X="7.25" Y="9.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>BACAASAEAAEAAAAAACAAAaAVAgAAEBIAAAAQBAQAAQI=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.MessengViewModel" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessengViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.UpdateUserViewModel">
+    <Position X="12" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAEAAAAAAAAAQAAAQAAAAAAAAAAAAQAEAEAAA=</HashCode>
+      <FileName>ViewModels\User\UpdateUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.UserInfoViewModel">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCHBAAAAAQAAAAAAAYAAIQgAEQCAAAAAAAIgEICAEA=</HashCode>
+      <FileName>ViewModels\User\UserInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.MainPageViewModel" Collapsed="true">
+    <Position X="19" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAUAAAAAACBgAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\View\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.ListBooksViewModel">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAQCAAAAIQAAAAAIAAAACAAAAAAAAAAAQ=</HashCode>
+      <FileName>ViewModels\View\UserControl\ListBooksViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.ListPaintViewModel" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>ViewModels\View\UserControl\ListPaintViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.ViewModelBase">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VioletBookDiary.ViewModels.XmlLoadSettings" Collapsed="true">
+    <Position X="19" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\XmlLoadSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VioletBookDiary.Views.AdminListBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAYAAAAAAAEAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\Admin\AdminListBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.AddBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACgAAAAAAAQ=</HashCode>
+      <FileName>Views\BookView\AddBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.ListViewsBooks" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\BookView\ListViewsBooks.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.PageViewBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAQA=</HashCode>
+      <FileName>Views\BookView\PageViewBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.ReedBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAACAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BookView\ReedBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.Catalog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAgAABAAAAAAAAAAAAEAAAAgAAABAAAAAAAIAAA=</HashCode>
+      <FileName>Views\Catalog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.Logon" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LogIn\Logon.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.Registration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAACAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LogIn\Registration.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.MessengeView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MessengeView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.UserInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\UserView\UserInfo.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.UserUpdate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\UserView\UserUpdate.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.BookView.FeedBackBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\BookView\FeedBackBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.BookView.ListPaintView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\BookView\ListPaintView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.BookView.PageReedBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BookView\PageReedBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.BookView.PaintBook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Views\BookView\PaintBook.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VioletBookDiary.Views.Resources.Setting" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIACAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Resources\Setting.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="VioletBookDiary.MyServices.IService">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgVEAAAQQAIAQA4OpCoBIAUAESSBCAACwAAUACQGIgA=</HashCode>
+      <FileName>Connected Services\MyServices\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="VioletBookDiary.MyServices.IServiceCallback" Collapsed="true">
+    <Position X="17.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Connected Services\MyServices\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="VioletBookDiary.MyServices.IServiceChannel">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Connected Services\MyServices\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

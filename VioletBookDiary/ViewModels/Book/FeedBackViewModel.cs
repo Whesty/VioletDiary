@@ -64,6 +64,7 @@ namespace VioletBookDiary.ViewModels
             {
                 Rating = Feedbacks.Average(x => x.Pating);
                 Rating = (float)Math.Round(Rating, 1);
+                Feedbacks = Feedbacks.OrderByDescending(x => x.DateCreat).ToList();
             }
         }
         #endregion

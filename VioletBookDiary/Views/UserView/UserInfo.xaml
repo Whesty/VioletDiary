@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VioletBookDiary.Views"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:VioletBookDiary.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
         Title="UserInfo" Height="450" Width="800">
     <Grid ScrollViewer.VerticalScrollBarVisibility="Visible"> 
         <ScrollViewer >
@@ -15,7 +15,11 @@
                         <DockPanel>
                             <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
                             <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
-                            <Button Width="149" Height="32" Command="{Binding userUpdate}" Content="{DynamicResource Edit}" Cursor="Hand"></Button>
+                            <Button x:Name="EditButton" Width="149" Height="32" Command="{Binding userUpdate}" Content="{DynamicResource Edit}" Cursor="Hand"></Button>
+
+                            <Button x:Name="ExiteButton" Command="{Binding log_Out}" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                                <materialDesign:PackIcon Kind="ExitToApp"  Width="24" Height="24"/>
+                            </Button>
                         </DockPanel>
                         <TextBlock Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,10,0"></TextBlock>
                     </StackPanel>

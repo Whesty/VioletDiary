@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IService.cs" />
-    <Compile Include="Model\ARTIST.cs" />
     <Compile Include="Model\AUTHOR.cs" />
     <Compile Include="Model\AUTHORIZED.cs" />
     <Compile Include="Model\BOOK.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="Model\FEEDBACK.cs" />
     <Compile Include="Model\GENRE.cs" />
     <Compile Include="Model\PAINT.cs" />
-    <Compile Include="Model\SUBSCRIPTION.cs" />
     <Compile Include="Model\TAG.cs" />
     <Compile Include="Model\USER.cs" />
     <Compile Include="Model\USER_BOOKMARKS.cs" />

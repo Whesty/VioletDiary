@@ -64,7 +64,8 @@ namespace VioletBookDiary.ViewModels
         {
             User = CurrentUser._User;
             getBookMarks();
-            
+            BooksList = Reading;
+
         }
         public UserInfoViewModel(int Id)
         {
@@ -79,7 +80,10 @@ namespace VioletBookDiary.ViewModels
                     DataCreate = result["data_create"],
                     AccessLevel = bool.Parse(result["AccessLevel"])
                 };
-            
+            CurentWindows.userInfo.EditButton.Opacity = 0;
+            CurentWindows.userInfo.EditButton.IsEnabled = false;
+            CurentWindows.userInfo.ExiteButton.Opacity = 0;
+            CurentWindows.userInfo.ExiteButton.IsEnabled = false;
             getBookMarks();
             BooksList = Reading;
         }
@@ -141,7 +145,8 @@ namespace VioletBookDiary.ViewModels
                 book.Name = result["name"];
                 book.Description = result["description"];
                 book.Image = result["image"];
-                book.Dete = DateTime.Parse(result["Date"]);
+                book.Date = DateTime.Parse(result["Date"]);
+                book.DateReading = DateTime.Parse(result["DateReading"]);
                 book.Bookmark = Convert.ToInt32(result["Marks"]);
                 book.File = result["file"];
                 book.Realease = int.Parse(result["Realese"]);
@@ -159,6 +164,9 @@ namespace VioletBookDiary.ViewModels
                     Read.Add(book);
                 }
             }
+            Reading = Reading.OrderByDescending(x => x.DateReading).ToList();
+            WillRead = WillRead.OrderByDescending(x => x.DateReading).ToList();
+            Read = Read.OrderByDescending(x => x.DateReading).ToList();
         }
         #endregion
 

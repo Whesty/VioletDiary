@@ -20,7 +20,8 @@ namespace VioletBookDiary.Models
         public int Bookmark { get; set; }
         public string BookReading { get; set; }
        
-        public DateTime Dete { get; set; } 
+        public DateTime Date { get; set; } 
+        public DateTime DateReading { get; set; } 
 
         public string getAuthors()
         {

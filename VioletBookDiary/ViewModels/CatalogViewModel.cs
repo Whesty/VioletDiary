@@ -26,6 +26,7 @@ namespace VioletBookDiary.ViewModels
             getGenre();
             getTags();
             getListBook();
+            BooksList = BooksList.OrderByDescending(x => x.Realease).ToList();
             FullBooks = BooksList;
             FiltrList = FullBooks;
         }

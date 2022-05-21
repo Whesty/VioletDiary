@@ -20,10 +20,8 @@ namespace VDService.Unit
         private Repository<BOOK_TAG> bookTagsRepository;
         private Repository<BOOK_GENRE> bookGenresRepository;
         private Repository<PAINT> paintsRepository;
-        private Repository<SUBSCRIPTION> subscriptionsRepository;
         private Repository<USER_BOOKMARKS> userBookmarksRepository;
         private Repository<FEEDBACK> feedbacksRepository;
-        private Repository<ARTIST> artistsRepository;
         //Дописать остальные таблицы
         public UnitOfWork()
         {
@@ -119,15 +117,6 @@ namespace VDService.Unit
                 if (paintsRepository == null)
                     paintsRepository = new Repository<PAINT>(context);
                 return paintsRepository;
-            }
-        }
-        public Repository<SUBSCRIPTION> SubscriptionsRepository
-        {
-            get
-            {
-                if (subscriptionsRepository == null)
-                    subscriptionsRepository = new Repository<SUBSCRIPTION>(context);
-                return subscriptionsRepository;
             }
         }
         public Repository<USER_BOOKMARKS> UserBookmarksRepository

@@ -55,6 +55,7 @@ namespace VioletBookDiary.ViewModels
         public ICommand open_Main => new DelegateCommand(Open_Main);
         private void Open_Main()
         {
+            Main = new MainPage();
             CurentWindows.Add(Main);
         }
         public ICommand open_UserInfo => new DelegateCommand(Open_UserInfo);
