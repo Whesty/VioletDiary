@@ -15,12 +15,14 @@ namespace VioletBookDiary.Views
         public UserInfo()
         {
             InitializeComponent();
-            model = new UserInfoViewModel();
             CurentWindows.userInfo = this;
+            model = new UserInfoViewModel();
+          
             DataContext = model;
         } public UserInfo(int id)
         {
             InitializeComponent();
+            CurentWindows.userInfo = this;
             model = new UserInfoViewModel(id);
             DataContext = model;
         }

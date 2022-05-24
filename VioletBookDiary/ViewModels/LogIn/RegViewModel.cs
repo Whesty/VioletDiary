@@ -32,7 +32,7 @@ namespace VioletBookDiary.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessengViewModel.Show(ex.Message);
+                    MessengViewModel.Show("Ошибка при регистрации", "Возможно данный пользователь уже сущсвует");
                     return;
                 }
                 reg.Close(); }

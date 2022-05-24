@@ -42,19 +42,21 @@ namespace VioletBookDiary.ViewModels
             {
                 BooksList = FullBooks;
             }
-            List<BookViewModel> list = FullBooks;
+            List<BookViewModel> list = BooksList;
             if (selectgen != null)
             {
                 BooksList = new List<BookViewModel>();
                 foreach (BookViewModel items in list)
                 {
+                    bool flag = false;
                     foreach (Genre i in items.Genres)
                     {
                         if (i.Id == selectgen.Id)
                         {
-                            BooksList.Add(items);
+                            flag = true;
                         }
                     }
+                    if(flag) BooksList.Add(items);
                 }
                 list = BooksList;
             }
@@ -79,14 +81,16 @@ namespace VioletBookDiary.ViewModels
                 BooksList = new List<BookViewModel>();
                 foreach (BookViewModel items in list)
                 {
+                    bool flag = false;
                     foreach (Tag i in items.Tags)
                     {
                         foreach(Tag j in selecttags)
                         if (i.Id == j.Id)
                         {
-                            BooksList.Add(items);
+                                flag = true;
                         }
                     }
+                    if (flag) BooksList.Add(items);
                 }
             }
             CurentWindows.catalog.DataList.ItemsSource = BooksList;
@@ -95,7 +99,7 @@ namespace VioletBookDiary.ViewModels
         public List<BookViewModel> FiltrList;
         public void serch(string str)
         {
-            List<BookViewModel> list = BooksList;
+            List<BookViewModel> list = FullBooks;
             CurentWindows.catalog.DataList.ItemsSource = null;
             BooksList = list.FindAll(x => x.Title.Contains(str));
             CurentWindows.catalog.DataList.ItemsSource = BooksList;

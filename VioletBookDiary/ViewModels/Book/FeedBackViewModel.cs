@@ -28,7 +28,13 @@ namespace VioletBookDiary.ViewModels
         }
    
         public string CurrentUserAvatar { get => CurrentUser._User.Avatar; set { } }
-        public List<Feedback> Feedbacks { get; set; }
+        private List<Feedback> feedbacks;
+        public List<Feedback> Feedbacks { get => feedbacks; set {
+                feedbacks = value;
+                OnPropertyChanged("Feedbacks");
+            }
+        }
+    
         public int IdBook;
         public FeedBackBook win;
         private float rating;
@@ -49,6 +55,7 @@ namespace VioletBookDiary.ViewModels
         public void GetFeedbacks()
         {
             //Обратиться к серверу и поулчить список отзывов по id book
+            Feedbacks = new List<Feedback>();
             foreach (Dictionary<string, string> item in CurrentClient.service.getFeedBackBook(IdBook)) {
                 Feedback feedback = new Feedback();
                 feedback.Id = int.Parse(item["id"]);
@@ -69,11 +76,6 @@ namespace VioletBookDiary.ViewModels
         }
         #endregion
         #region Commands
-        public ICommand viewUserInfo => new DelegateCommand(ViewUserInfo);
-        private void ViewUserInfo()
-        { 
-            //Task! запрос к серверу
-        }
         public ICommand addFeedBack => new DelegateCommand(AddFeedback);
         private void AddFeedback()
         {
@@ -84,7 +86,7 @@ namespace VioletBookDiary.ViewModels
                     MessengViewModel.Show("Ошибка", "Не все поля заполнены");
                     return;
                 }
-                if(CurrentUserStar <= 10)
+                if(CurrentUserStar > 10)
                 {
                     MessengViewModel.Show("Ошибка", "Оценка неверного формата");
                     return;
@@ -92,9 +94,9 @@ namespace VioletBookDiary.ViewModels
                 string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar.ToString());
                 if (result == "Отправлен!")
                 {
-                    //GetFeedbacks();
                     CurrentUserComment = "";
                     CurrentUserStar = 0;
+                    GetFeedbacks();
                 }
             }catch(Exception ex)
             {

@@ -108,8 +108,13 @@ namespace VioletBookDiary.ViewModels
         public string Error
         {
             get { throw new FormatException(); }
-        }        
-        public string File { get; set; }
+        }
+        private string file;
+        public string File { get => file; set {
+                file = value;
+                OnPropertyChanged("File");
+            }
+        }
         public Book book { get; set; }
         public AddBookViewModel()
         {

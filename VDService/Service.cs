@@ -593,11 +593,6 @@ namespace VDService
                         }
                         else
                         {
-                            //Сообщаем о подключении клиента
-                            //foreach (var item in ConnectAdmins)
-                            //{
-                            //    //item.OperationContext.GetCallbackChannel<IMyServiceCallback>().AdminUpdate();
-                            //}
                             ConnectUsers.Add(new ServerUser
                             {
                                 Id = user.Id,
@@ -626,20 +621,16 @@ namespace VDService
 
         public string Registration(string mail, string password)
         {
-            string str = "";
+            
             try
             {
-                str += "Start";
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
-                    str += "\ncreate UnitofWork";
                     AUTHORIZED userAuth = new AUTHORIZED() { USER_EMAIL = mail, PASSWORD = password };
-                    str += "\nРегистрация прошла успешно!";
                     unitOfWork.UserAuthRepository.Add(userAuth);
                     unitOfWork.Save();
                     AUTHORIZED Auth = unitOfWork.UserAuthRepository.GetAll().Where(x => x.USER_EMAIL == mail && x.PASSWORD == password).FirstOrDefault();
                     int id = Auth.Id;
-                    str += "\nAdd " + id;
                     USER user = new USER()
                     {
                         USER_NAME = "User",
@@ -650,16 +641,14 @@ namespace VDService
                         ID_AUTHORIZED = id,
                         AUTHORIZED = Auth,
                     };
-                    str += "\nCreateUser";
                     unitOfWork.UserRepository.Add(user);
-                    str += "\nAddUser!";
                         unitOfWork.Save();
                         return "Accept registre!";
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message + "\n" + str;
+                return "Ошибка регестрации, возможно данный пользователь уже существует!";
             }
         }
 

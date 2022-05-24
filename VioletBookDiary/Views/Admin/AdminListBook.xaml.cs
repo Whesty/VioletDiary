@@ -25,6 +25,9 @@ namespace VioletBookDiary.Views
             Book selectedBook = button.DataContext as Book;
 
             PageViewBook viewBook = new PageViewBook(new BookViewModel(selectedBook));
+            viewBook.ViewLike.IsEnabled = false;
+            viewBook.MoreInfo.IsEnabled = false;
+            viewBook.MoreInfo.Opacity = 0;
             CurentWindows.Add(viewBook);
 
         }

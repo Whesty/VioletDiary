@@ -65,6 +65,8 @@ namespace VioletBookDiary.ViewModels
             User = CurrentUser._User;
             getBookMarks();
             BooksList = Reading;
+            CurentWindows.userInfo.Back.IsEnabled = false;
+            CurentWindows.userInfo.Back.Opacity = 0;
 
         }
         public UserInfoViewModel(int Id)
@@ -129,6 +131,11 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.logon = new Logon();
             CurentWindows.logon.Show();
             CurentWindows.mainWindow.Close();
+        }
+        public ICommand back => new DelegateCommand(Back);
+        private void Back()
+        {
+            CurentWindows.mainWindow.GridPage.GoBack();
         }
         #endregion
         private List<Book> _BooksList;

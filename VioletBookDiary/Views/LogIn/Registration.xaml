@@ -9,7 +9,7 @@
         Title="{DynamicResource Reg_in}" Height="430" Width="344"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         >
-    <Grid>
+    <Grid Style="{DynamicResource GridFull}">
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" RenderTransformOrigin="0.497,0.285">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#9D35FF" FontFamily="Sitka Small" >VioletBookDiary</TextBlock>
             <DockPanel>

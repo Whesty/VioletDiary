@@ -51,8 +51,8 @@
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Description}" TextWrapping="Wrap"
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Description}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF">
             </TextBox>
-            <TextBlock Margin="30,10,30,0" Text="{DynamicResource FileBook}" Foreground="#FF9D35FF" />
-            <Button Margin="30,20,30,0" Command="{Binding open_LoadFile}" Content="{DynamicResource UploadFileBook}"></Button>
+            <TextBlock Margin="0,10,0,0" Text="{Binding File}" Foreground="#FF9D35FF" HorizontalAlignment="Center" />
+            <Button Margin="40,10,30,0" Command="{Binding open_LoadFile}" Content="{DynamicResource UploadFileBook}"></Button>
             <Button x:Name="ButAdd" Margin="30,20,30,0" Command="{Binding button_AddBook}" Content="{DynamicResource AddBook}"></Button>
         </StackPanel>
     </Grid>
