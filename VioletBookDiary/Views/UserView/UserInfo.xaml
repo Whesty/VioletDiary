@@ -14,6 +14,7 @@
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <DockPanel>
                             <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,0"></TextBlock>
+                            <TextBlock Margin="10,0,10,0">Id:</TextBlock>
                             <TextBlock Text="{Binding Id}" Margin="10,0,10,0"></TextBlock>
                             <Button x:Name="EditButton" Width="149" Height="32" Command="{Binding userUpdate}" Content="{DynamicResource Edit}" Cursor="Hand"></Button>
 

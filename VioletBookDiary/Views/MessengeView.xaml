@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary.Views"
         mc:Ignorable="d"
-        Title="Messenge" WindowStartupLocation="CenterScreen"  MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Top" MaxHeight="400" WindowStyle="ToolWindow" SizeToContent="WidthAndHeight">
+        Title="{DynamicResource Messange}" WindowStartupLocation="CenterScreen"  MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Top" MaxHeight="400" WindowStyle="ToolWindow" SizeToContent="WidthAndHeight">
     <Grid Style="{DynamicResource GridFull}">
         <StackPanel Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top">
         <TextBlock TextWrapping="Wrap" x:Name="TitelText" Text="" FontSize="20" Margin="0,0,0,5"></TextBlock>

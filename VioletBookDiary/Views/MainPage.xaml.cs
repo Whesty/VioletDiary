@@ -32,12 +32,6 @@ namespace VioletBookDiary.Views
             vm = new MainPageViewModel();
             DataContext = vm;
         }
-        public void Update()
-        {
-            vm = new MainPageViewModel();
-            DataContext = vm;
-        }
-
        
     }
 }

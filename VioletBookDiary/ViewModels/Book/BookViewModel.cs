@@ -318,6 +318,14 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.pageViewBook.Button_Paint.IsEnabled = !CurentWindows.pageViewBook.Button_Paint.IsEnabled;
         }
         #endregion
+
+        public Book Book1
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 
 }

@@ -50,14 +50,5 @@ namespace VioletBookDiary.Views
             }
             model.editBookMark();
         }
-
-        //private void Back_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //UserBookInfo.GoBack();
-        //    CurentWindows.mainWindow.GridPage.GoBack();
-        //    CurentWindows.pageViewBook.Button_FeedBack.IsEnabled = !CurentWindows.pageViewBook.Button_FeedBack.IsEnabled;
-        //    CurentWindows.pageViewBook.Button_Paint.IsEnabled = !CurentWindows.pageViewBook.Button_Paint.IsEnabled;
-            
-        //}
     }
 }

@@ -238,7 +238,6 @@
     <Compile Include="Current\CurentWindows.cs" />
     <Compile Include="Current\CurrentClient.cs" />
     <Compile Include="Current\CurrentUser.cs" />
-    <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="Models\Authors.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -430,6 +429,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram2.cd" />
     <None Include="Connected Services\MyServices\item.xsd">
       <SubType>Designer</SubType>
     </None>

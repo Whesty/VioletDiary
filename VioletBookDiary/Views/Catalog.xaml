@@ -47,17 +47,18 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="2">
+        <Grid Grid.Row="1" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ScrollViewer>
             <StackPanel>
             <ComboBox materialDesign:HintAssist.Hint="{DynamicResource Ganre}" ItemsSource="{Binding Path=Ganres}" x:Name="GanreFiltr"
-          TextBoxBase.TextChanged="OnComboboxTextChanged"
-          IsTextSearchEnabled="False" IsEditable="True"
+          
+          
           VerticalAlignment="Top" Margin="0,10,0,0"/>
             <ComboBox materialDesign:HintAssist.Hint="{DynamicResource Author}" ItemsSource="{Binding Path=Authors}" x:Name="AuthorsFiltr"
-          TextBoxBase.TextChanged="AuthorsFiltr_TextChanged"
-          IsTextSearchEnabled="False" IsEditable="True"
+          
+         
           VerticalAlignment="Top" Margin="0,10,0,0"/>
-                <ListBox Name="listTag"  ItemsSource="{Binding TheListTags}" VerticalContentAlignment="Stretch" Margin="0,10,0,0">
+                <ListBox Name="listTag"  ItemsSource="{Binding TheListTags}" VerticalContentAlignment="Stretch" Margin="0,10,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <CheckBox Name="CheckBoxZone" Checked="CheckBoxZone_Checked" Unchecked="CheckBoxZone_Unchecked" Content="{Binding Name}" 
@@ -69,6 +70,7 @@
                     
                 </Button>
             </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

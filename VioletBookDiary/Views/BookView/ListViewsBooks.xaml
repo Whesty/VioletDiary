@@ -22,18 +22,8 @@
                     <Button  Click="Button_Click"  BorderBrush="{x:Null}" Background="{x:Null}" Height="{Binding RelativeSource={RelativeSource AncestorType=DataGridCell}, Path=ActualHeight}">
                         <Image  Source="{Binding Path=Image}" Stretch="UniformToFill"/>
                     </Button>
-                    
-                        <!--<StackPanel VerticalAlignment="Bottom">
-                            <TextBlock Text="{Binding Path=Title}" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"/>
-                            <TextBlock Text="{Binding Path=Author}" Foreground="White" Margin="10,0,10,0"/>
-                        </StackPanel>-->
-
                 </DataTemplate>
-                
-
             </ListBox.ItemTemplate>
-            
-            
         </ListBox>
     </Grid>
 </UserControl>

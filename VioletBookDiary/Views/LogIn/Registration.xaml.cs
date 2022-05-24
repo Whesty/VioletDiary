@@ -44,13 +44,14 @@ namespace VioletBookDiary.Views
             if (text.Text != null)
                 if (reg.IsValidEmail(text.Text))
                 {
-                    text.BorderBrush = Brushes.Red;
-                    Reg_Button.IsEnabled = false;
+                    text.BorderBrush = Brushes.Green;
+                    Reg_Button.IsEnabled = true;
                 }
                 else
                 {
-                    text.BorderBrush = Brushes.Green;
-                    Reg_Button.IsEnabled = true;
+                    
+                    text.BorderBrush = Brushes.Red;
+                    Reg_Button.IsEnabled = false;
                 }
            
         }

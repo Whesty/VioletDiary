@@ -122,29 +122,13 @@ namespace VioletBookDiary.ViewModels
                 for (i=0;  i < body.Content.LongCount(); i++)
                 {
                     string str = _fb2File.Bodies.ToList()[j].Sections.ToList()[chapter].Content.ToList()[i].ToXML().ToString();
-                    
-                    //getStyleHelp(s);
-                    //veb.Write(Encoding.UTF8.GetBytes(str), 0, str.Length);
                     veb.Write(Encoding.Default.GetBytes(str), 0, str.Length);
                     par.Add(str);
                 }
                 veb.Write(Encoding.UTF8.GetBytes("</body></html>"), 0, Encoding.UTF8.GetBytes("</body></html>").Length);
                 veb.Close();
-                //veb.Write(Encoding.UTF8.GetBytes(par.ToString()), 0, par.ToString().Length);
-                //Paragraph = par;
             }
         }
-        public string getStyleHelp(string s)
-        {
-            string style = "";
-            Regex regex = new Regex(@"(\w*)<a>(\w*)</a>");
-            MatchCollection math = regex.Matches(s);
-            //Подсказки добавить
-            //Подсказки прикреплять к listItems и писать все существующие в нем подсказки
-            style = Regex.Replace(s, @"(\w*)<a>(\w*)</a>", @"$1\[$2\]");
-            return style;
-        }
-
         #region #Commands
         public ICommand next => new DelegateCommand(Next);
         private void Next()

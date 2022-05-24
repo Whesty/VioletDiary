@@ -42,13 +42,15 @@ namespace VioletBookDiary.Views.Resources
             List<string> styles = new List<string> { "Night", "Default" };
             styleBox.SelectionChanged += ThemeChange;
             styleBox.ItemsSource = styles;
-            styleBox.SelectedItem = "Default";
+            if (CurentWindows.Thems == null) CurentWindows.Thems = "Default";
+            styleBox.SelectedItem = CurentWindows.Thems;
         }
 
         private void ThemeChange(object sender, SelectionChangedEventArgs e)
         {
             string style = styleBox.SelectedItem as string;
             // определяем путь к файлу ресурсов
+            CurentWindows.Thems = style;
             var uri = new Uri("Views/Resources/" + style + ".xaml", UriKind.Relative);
             // загружаем словарь ресурсов
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;

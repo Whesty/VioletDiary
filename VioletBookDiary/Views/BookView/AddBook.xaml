@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary.Views"
         mc:Ignorable="d"
-        Title="AddBook" Height="609" Width="477"
+        Title="{DynamicResource AddBook}" Height="609" Width="477"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid Style="{DynamicResource GridFull}">
         <StackPanel>
@@ -24,13 +24,13 @@
             HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookName}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF">
                     </TextBox>
                     <ComboBox x:Name="GenresComboBox" Margin="40,20,40,0" Height="30" Text="{Binding Genres}"
-                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Ganre}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF">
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Ganre}"  BorderBrush="#FF9D35FF">
                     </ComboBox>
                     <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Series}"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource BookCycle}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF" Cursor="Arrow">
                     </TextBox>
                     <TextBox Margin="40,20,40,0" Height="30"
-            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource YearsRealese}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF" Cursor="Arrow">
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource YearsRealese}" materialDesign:HintAssist.HelperText="{DynamicResource YearsRealese}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF"  BorderBrush="#FF9D35FF" Cursor="Arrow">
                         <TextBox.Text>
                             <Binding Path="Realease">
                                 <Binding.ValidationRules>
@@ -51,6 +51,7 @@
             <TextBox Margin="40,20,40,0" Height="30" Text="{Binding Description}" TextWrapping="Wrap"
                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="{DynamicResource Description}" materialDesign:HintAssist.Foreground="#FF9D35FF" Foreground="#FF9D35FF" BorderBrush="#FF9D35FF">
             </TextBox>
+            <TextBlock Margin="30,10,30,0" Text="{DynamicResource FileBook}" Foreground="#FF9D35FF" />
             <Button Margin="30,20,30,0" Command="{Binding open_LoadFile}" Content="{DynamicResource UploadFileBook}"></Button>
             <Button x:Name="ButAdd" Margin="30,20,30,0" Command="{Binding button_AddBook}" Content="{DynamicResource AddBook}"></Button>
         </StackPanel>

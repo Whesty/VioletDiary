@@ -175,6 +175,7 @@ namespace VioletBookDiary.ViewModels
             }
             string result = CurrentClient.service.AddBook(Title, Authors, Genres, Tags, Description, Image, File, Series, Realease.ToString(), CurrentUser._User.Id);
              MessengViewModel.Show(result);
+            CurentWindows.addBook.Close();
 
         }
     }

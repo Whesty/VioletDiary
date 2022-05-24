@@ -25,6 +25,7 @@ namespace VioletBookDiary
         public static Catalog catalog;
         public static AdminListBook adminListBook;
         public static Setting setting;
+        public static string Thems;
         //public static List<Page> History = new List<Page>();
         public static Page CurrentPage { get; set; }
         public static void Add(Page page)

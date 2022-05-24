@@ -22,15 +22,9 @@ namespace VioletBookDiary.ViewModels
 
         #region Constructor
 
-        //public MainViewModel()
-        //{
-        //    BooksList = new List<BookViewModel>(books.Select(b => new BookViewModel(b)));
-        //}
         public MainViewModel()
         {
-            //BooksList = new List<BookViewModel>();
             
-           
             client = new ServiceClient(new InstanceContext(new VDMyServiceCallBack()));
             Admin = new AdminListBook();
         }

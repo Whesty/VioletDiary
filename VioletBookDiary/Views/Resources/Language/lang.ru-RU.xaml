@@ -10,6 +10,8 @@
     <v:String x:Key="Authors">Авторы</v:String>
     <v:String x:Key="Filtres">Фильтровать</v:String>
     <v:String x:Key="UserName">Имя пользователя</v:String>
+    <v:String x:Key="Mail">Почта</v:String>
+    <v:String x:Key="Pass">Пароль</v:String>
     <v:String x:Key="Description">Описание</v:String>
     <v:String x:Key="Add">Добавить</v:String>
     <v:String x:Key="Delete">Удалить</v:String>
@@ -29,10 +31,12 @@
     <v:String x:Key="Send">Отправить</v:String>
     <v:String x:Key="BookCycle">Название цикла книг</v:String>
     <v:String x:Key="YearsRealese">Год издания</v:String>
-    <v:String x:Key="HelpAuthorsbyBook">Пример: 'Дарья Варламова; Антон Зайниев'</v:String>
-    <v:String x:Key="HelpTagsbyBook">Пример: 'Фантастика; Приключения'</v:String>
+    <v:String x:Key="HelpAuthorsbyBook">Пример: 'Дарья Варламова; Антон Зайниев;'</v:String>
+    <v:String x:Key="HelpTagsbyBook">Пример: 'Фантастика; Приключения;'</v:String>
     <v:String x:Key="UploadFileBook">Загрузить файл книги</v:String>
     <v:String x:Key="Langueage">Язык</v:String>
     <v:String x:Key="Thems">Темы</v:String>
+    <v:String x:Key="Sitting">Настройки</v:String>
+    <v:String x:Key="Messange">Сообщение</v:String>
     
 </ResourceDictionary>

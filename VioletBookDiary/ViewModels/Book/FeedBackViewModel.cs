@@ -79,9 +79,14 @@ namespace VioletBookDiary.ViewModels
         {
             try
             {
-                if(CurrentUserComment == null || CurrentUserStar == null)
+                if(CurrentUserComment == null)
                 {
                     MessengViewModel.Show("Ошибка", "Не все поля заполнены");
+                    return;
+                }
+                if(CurrentUserStar <= 10)
+                {
+                    MessengViewModel.Show("Ошибка", "Оценка неверного формата");
                     return;
                 }
                 string result = CurrentClient.service.AddFeedBack(IdBook, CurrentUserComment, CurrentUser._User.Id, CurrentUserStar.ToString());

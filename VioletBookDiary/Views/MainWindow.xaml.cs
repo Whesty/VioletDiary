@@ -39,7 +39,5 @@ namespace VioletBookDiary
                 AdminAccept.Visibility = Visibility.Hidden;
             }
         }
-        
-        
     }
 }

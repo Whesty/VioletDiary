@@ -31,49 +31,6 @@ namespace VioletBookDiary.Views
             this.DataContext = model;
             
         }
-        void OnComboboxTextChanged(object sender, RoutedEventArgs e)
-        {
-            var tb = (TextBox)e.OriginalSource;
-            if (tb.SelectionStart != 0)
-            {
-                GanreFiltr.SelectedItem = null; // Если набирается текст сбросить выбраный элемент
-            }
-            if (tb.SelectionStart == 0 && GanreFiltr.SelectedItem == null)
-            {
-                GanreFiltr.IsDropDownOpen = false; // Если сбросили текст и элемент не выбран, сбросить фокус выпадающего списка
-            }
-
-            GanreFiltr.IsDropDownOpen = true;
-            if (GanreFiltr.SelectedItem == null)
-            {
-                // Если элемент не выбран менять фильтр
-                CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(GanreFiltr.ItemsSource);
-                cv.Filter = s => ((string)s).IndexOf(GanreFiltr.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
-            }
-        }
-
-        private void AuthorsFiltr_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var tb = (TextBox)e.OriginalSource;
-            if (tb.SelectionStart != 0)
-            {
-                AuthorsFiltr.SelectedItem = null; // Если набирается текст сбросить выбраный элемент
-            }
-            if (tb.SelectionStart == 0 && AuthorsFiltr.SelectedItem == null)
-            {
-                AuthorsFiltr.IsDropDownOpen = false; // Если сбросили текст и элемент не выбран, сбросить фокус выпадающего списка
-            }
-
-            AuthorsFiltr.IsDropDownOpen = true;
-            if (AuthorsFiltr.SelectedItem == null)
-            {
-                // Если элемент не выбран менять фильтр
-                CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(AuthorsFiltr.ItemsSource);
-                cv.Filter = s => ((string)s).IndexOf(AuthorsFiltr.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
-            }
-
-        }
-
         private void CheckBoxZone_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox check = (CheckBox)sender;

@@ -21,10 +21,7 @@ namespace VioletBookDiary.Views
             DataContext = Model;
         }
 
-        private void TextBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+       
 
         private void ButAuth_TextChanged(object sender, TextChangedEventArgs e)
         {

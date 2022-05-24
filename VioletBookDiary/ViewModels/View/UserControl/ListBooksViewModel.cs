@@ -62,10 +62,16 @@ namespace VioletBookDiary.ViewModels
             viewBook.DataContext = viewBook.model;
             if (win.DataList.SelectedItem != null)
             {
-               // PageViewBook viewBook = new PageViewBook(selectedBook);
                 CurentWindows.Add(viewBook);
             }
         }
-        
+
+        public BookViewModel BookViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

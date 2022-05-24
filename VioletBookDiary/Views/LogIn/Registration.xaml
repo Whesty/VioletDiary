@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VioletBookDiary.Views"
         mc:Ignorable="d"
-        Title="Registration" Height="430" Width="344"
+        Title="{DynamicResource Reg_in}" Height="430" Width="344"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         >
     <Grid>
@@ -14,18 +14,18 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#9D35FF" FontFamily="Sitka Small" >VioletBookDiary</TextBlock>
             <DockPanel>
                 <materialDesign:PackIcon Kind="User" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="36,0,10,0"/>
-                <TextBox x:Name="EmailBox" TextChanged="TextBox_TextChanged" Text="{Binding login}"  Margin="0,30,70,0" Height="30"  BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20">
+                <TextBox x:Name="EmailBox" TextChanged="TextBox_TextChanged" materialDesign:HintAssist.Hint="{DynamicResource Mail}" Text="{Binding login}"  Margin="0,30,70,0" Height="35"  BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20">
                 </TextBox>
             </DockPanel>
             <DockPanel>
                 <materialDesign:PackIcon Kind="Password" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="37,0,10,0"/>
-                <PasswordBox x:Name="Passvord_Box"  Margin="0,30,70,0" Height="30" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20" PasswordChanged="Passvord_Box_PasswordChanged"></PasswordBox>
+                <PasswordBox x:Name="Passvord_Box" materialDesign:HintAssist.Hint="{DynamicResource Pass}"  Margin="0,30,70,0" Height="35" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20" PasswordChanged="Passvord_Box_PasswordChanged"></PasswordBox>
             </DockPanel>
             <DockPanel>
                 <materialDesign:PackIcon Kind="PasswordCheck" Width="24" Height="24" HorizontalAlignment="Right" Foreground="#9D35FF" VerticalAlignment="Bottom" Margin="37,0,10,0"/>
-                <PasswordBox x:Name="Passvord2_Box"  PasswordChanged="Passvord2_Box_PasswordChanged" Margin="0,30,70,0" Height="30" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
+                <PasswordBox x:Name="Passvord2_Box" materialDesign:HintAssist.Hint="{DynamicResource Pass}"  PasswordChanged="Passvord2_Box_PasswordChanged" Margin="0,30,70,0" Height="35" BorderBrush="#FF9D35FF" Foreground="#FF9D35FF" VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
             </DockPanel>
-            <Button x:Name="Reg_Button" Command="{Binding reg_In}" Content="{DynamicResource Reg_in}" Margin="70,30,70,0" Height="40" FontSize="20" IsEnabled="False" FontWeight="Normal" Cursor="Hand">
+            <Button x:Name="Reg_Button" Command="{Binding reg_In}" Content="{DynamicResource Reg_in}" Margin="50,30,50,0" Height="40" FontSize="20" IsEnabled="False" FontWeight="Normal" Cursor="Hand">
                 </Button>
         </StackPanel>
     </Grid>

@@ -33,9 +33,6 @@ namespace VioletBookDiary.ViewModels
             }
         }
         #endregion
-        public void ClickPaint(Paint paint)
-        {
-            //CurentWindows.mainPage.vm = new PageViewBook(idBook);
-        }
+        
     }
 }

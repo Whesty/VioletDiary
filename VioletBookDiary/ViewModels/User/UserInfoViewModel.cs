@@ -122,6 +122,14 @@ namespace VioletBookDiary.ViewModels
             CurentWindows.userInfo.bRead.IsEnabled = false;
             CurentWindows.userInfo.DataList.ItemsSource = BooksList;
         }
+        public ICommand log_Out => new DelegateCommand(Log_Out);
+        public void Log_Out()
+        {
+
+            CurentWindows.logon = new Logon();
+            CurentWindows.logon.Show();
+            CurentWindows.mainWindow.Close();
+        }
         #endregion
         private List<Book> _BooksList;
         public List<Book> BooksList { get=> _BooksList; set {

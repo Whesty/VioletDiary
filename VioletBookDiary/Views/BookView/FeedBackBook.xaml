@@ -20,7 +20,7 @@
                     <TextBlock Text="{Binding CurrentUserName}" FontSize="20" Margin="5,5,5,5"/>
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Star" Width="20" Height="20" Foreground="#FF673AB7"/>
-                        <TextBox Foreground="#FF673AB7" FontSize="12" Width="50" Height="25" HorizontalAlignment="Left">
+                        <TextBox Foreground="#FF673AB7" FontSize="12" Width="50" Height="25" HorizontalAlignment="Left" Cursor="Arrow">
                             <TextBox.Text>
                                 <Binding Path="CurrentUserStar">
                                     <Binding.ValidationRules>

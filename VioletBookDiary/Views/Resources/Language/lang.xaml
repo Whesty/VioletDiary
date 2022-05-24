@@ -10,6 +10,8 @@
     <v:String x:Key="Authors">Authors</v:String>
     <v:String x:Key="Filtres">Filter</v:String>
     <v:String x:Key="UserName">User Name</v:String>
+    <v:String x:Key="Mail">Mail</v:String>
+    <v:String x:Key="Pass">Password</v:String>
     <v:String x:Key="Description">Description</v:String>
     <v:String x:Key="Add">Add</v:String>
     <v:String x:Key="Delete">Delete</v:String>
@@ -29,9 +31,11 @@
     <v:String x:Key="Send">Send</v:String>
     <v:String x:Key="BookCycle">Book cycle name</v:String>
     <v:String x:Key="YearsRealese">Year of publication</v:String>
-    <v:String x:Key="HelpAuthorsbyBook">Example: 'Daria Varlamova; Anton Zainiev'</v:String>
-    <v:String x:Key="HelpTagsbyBook">Example: 'Fiction; Adventure'</v:String>
+    <v:String x:Key="HelpAuthorsbyBook">Example: 'Daria Varlamova; Anton Zainiev;'</v:String>
+    <v:String x:Key="HelpTagsbyBook">Example: 'Fiction; Adventure;'</v:String>
     <v:String x:Key="UploadFileBook">Upload a book file</v:String>
     <v:String x:Key="Langueage">Language</v:String>
     <v:String x:Key="Thems">Themes</v:String>
+    <v:String x:Key="Sitting">Options</v:String>
+    <v:String x:Key="Messange">Messange</v:String>
 </ResourceDictionary>
